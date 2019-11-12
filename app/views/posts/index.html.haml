@@ -1,0 +1,11 @@
+%h1 Posts#index
+%p Find me in app/views/posts/index.html.haml
+
+.contents
+  .content
+    - @posts.each do |post|
+      .content_title
+        %p
+          =post.title
+      .content_text
+        =post.content
