@@ -2,12 +2,11 @@ class PostsController < ApplicationController
 
 
   def index
-# for View
     @posts = Post.all.order("created_at DESC")
-    @user = current_user.id
+    # @user = current_user.id
 
     @post = Post.new
-# from Form
+
   end
 
   def post

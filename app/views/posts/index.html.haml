@@ -1,12 +1,18 @@
 
-
-.header
-  .header_title
-    %h2 TITLE
-  .header_groug_name
-    -# "#{@group.group_name}"
-  .header_nav
-    NAV
+.header_wrap
+  .header
+    .header_title
+      %h2 TITLE
+    .header_groug_name
+      -# "#{@group.group_name}"
+    .header_nav
+      %p
+        [ ここにNAV ]
+        - if user_signed_in?
+          サインイン中
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logout-btn'
+        - else
+          サインアウト中
 
 -# フラッシュメッセージなど
 - if flash[:post_alert]
@@ -16,8 +22,36 @@
 -# メインコンテンツ表示ゾーン
 .main_wrap
 
+-# .form_signup
+-# %h2 Sign up
+-#   = form_for url: _path do |f|
+-#     = render "devise/shared/error_messages", resource: resource
+-#     .field
+-#       = f.label :name
+-#       %br/
+-#       = f.text_field :name, autofocus: true, autocomplete: "name"
+-#     .field
+-#       = f.label :email
+-#       %br/
+-#       = f.email_field :email, autofocus: true, autocomplete: "email"
+-#     .field
+-#       = f.label :password
+-#       - if @minimum_password_length
+-#         %em
+-#           (#{@minimum_password_length} characters minimum)
+-#       %br/
+-#       = f.password_field :password, autocomplete: "new-password"
+-#     .field
+-#       = f.label :password_confirmation
+-#       %br/
+-#       = f.password_field :password_confirmation, autocomplete: "new-password"
+-#     .actions
+-#       = f.submit "Sign up"
+-#   = render "devise/shared/links"
+
+
   -# 新規投稿フォーム
-  .form_post_wrap
+  .form_post_wrap.hidden
     .form_post
       = form_for @post, url: posts_post_posts_path, method: :post do |f|
         = f.text_field :title, class: 'form_post_title', placeholder: 'タイトル'

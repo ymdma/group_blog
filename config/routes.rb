@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   # get 'users/create'
   # get 'posts/index'
 
+  resources :users do
+    post "signup"
+  end
+
   resources :posts do
     collection do
     post "posts/post"
