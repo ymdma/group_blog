@@ -1,7 +1,12 @@
 
 
 .header
-
+  .header_title
+    %h2 TITLE
+  .header_groug_name
+    -# "#{@group.group_name}"
+  .header_nav
+    NAV
 
 -# フラッシュメッセージなど
 - if flash[:post_alert]
@@ -9,34 +14,39 @@
   = flash[:post_alert]
 
 -# メインコンテンツ表示ゾーン
-.contents
-  .content
-    - @posts.each do |post|
-      .content_title
-        %h3
-          タイトル:
-          = post.title
-      .content_name
-        %h3
-          ユーザ名:
-          = post.user.name
-      .content_text
-        %p
-          本文:
-          %br
-          = post.content
-      .content_image
-      -#   = image_tag post.image
+.main_wrap
 
--# 新規投稿フォーム
-.form_post_wrap
-  .form_post
-    = form_for @post, url: posts_post_posts_path, method: :post do |f|
-      = f.text_field :title, class: 'form_post_title', placeholder: 'タイトル'
-      = f.text_field :content, class: 'form_post_content', placeholder: '本文テキスト'
-      .form_image
-        = f.label :image, class: 'form_post_mask_image' do
-          = fa_icon 'picture-o', class: 'icon'
-          = f.file_field :image, class: 'hidden'
-      .form_post_submit-btn
-        = f.button '投稿する',type: "submit" , class: 'form_post_submit'
+  -# 新規投稿フォーム
+  .form_post_wrap
+    .form_post
+      = form_for @post, url: posts_post_posts_path, method: :post do |f|
+        = f.text_field :title, class: 'form_post_title', placeholder: 'タイトル'
+        = f.text_field :content, class: 'form_post_content', placeholder: '本文テキスト'
+        .form_image
+          = f.label :image, class: 'form_post_mask_image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        .form_post_submit-btn
+          = f.button '投稿する',type: "submit" , class: 'form_post_submit'
+
+
+  .contents_wrap
+    .contents
+      - @posts.each do |post|
+        .content
+          .content_title
+            %h3
+              -# タイトル:
+              = post.title
+          .content_name
+            %h3
+              -# ユーザ名:
+              = post.user.name
+          .content_text
+            %p
+              -# 本文:
+              %br
+              = post.content
+            .clear
+          .content_image
+          -#   = image_tag post.image
