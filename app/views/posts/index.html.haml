@@ -1,5 +1,8 @@
 %h1 Posts#index
-%p Find me in app/views/posts/index.html.haml
+
+- if flash[:post_alert]
+  %span.alert
+  = flash[:post_alert]
 
 .contents
   .content
@@ -9,3 +12,13 @@
           =post.title
       .content_text
         =post.content
+
+.form_post
+  = form_for @post, url: posts_post_posts_path, method: :post do |f|
+    = f.text_field :title, class: 'form__title', placeholder: 'タイトル'
+    = f.text_field :content, class: 'form__content', placeholder: '本文テキスト'
+    .form__mask
+      = f.label :image, class: 'form__mask__image' do
+        = fa_icon 'picture-o', class: 'icon'
+        = f.file_field :image, class: 'hidden'
+    = f.submit '投稿する', class: 'form__submit'

@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+
+  root "posts#index"
   # get 'users/create'
   # get 'posts/index'
-  devise_for :users
-  root "posts#index"
 
-  resources :posts
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :posts do
+    collection do
+    post "posts/post"
+    end
+  end
+
 end
