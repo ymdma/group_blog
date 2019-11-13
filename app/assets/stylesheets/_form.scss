@@ -1,0 +1,113 @@
+
+.hidden{
+  display:none;
+}
+
+
+.form_post_wrap{
+// display:none;
+
+}
+
+.form_post{
+  width:100%;
+  display:flex;
+  // justify-content:center;
+}
+
+.post_form{
+
+}
+
+.form_post form{
+  // display: block;
+  width:25%;
+}
+
+input.form_post_title{
+  background: #245c74;
+  width:100%;
+  height:40px;
+  border: none;
+}
+input.form_post_content{
+  background: #ddd;
+  width:100%;
+  height:200px;
+  line-height: 1.2em;
+  border: none;
+}
+
+
+.form_image{
+  display:flex;
+  justify-content: center;
+}
+
+.form_post_mask_image{
+  color:#000;
+}
+
+.form_post_mask_image .icon{
+  color:black;
+  font-size: 2em;
+  // text-align: center;
+  line-height: 40px;
+  vertical-align: center;
+}
+.form_post_mask_image .icon:hover{
+  color:pink;
+  font-size: 2.1em;
+
+}
+
+.form_post_submit-btn{
+  width:100%;
+  display:flex;
+  justify-content:center;
+
+  button.form_post_submit{
+    // display: block;
+    background: #fff;
+    width:60%;
+    height:40px;
+    // margin:0 auto;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+  }
+
+  button.form_post_submit{
+    // display: block;
+    background: #fff;
+    width:60%;
+    height:40px;
+    // margin:0 auto;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+  }
+  button.form_post_submit:hover{
+    background: #ddffdd;
+    font-size: 19px;
+  }
+}
+
+
+
+
+// .form_post
+//   = form_for @post, url: posts_post_posts_path, method: :post do |f|
+//     = f.text_field :title, class: 'form_post_title', placeholder: 'タイトル'
+//     = f.text_field :content, class: 'form_post_content', placeholder: '本文テキスト'
+//     .form_image
+//       = f.label :image, class: 'form_post_mask_image' do
+//         = fa_icon 'picture-o', class: 'icon'
+//         = f.file_field :image, class: 'hidden'
+//     = f.submit '投稿する', class: 'form_post_submit'
