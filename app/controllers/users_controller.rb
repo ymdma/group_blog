@@ -11,11 +11,14 @@ def signup
   @user.save
 
   if @user.save
-    session[:id] = @user.id
-    sign_in User.find(session[:id]) unless user_signed_in?
-
+    # binding.pry
+    # session[:id] = @user.id
+    sign_in User.find(@user.id) unless user_signed_in?
+    redirect_to root_path
   end
+
 end
+
 private
 
   def user_params
