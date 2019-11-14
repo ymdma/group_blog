@@ -22,32 +22,53 @@
 -# メインコンテンツ表示ゾーン
 .main_wrap
 
-  -# .form_signup
-  -# %h2 Sign up
-  -#   = form_for url: _path do |f|
-  -#     = render "devise/shared/error_messages", resource: resource
-  -#     .field
-  -#       = f.label :name
-  -#       %br/
-  -#       = f.text_field :name, autofocus: true, autocomplete: "name"
-  -#     .field
-  -#       = f.label :email
-  -#       %br/
-  -#       = f.email_field :email, autofocus: true, autocomplete: "email"
-  -#     .field
-  -#       = f.label :password
-  -#       - if @minimum_password_length
-  -#         %em
-  -#           (#{@minimum_password_length} characters minimum)
-  -#       %br/
-  -#       = f.password_field :password, autocomplete: "new-password"
-  -#     .field
-  -#       = f.label :password_confirmation
-  -#       %br/
-  -#       = f.password_field :password_confirmation, autocomplete: "new-password"
-  -#     .actions
-  -#       = f.submit "Sign up"
-  -#   = render "devise/shared/links"
+  .form_signup-signin_wrap
+    %h2 Log in
+    %p 登録しているユーザーでログイン
+    -# = render "devise/shared/links"
+    .form_signin
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field
+          .field-label
+            = f.label :email
+          .field-input
+            = f.email_field :email, autofocus: true
+          .field
+            .field-label
+              = f.label :password
+              %i (英数字6文字以上)
+            .field-input
+              = f.password_field :password, autocomplete: "off"
+          .actions
+            = f.submit "Log in", class: 'btn'
+
+
+  .form_signup-signin_wrap
+    %h2 Sign up
+    .form_signin
+      = form_for "",url: signup_users_path, method: :post do |f|
+        .field
+          = f.label :name
+          %br/
+          = f.text_field :name, autofocus: true, autocomplete: "name"
+        .field
+          = f.label :email
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email"
+        .field
+          = f.label :password
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :password, autocomplete: "new-password"
+        .field
+          = f.label :password_confirmation
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password"
+        .actions
+          = f.submit "Sign up"
+      = render "devise/shared/links"
 
 
   -# 新規投稿フォーム
