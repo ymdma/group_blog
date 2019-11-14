@@ -2,12 +2,11 @@ class PostsController < ApplicationController
 
 
   def index
-# for View
     @posts = Post.all.order("created_at DESC")
-    @user = current_user.id
+    # @user = current_user.id
 
     @post = Post.new
-# from Form
+
   end
 
   def post
@@ -35,4 +34,25 @@ class PostsController < ApplicationController
       [:image]
     )
   end
+
+
+  def resource_name
+    :user
+  end
+  helper_method :resource_name
+
+  def resource
+    @resource ||= User.new
+  end
+  helper_method :resource
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
+  helper_method :devise_mapping
+
+  def resource_class
+    User
+  end
+  helper_method :resource_class
 end
