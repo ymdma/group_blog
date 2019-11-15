@@ -2,6 +2,12 @@
 .hidden{
   display:none;
 }
+// .hide{
+//   transform: translateY(-100%);
+// }
+
+
+
 
 .form_post_wrap{
 // display:none;
@@ -13,8 +19,6 @@
   // justify-content:center;
 }
 
-.post_form{
-}
 
 .form_post form{
   // display: block;
@@ -28,7 +32,7 @@ input.form_post_title{
   border: none;
 }
 input.form_post_content{
-  background: #ddd;
+  background: var(--off-white);
   width:100%;
   height:200px;
   line-height: 1.2em;

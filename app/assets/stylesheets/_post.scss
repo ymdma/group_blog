@@ -4,20 +4,20 @@
   // margin-top:100px;
   // display:flex;
   // width:100%;
-
 }
 
 .contents{
-  background: rgba(255,255,255,0.8);
+  // background: rgba(255,255,255,0.8);
   width:100%;
   height:calc(100% - 100px);
   // margin:20 auto;
   display:flex;
+  // align-content: stretch;
   flex-wrap:wrap;
 }
 
 .content{
-  flex-item:0 0 250;
+  // flex:3 0 220px;
   margin:10px;
 
 }
