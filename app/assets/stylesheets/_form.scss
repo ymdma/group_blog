@@ -7,43 +7,50 @@
 // }
 
 
-
+// 投稿フォーム
 
 .form_post_wrap{
 // display:none;
 }
 
+.form_post_two{
+}
+
 .form_post{
   width:100%;
   display:flex;
-  // justify-content:center;
+  justify-content:center;
 }
-
 
 .form_post form{
   // display: block;
-  width:25%;
+  width:100%;
 }
 
 input.form_post_title{
-  background: #245c74;
+  background: #245c7458;
   width:100%;
   height:40px;
+  padding: 10px;
+  line-height: 1.4em;
   border: none;
 }
 input.form_post_content{
-  background: var(--off-white);
+}
+.form_post textarea{
+  background: #e0e0e0;
   width:100%;
   height:200px;
-  line-height: 1.2em;
+  padding: 10px;
+  line-height: 1.4em;
   border: none;
 }
 
-
-.form_image{
+.form_post_image{
   display:flex;
   justify-content: center;
 }
+
 
 .form_post_mask_image{
   color:#000;
@@ -70,21 +77,7 @@ input.form_post_content{
   button.form_post_submit{
     // display: block;
     background: #fff;
-    width:60%;
-    height:40px;
-    // margin:0 auto;
-    line-height: 40px;
-    font-size: 20px;
-    font-weight: 400;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-  }
-
-  button.form_post_submit{
-    // display: block;
-    background: #fff;
-    width:60%;
+    width:100%;
     height:40px;
     // margin:0 auto;
     line-height: 40px;
