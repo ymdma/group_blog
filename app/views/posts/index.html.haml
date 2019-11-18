@@ -8,10 +8,18 @@
     .header_nav
       - if user_signed_in?
         .header-right
-          %p.header_nav_post Post
-          %p.header_nav_group Group
-          %p ||サインイン中
+          %p ||
+          %p.header_nav_post 投稿する
+          %p ||
+          %p.header_nav_group グループ作成
+          %br
+          %p ||
+          = current_user.name
+          %p さん ようこそ!
+          %br
+          %p ||
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logout-btn'
+          %p ||
       - else
         サインアウト中
   -# .header_nav_wrap
@@ -58,82 +66,45 @@
 -# メインコンテンツ表示ゾーン
 .main_wrap
 
-  - if user_signed_in?
-    -# 新規投稿フォーム
+
+  - if user_signed_in?   # サインインしている場合
+    -# 新規投稿フォーム タブ
     .form_post_wrap
-      .form_post_tab post
-      .form_post_one
-        .form_post_two.hidden
-          .form_post
-            = form_for @post, url: posts_post_posts_path, method: :post do |f|
-              = f.text_field :title, class: 'form_post_title', placeholder: 'タイトル'
-              = f.text_area :content, class: 'form_post_content', placeholder: '本文テキスト'
-              .form_post_image
-                = f.label :image, class: 'form_post_mask_image' do
-                  = fa_icon 'picture-o', class: 'icon'
-                  = f.file_field :image, class: 'hidden'
-              .form_post_submit-btn
-                = f.button '投稿する',type: "submit" , class: 'form_post_submit'
+      .form_post_tab
 
-  - else
-    .form_signin_wrap
-      .form_signin_tab signin
-      .form_signin_one
-        .form_signin_two.hidden
-          %h2 Log in
-          %p 登録しているユーザーでログイン
-          .form_signup
-            = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-              .field
-                .field-label
-                  = f.label :email
-                .field-input
-                  = f.email_field :email, autofocus: true
-                .field
-                  .field-label
-                    = f.label :password
-                    %i (英数字6文字以上)
-                  .field-input
-                    = f.password_field :password, autocomplete: "off"
-                .actions
-                  = f.submit "Log in", class: 'btn'
-          -# = render "devise/shared/links"
+    -# 投稿一覧 タブ
+    .contents_wrap
+      .contents_tab
 
-    .form_signup_wrap
-      .form_signup_tab signup
-      .form_signup_one
-        .form_signup_two.hidden
-          %h2 Sign up
-          .form_signup
-            = form_for "",url: signup_users_path, method: :post do |f|
-              .field
-                = f.label :name
-                %br/
-                = f.text_field :name, autofocus: true, autocomplete: "name"
-              .field
-                = f.label :email
-                %br/
-                = f.email_field :email, autofocus: true, autocomplete: "email"
-              .field
-                = f.label :password
-                - if @minimum_password_length
-                  %em
-                    (#{@minimum_password_length} characters minimum)
-                %br/
-                = f.password_field :password, autocomplete: "new-password"
-              .field
-                = f.label :password_confirmation
-                %br/
-                = f.password_field :password_confirmation, autocomplete: "new-password"
-              .actions
-                = f.submit "Sign up"
-            = render "devise/shared/links"
+    -# 新規投稿フォーム フォーム
+    .form_post_one
+      .form_post_two.hidden
+        .form_post
+          .form_post_form-title
+            投稿フォーム
+          = form_for @post, url: posts_post_posts_path, method: :post do |f|
+            = f.text_field :title, class: 'form_post_title', placeholder: 'タイトル'
+            = f.text_area :content, class: 'form_post_content', placeholder: '本文テキスト'
+            .form_post_image
+              = f.label :image, class: 'form_post_mask_image' do
+                = fa_icon 'picture-o', class: 'icon'
+                = f.file_field :image, class: 'hidden'
+            .form_post_submit-btn
+              = f.button '投稿する',type: "submit" , class: 'form_post_submit'
 
 
+    -# グループ・ボタンエリア
+    .groups_wrap
+      .groups
+        = radio_button_tag "groups","all",type:"radio", class:"group_name"
+        = label_tag "groups_all", "すべてのグループ"
+        - current_user.groups.each do |group|
+          .group_radio-btn
+            = radio_button_tag "groups","#{group.group_name}",type:"radio", class:"group_name"
+            = label_tag "groups_#{group.group_name}", "#{group.group_name}"
 
 
-  .contents_wrap
-    .contents_tab contents
+    -# 投稿一覧 タイル表示
     .contents_one
       .contents_two.hidden
         - @posts.each do |post|
@@ -154,5 +125,72 @@
               .clear
             .content_image
             -#   = image_tag post.image
+
+
+  - else          # サインインしていない場合
+    -# サインインフォーム タブ
+    .form_signin_wrap
+      .form_signin_tab
+
+    -# サインアップフォーム タブ
+    .form_signup_wrap
+      .form_signup_tab
+
+
+    -# サインインフォーム 表示
+    .form_signin_one
+      .form_signin_two.hidden
+        %h2 Log in
+        %p 登録しているユーザーでログイン
+        .form_signup
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .field
+              .field-label
+                = f.label :email
+              .field-input
+                = f.email_field :email, autofocus: true
+              .field
+                .field-label
+                  = f.label :password
+                  %i (英数字6文字以上)
+                .field-input
+                  = f.password_field :password, autocomplete: "off"
+              .actions
+                = f.submit "Log in", class: 'btn'
+        -# = render "devise/shared/links"
+
+
+    -# サインアップフォーム
+    .form_signup_one
+      .form_signup_two.hidden
+        %h2 Sign up
+        .form_signup
+          = form_for "",url: signup_users_path, method: :post do |f|
+            .field
+              = f.label :name
+              %br/
+              = f.text_field :name, autofocus: true, autocomplete: "name"
+            .field
+              = f.label :email
+              %br/
+              = f.email_field :email, autofocus: true, autocomplete: "email"
+            .field
+              = f.label :password
+              - if @minimum_password_length
+                %em
+                  (#{@minimum_password_length} characters minimum)
+              %br/
+              = f.password_field :password, autocomplete: "new-password"
+            .field
+              = f.label :password_confirmation
+              %br/
+              = f.password_field :password_confirmation, autocomplete: "new-password"
+            .actions
+              = f.submit "Sign up"
+          = render "devise/shared/links"
+
+
   .footer
-    .copyright COPYRIGHT &#xA9; MASATO YAMADA ALL RIGHTS RESERVED.
+    .upper
+      .copyright COPYRIGHT &#xA9; MASATO YAMADA ALL RIGHTS RESERVED.
+    -# .lower

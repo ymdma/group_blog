@@ -2,11 +2,12 @@ class PostsController < ApplicationController
 
 
   def index
+    # 投稿一覧表示
     @posts = Post.all.order("created_at DESC")
-    # @user = current_user.id
-
+    @groups = Group.all.order("created_at DESC")
+    
+#  投稿フォーム用にインスタンスを用意
     @post = Post.new
-
   end
 
   def post

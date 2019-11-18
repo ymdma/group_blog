@@ -9,38 +9,64 @@
 
 // 投稿フォーム
 
+// 現状このwrapは擬似要素による線の描画用
 .form_post_wrap{
 // display:none;
 }
 
 .form_post_two{
+  margin:20px 0 20px;
 }
 
 .form_post{
   width:100%;
   display:flex;
   justify-content:center;
+  flex-wrap: wrap;
 }
 
 .form_post form{
   // display: block;
   width:100%;
+  // z-index:100;
 }
 
-input.form_post_title{
-  background: #245c7458;
+.form_post_form-title{
+  display: block;
+  // width:calc(80%-32px);
   width:100%;
-  height:40px;
+  height:60px;
+  // padding: 2px;
+
+  color:#333333;
+  font-size:18px;
+  text-align: center;
+  line-height: 60px;
+  font-weight: 600;
+
+  border-width:2px 0px 2px 0px;
+  border-style: solid;
+  border-color: gray;
+
+  // border-radius: 10px 0 0 6px;
+
+}
+input.form_post_title{
+  background: #f88d129d;
+  width:100%;
+  height:32px;
   padding: 10px;
   line-height: 1.4em;
   border: none;
 }
+
 input.form_post_content{
 }
+
 .form_post textarea{
   background: #e0e0e0;
   width:100%;
-  height:200px;
+  height:160px;
   padding: 10px;
   line-height: 1.4em;
   border: none;
@@ -53,20 +79,21 @@ input.form_post_content{
 
 
 .form_post_mask_image{
+  background: #f88d129d;
+  width: 100%;
   color:#000;
+  text-align: center;
 }
 
 .form_post_mask_image .icon{
   color:black;
   font-size: 2em;
-  // text-align: center;
   line-height: 40px;
   vertical-align: center;
-}
-.form_post_mask_image .icon:hover{
-  color:pink;
-  font-size: 2.1em;
-
+  &:hover{
+    color:pink;
+    font-size: 2.1em;
+  }
 }
 
 .form_post_submit-btn{
@@ -76,7 +103,7 @@ input.form_post_content{
 
   button.form_post_submit{
     // display: block;
-    background: #fff;
+    background: #e0e0e0;
     width:100%;
     height:40px;
     // margin:0 auto;

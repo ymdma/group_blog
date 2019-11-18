@@ -12,35 +12,46 @@
   justify-content: space-between;
   transform: translateY(0%);
   transition: 200ms;
-  z-index: 100;
+  z-index: 200;
   overflow: hidden;
+  h2 {
+    font-size:2.5em;
+    line-height: 80px;
+  }
+  a {
+    color:#ffc925;
+  }
+  p{
+    display:inline-block;
+    font-size:16px;
+  }
 }
 
+
+// スクロールダウンで隠れる
 .header.hide{
   transform: translateY(-100%);
 }
+// スクロールダウンで隠れる
 
-.header h2{
-  font-size:2.5em;
-  line-height: 80px;
-}
 
+
+// 右側 nav
 .header-right{
   margin: 5% 0 20% 0;
-  width:75%;
+  // width:5%;
   line-height:25px;
   flex-wrap: wrap;
 }
 
-.header-right p:active{
-  color:#ffffff;
-  opacity:0.2;
+.header-right p:nth-child(2),p:nth-child(4){
+  color:#ffc925;
+  opacity:1;
+  cursor: pointer;
 }
-
-
-.header p{
-  display:inline-block;
-  font-size:1em;
+.header-right p:nth-child(2):active,p:nth-child(4):active{
+  color:#ffc925;
+  opacity:0.5;
 }
 
 .logout-btn{

@@ -1,7 +1,6 @@
 // コンテンツ部分
 
 .contents_wrap{
-  // margin-top:100px;
   // display:flex;
   // width:100%;
 }
@@ -14,6 +13,7 @@
   display:flex;
   // align-content: stretch;
   flex-wrap:wrap;
+  // z-index:45;
 }
 
 .content{
