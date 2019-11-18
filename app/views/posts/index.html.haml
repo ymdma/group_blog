@@ -79,9 +79,9 @@
     -# 新規投稿フォーム フォーム
     .form_post_one
       .form_post_two.hidden
+        %h2 投稿フォーム
         .form_post
           .form_post_form-title
-            投稿フォーム
           = form_for @post, url: posts_post_posts_path, method: :post do |f|
             = f.text_field :title, class: 'form_post_title', placeholder: 'タイトル'
             = f.text_area :content, class: 'form_post_content', placeholder: '本文テキスト'
@@ -141,7 +141,7 @@
     .form_signin_one
       .form_signin_two.hidden
         %h2 Log in
-        %p 登録しているユーザーでログイン
+        -# %p 登録しているユーザーでログイン
         .form_signup
           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
             .field
@@ -152,6 +152,7 @@
               .field
                 .field-label
                   = f.label :password
+                  %br
                   %i (英数字6文字以上)
                 .field-input
                   = f.password_field :password, autocomplete: "off"
@@ -172,7 +173,8 @@
               = f.text_field :name, autofocus: true, autocomplete: "name"
             .field
               = f.label :email
-              %br/
+              %br
+              %i (英数字6文字以上)
               = f.email_field :email, autofocus: true, autocomplete: "email"
             .field
               = f.label :password
@@ -183,11 +185,12 @@
               = f.password_field :password, autocomplete: "new-password"
             .field
               = f.label :password_confirmation
-              %br/
+              %br
+              %i (確認の為 再入力)
               = f.password_field :password_confirmation, autocomplete: "new-password"
             .actions
               = f.submit "Sign up"
-          = render "devise/shared/links"
+          -# = render "devise/shared/links"
 
 
   .footer

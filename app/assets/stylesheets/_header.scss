@@ -2,7 +2,7 @@
 .header{
   background:#333333;
   width: 100%;
-  height: 100px;
+  height: 80px;
   padding:10px 12% 10px;
   position: fixed;
   top:0;
@@ -15,8 +15,8 @@
   z-index: 200;
   overflow: hidden;
   h2 {
-    font-size:2.5em;
-    line-height: 80px;
+    font-size:38px;
+    line-height: 60px;
   }
   a {
     color:#ffc925;
@@ -38,9 +38,9 @@
 
 // 右側 nav
 .header-right{
-  margin: 5% 0 20% 0;
+  margin: 5% 0 4  0% 0;
   // width:5%;
-  line-height:25px;
+  line-height:20px;
   flex-wrap: wrap;
 }
 
@@ -56,7 +56,7 @@
 
 .logout-btn{
   // width: 100px;
-  height: 30px;
+  height: 20px;
 }
 
 
