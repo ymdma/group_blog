@@ -11,7 +11,7 @@
           %p ||
           %p.header_nav_post 投稿する
           %p ||
-          %p.header_nav_group グループ作成
+          %p.header_nav_group.mk_group_btn グループ作成
           %br
           %p ||
           = current_user.name
@@ -41,9 +41,9 @@
         -#   .nav_group_text
         -#     %p グループを作ろう！
 
-      - else
-        %p signin
-        %p signup
+      -# - else
+        -# %p signin
+        -# %p signup
         -# .nav_signin
         -#   .nav_signin_blank
         -#   .nav_signin_btn
@@ -65,7 +65,6 @@
 
 -# メインコンテンツ表示ゾーン
 .main_wrap
-
 
   - if user_signed_in?   # サインインしている場合
     -# 新規投稿フォーム タブ
@@ -92,7 +91,6 @@
             .form_post_submit-btn
               = f.button '投稿する',type: "submit" , class: 'form_post_submit'
 
-
     -# グループ・ボタンエリア
     .groups_wrap
       .groups
@@ -103,29 +101,43 @@
             = radio_button_tag "groups","#{group.group_name}",type:"radio", class:"group_name"
             = label_tag "groups_#{group.group_name}", "#{group.group_name}"
 
+    -# グループ作成 フォーム
+
+    .form_group_wrap
+      .form_group_one
+        .form_group_two.hidden
+          = form_for @group url:posts_post_posts_path , method: :post do |f|
+            .field
+              = f.label :group_name
+              %br/
+            .field
+              =group
+              = f.text_field :group_name, autofocus: true, autocomplete: "グループ名を入力"
+            = f.button 'グループ作成',type: "submit" , class: 'form_group_submit'
+
 
     -# 投稿一覧 タイル表示
     .contents_one
       .contents_two.hidden
-        - @posts.each do |post|
-          .content
-            .content_title
-              %h3
-                -# タイトル:
-                = post.title
-            .content_name
-              %h3
-                -# ユーザ名:
-                = post.user.name
-            .content_text
-              %p
-                -# 本文:
-                %br
-                = post.content
-              .clear
-            .content_image
-            -#   = image_tag post.image
-
+        .contents_three
+          - @posts.each do |post|
+            .content
+              .content_title
+                %h3
+                  -# タイトル:
+                  = post.title
+              .content_name
+                %h4
+                  -# ユーザ名:
+                  = post.user.name
+              .content_text
+                %p
+                  -# 本文:
+                  %br
+                  = post.content
+                .clear
+              .content_image
+              -#   = image_tag post.image
 
   - else          # サインインしていない場合
     -# サインインフォーム タブ
@@ -135,7 +147,6 @@
     -# サインアップフォーム タブ
     .form_signup_wrap
       .form_signup_tab
-
 
     -# サインインフォーム 表示
     .form_signin_one
@@ -156,8 +167,8 @@
                   %i (英数字6文字以上)
                 .field-input
                   = f.password_field :password, autocomplete: "off"
-              .actions
-                = f.submit "Log in", class: 'btn'
+              .sign_btn
+                = f.submit "Log in"
         -# = render "devise/shared/links"
 
 
@@ -188,9 +199,10 @@
               %br
               %i (確認の為 再入力)
               = f.password_field :password_confirmation, autocomplete: "new-password"
-            .actions
+            .sign_btn
               = f.submit "Sign up"
           -# = render "devise/shared/links"
+    .brank_div
 
 
   .footer

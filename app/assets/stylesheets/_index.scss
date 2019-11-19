@@ -1,6 +1,8 @@
 .main_wrap{
+  background: #fafafa;
   width:100vw;
-  padding: 100px 12% 0;
+  height:100%;
+  padding: 100px 12% 0px;
   margin:0 auto 0;
   // display:flex;
   // justify-content: center;
@@ -52,6 +54,7 @@
 
   // z-index:0;
 }
+
 .form_post_wrap:first-child:after{
   // background: red;
   display:block;
@@ -76,18 +79,14 @@
 .form_post_tab:after {
   background: white;
   display:block;
-
   content: "Post";
-  // background: local;
 
   border-width:2px 2px 2px 2px;
   border-style: solid;
   border-color: gray;
   border-radius:0 10px 16px 0;
 
-
   width:32px;
-  // height:70px;
 
   color:#333333;
   writing-mode:vertical-rl;
@@ -99,7 +98,7 @@
 
   position: absolute;
   right:calc(12vw - 34px);
-  top:110px;
+  top:130px;
 
   z-index:1;
 }
@@ -150,7 +149,7 @@
 
   position: absolute;
   right:calc(12vw - 34px);
-  top:204px;
+  top:224px;
 
   z-index:1;
 }
@@ -171,7 +170,7 @@
   position: absolute;
   left:calc(12vw + 0px);
   // right:0;
-  top:90px;
+  top:100px;
 
   // z-index:0;
 }

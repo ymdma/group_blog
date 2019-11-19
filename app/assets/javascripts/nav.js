@@ -16,5 +16,8 @@ $(function(){
   $(".header_nav_contents").click(function(){
     $(".contents_two").toggleClass("hidden");
   });
+  $(".mk_group_btn").click(function(){
+    $(".form_group_two").toggleClass("hidden");
+  });
 
 });
