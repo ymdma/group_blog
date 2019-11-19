@@ -7,7 +7,7 @@
   width:100%;
   // padding:10px;
   padding:10px 0 10px 0;
-  margin-bottom: 20px;
+  margin: 20px 0 20px;
 
   // border:solid rgba(209, 213, 149, 0.1) 1px;
   border-radius:1px;
@@ -43,9 +43,9 @@
   input:checked + label{
     background:#ff0affb2;
     z-index:1;
-
   }
 }
+
 .group_radio-btn{
   height: 30px;
   margin:5px 7px 5px 0;
@@ -80,7 +80,7 @@
   padding: 0.5rem 1rem;
   margin-right: 18px;
   border-radius: 3px;
-  transition: all .2s;
+  // transition: all .2s;
 }
 
 .radio-inline__input:checked + .radio-inline__label {
@@ -108,3 +108,108 @@
 }
 
 // // //
+
+// グループ作成
+
+// // //
+
+
+
+.form_group_three{
+  display:flex;
+  flex-direction:column;
+  // justify-content: center;
+}
+
+.form_group_three h2{
+  display: block;
+  width:calc(30% + 50px);
+  height:60px;
+  margin: 0 auto 0;
+  margin-bottom:40px;
+  // margin:0px 0px 40px;
+
+  color:#333333;
+  font-size:18px;
+  text-align: center;
+  line-height: 60px;
+  font-weight: 600;
+
+  border-width:2px 0px 2px 0px;
+  border-style: solid;
+  border-color: gray;
+
+}
+
+.group-name_label {
+  display: block;
+  // width:43%;
+  height:40px;
+  margin-left:0  auto;
+  margin-left: 60px;
+  font-size:18px;
+  line-height:18px;
+  text-decoration: underline;
+}
+
+.group-name_field input{
+  display: block;
+  width:80%;
+  height:40px;
+  padding:0 10px 0;
+  margin:0 auto 0;
+  margin-bottom: 40px;
+}
+
+.group-user-sel_field{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  margin:20px 0 60px;
+}
+
+
+.group-user-sel_field input{
+  display:none;
+  }
+
+.group-user-sel_field label{
+  background:#cccccc;
+  display: block;
+  flex: 0 3 auto;
+  min-width: 70px;
+  height: 40px;
+
+  margin:5px 7px 5px 0;
+  padding:0 10px 0;
+
+  line-height: 40px;
+  font-size: 18px;
+  font-weight: 400;
+  border-radius:6em;
+}
+
+
+.form_group_three input:checked + label{
+  background:#3ea8ffde;
+  color:#ffffff;
+  z-index:1;
+
+}
+
+button.form_group_submit{
+  background: #ffffff;
+  display:block;
+  width:200px;
+  height:40px;
+  margin:0 auto;
+  margin-bottom:80px;
+
+  line-height: 40px;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  // border: none;
+  cursor: pointer;
+}
+

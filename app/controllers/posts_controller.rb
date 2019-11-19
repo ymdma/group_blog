@@ -5,9 +5,13 @@ class PostsController < ApplicationController
     # 投稿一覧表示
     @posts = Post.all.order("created_at DESC")
     @groups = Group.all.order("created_at DESC")
-    
+
 #  投稿フォーム用にインスタンスを用意
     @post = Post.new
+
+#  投稿フォーム用にインスタンスを用意
+    @group = Group.new
+    @namelist = User.where.not(id:current_user.id)
   end
 
   def post

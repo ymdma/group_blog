@@ -75,6 +75,26 @@
     .contents_wrap
       .contents_tab
 
+    -# グループ作成 フォーム
+
+    .form_group_wrap
+      .form_group_one
+        .form_group_two.hidden
+          .form_group_three
+            %h2
+              新規グループ作成
+            = form_for @group, url: groups_path, method: :post do |f|
+              .group-name_label
+                = f.label :グループ名を入力してください
+              .group-name_field
+                = f.text_field :group_name, autofocus: true, autocomplete: "グループ名を入力"
+              .group-name_label
+                = f.label :ユーザを選択してください
+              .group-user-sel_field
+                = f.collection_check_boxes :user_ids, @namelist, :id, :name
+              = f.button 'グループ作成',type: "submit" , class: 'form_group_submit'
+
+
     -# 新規投稿フォーム フォーム
     .form_post_one
       .form_post_two.hidden
@@ -100,20 +120,6 @@
           .group_radio-btn
             = radio_button_tag "groups","#{group.group_name}",type:"radio", class:"group_name"
             = label_tag "groups_#{group.group_name}", "#{group.group_name}"
-
-    -# グループ作成 フォーム
-
-    .form_group_wrap
-      .form_group_one
-        .form_group_two.hidden
-          = form_for @group url:posts_post_posts_path , method: :post do |f|
-            .field
-              = f.label :group_name
-              %br/
-            .field
-              =group
-              = f.text_field :group_name, autofocus: true, autocomplete: "グループ名を入力"
-            = f.button 'グループ作成',type: "submit" , class: 'form_group_submit'
 
 
     -# 投稿一覧 タイル表示
