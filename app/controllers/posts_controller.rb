@@ -2,17 +2,44 @@ class PostsController < ApplicationController
 
 
   def index
-    # 投稿一覧表示
-    @posts = Post.all.order("created_at DESC")
-    @groups = Group.all.order("created_at DESC")
+        # 投稿一覧表示
+      @posts = Post.all.order("created_at DESC")
+      # @groups = Group.all.order("created_at DESC")
 
-#  投稿フォーム用にインスタンスを用意
-    @post = Post.new
+  #  投稿フォーム用にインスタンスを用意
+      @post = Post.new
 
-#  投稿フォーム用にインスタンスを用意
-    @group = Group.new
-    @namelist = User.where.not(id:current_user.id)
+  #  投稿フォーム用にインスタンスを用意
+      @group = Group.new
+      @namelist = User.where.not(id:current_user.id)
+
+      if params[:group]  == nil
+      else
+        if params[:group] == "all"
+        # binding.pry
+          # user_groups = current_user.groups.all
+          # @group_posts = Post.where(group_id:user_groups)
+
+          @user_posts = Post.where(user_id:current_user.id)
+
+          # binding.pry
+          render json: @user_posts
+
+        elsif params[:group] != "all"
+          group_name = Group.find_by(group_name: params[:group])
+          # @group_posts = Post.where(group_id: group_name.id)
+
+          query = "select * from posts join users on posts.user_id = users.id"
+          ggg = Post.find_by_sql(query)
+          @group_posts = ggg.select{|a| a.group_id == group_name.id}
+
+          render json: @group_posts
+        end
+      end
   end
+
+
+
 
   def post
     @post = Post.new(

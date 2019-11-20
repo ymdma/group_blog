@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     collection do
-    post "posts/post"
+      post "posts/post"
     end
   end
 
