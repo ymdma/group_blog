@@ -116,33 +116,35 @@
       .groups
         = radio_button_tag "groups","all",type:"radio", class:"group_name"
         = label_tag "groups_all", "すべてのグループ"
+
         - current_user.groups.each do |group|
-          .group_radio-btn
-            = radio_button_tag "groups","#{group.group_name}",type:"radio", class:"group_name"
-            = label_tag "groups_#{group.group_name}", "#{group.group_name}"
+          =link_to root_path, class: "hoge" do
+            .group_radio-btn
+              = radio_button_tag "groups","#{group.group_name}",type:"radio", class:"group_name"
+              = label_tag "groups_#{group.group_name}", "#{group.group_name}"
 
 
     -# 投稿一覧 タイル表示
     .contents_one
       .contents_two.hidden
         .contents_three
-          - @posts.each do |post|
-            .content
-              .content_title
-                %h3
-                  -# タイトル:
-                  = post.title
-              .content_name
-                %h4
-                  -# ユーザ名:
-                  = post.user.name
-              .content_text
-                %p
-                  -# 本文:
-                  %br
-                  = post.content
-                .clear
-              .content_image
+          -# - @posts.each do |post|
+          -#   .content
+          -#     .content_title
+          -#       %h3
+          -#         -# タイトル:
+          -#         = post.title
+          -#     .content_name
+          -#       %h4
+          -#         -# ユーザ名:
+          -#         = post.user.name
+          -#     .content_text
+          -#       %p
+          -#         -# 本文:
+          -#         %br
+          -#         = post.content
+          -#       .clear
+          -#     .content_image
               -#   = image_tag post.image
 
   - else          # サインインしていない場合
@@ -215,3 +217,6 @@
     .upper
       .copyright COPYRIGHT &#xA9; MASATO YAMADA ALL RIGHTS RESERVED.
     -# .lower
+
+
+-# %button#bbbttt
