@@ -17,8 +17,12 @@ $(function(){
     $(".form_post_two").toggleClass("hidden");
   });
 
-  $(".contents_tab").click(function(){
-    $(".contents_two").toggleClass("hidden");
+  // $(".contents_tab").click(function(){
+  //   $(".contents_two").toggleClass("hidden");
+  // });
+
+  $(".group_tab").click(function(){
+    $(".form_group_two").toggleClass("hidden");
   });
 
 });

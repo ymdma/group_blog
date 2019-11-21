@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       post "posts/post"
+      delete "posts/destroy"
     end
   end
 

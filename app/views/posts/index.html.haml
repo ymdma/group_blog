@@ -8,18 +8,13 @@
     .header_nav
       - if user_signed_in?
         .header-right
-          %p ||
-          %p.header_nav_post 投稿する
-          %p ||
-          %p.header_nav_group.mk_group_btn グループ作成
-          %br
-          %p ||
-          = current_user.name
+          %p.waku.header_nav_post 投稿する
+          %p.waku.header_nav_group.mk_group_btn グループ作成
+          %p.waku
+            = current_user.name
           %p さん ようこそ!
-          %br
-          %p ||
-          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'logout-btn'
-          %p ||
+          = link_to destroy_user_session_path, method: :delete, class: 'logout-btn waku' do
+            %p ログアウト
       - else
         サインアウト中
   -# .header_nav_wrap
@@ -74,6 +69,8 @@
     -# 投稿一覧 タブ
     .contents_wrap
       .contents_tab
+    -# 投稿一覧 タブ
+    .group_tab
 
     -# グループ作成 フォーム
 
@@ -84,38 +81,68 @@
             %h2
               新規グループ作成
             = form_for @group, url: groups_path, method: :post do |f|
-              .group-name_label
+              %h3
                 = f.label :グループ名を入力してください
               .group-name_field
                 = f.text_field :group_name, autofocus: true, autocomplete: "グループ名を入力"
-              .group-name_label
+              %h3
                 = f.label :ユーザを選択してください
+              %p
+                グループに登録したユーザの投稿を表示します
               .group-user-sel_field
                 = f.collection_check_boxes :user_ids, @namelist, :id, :name
               = f.button 'グループ作成',type: "submit" , class: 'form_group_submit'
+
+          -# グループの削除
+          .group_edit-delete
+            .group_d-area
+              %h3
+                グループの削除
+              %p
+                選択したグループを削除します
+              .group_edit-delete_btns
+                - current_user.groups.each do |group|
+                  .group_d-list
+                    = link_to "#{group.group_name}", "/groups/#{group.id}", method: :delete
+
 
 
     -# 新規投稿フォーム フォーム
     .form_post_one
       .form_post_two.hidden
-        %h2 投稿フォーム
-        .form_post
-          .form_post_form-title
-          = form_for @post, url: posts_post_posts_path, method: :post do |f|
-            = f.text_field :title, class: 'form_post_title', placeholder: 'タイトル'
-            = f.text_area :content, class: 'form_post_content', placeholder: '本文テキスト'
-            .form_post_image
-              = f.label :image, class: 'form_post_mask_image' do
-                = fa_icon 'picture-o', class: 'icon'
-                = f.file_field :image, class: 'hidden'
-            .form_post_submit-btn
-              = f.button '投稿する',type: "submit" , class: 'form_post_submit'
+        .form_post_three
+          .form_post
+            %h2 投稿フォーム
+            .form_post_form-title
+            = form_for @post, url: posts_post_posts_path, method: :post do |f|
+              -# .form_post_groups-btn
+              - current_user.groups.each do |group|
+                = f.radio_button :group_id, :"#{group.id}", class:"groups_btn"
+                = f.label :"group_id", "#{group.group_name}"
+                -# = f.radio_button "group", "#{group.id}", type:"radio", class:"groups_btn"
+                -# = f.label "group_#{group.id}", "#{group.group_name}"
+
+              = f.text_field :title, class: 'form_post_title', placeholder: 'タイトル'
+              = f.text_area :content, class: 'form_post_content', placeholder: '本文テキスト'
+              .form_post_image
+                = f.label :image, class: 'form_post_mask_image' do
+                  = fa_icon 'picture-o', class: 'icon'
+                  = f.file_field :image, class: 'hidden'
+              .form_post_submit-btn
+                = f.button '投稿する',type: "submit" , class: 'form_post_submit'
+
+
 
     -# グループ・ボタンエリア
     .groups_wrap
       .groups
+        %h3
+          グループの表示
+        %p
+          選択したグループの投稿を表示します
+
         = radio_button_tag "groups","all",type:"radio", class:"group_name"
-        = label_tag "groups_all", "すべてのグループ"
+        = label_tag "groups_all", "#{current_user.name}の投稿"
 
         - current_user.groups.each do |group|
           =link_to root_path, class: "hoge" do
@@ -124,9 +151,12 @@
               = label_tag "groups_#{group.group_name}", "#{group.group_name}"
 
 
+
+
     -# 投稿一覧 タイル表示
     .contents_one
-      .contents_two.hidden
+      .contents_two
+        -# = image_tag @image.url
         .contents_three
           -# - @posts.each do |post|
           -#   .content

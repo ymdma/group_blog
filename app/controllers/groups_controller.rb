@@ -1,7 +1,6 @@
 class GroupsController < ApplicationController
 
 
-
   def new
     @group = Group.new
     @group.users << current_user
@@ -14,6 +13,17 @@ class GroupsController < ApplicationController
     else
       render :new
     end
+  end
+
+
+  def destroy
+    @group = Group.find(params[:id])
+      @group.destroy
+    # binding.pry 
+    # post = post.find(params[:id])
+    # # if post.user_id == current_user.id
+    # # end
+    redirect_to root_path
   end
 
   private

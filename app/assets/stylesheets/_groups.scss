@@ -1,12 +1,7 @@
 .groups{
-  width: 100%;
-  display:flex;
-}
-
-.groups{
   width:100%;
   // padding:10px;
-  padding:10px 0 10px 0;
+  padding:0px 0 10px 0;
   margin: 20px 0 20px;
 
   // border:solid rgba(209, 213, 149, 0.1) 1px;
@@ -69,9 +64,9 @@
     padding:0 5px 0;
     border-radius:6em;
   }
-  input:checked + label{
-    background:#ff0affb2;
-  }
+  // input:checked + label{
+  //   background:#ff0affb2;
+  // }
 }
 
 
@@ -118,16 +113,15 @@
 .form_group_three{
   display:flex;
   flex-direction:column;
-  // justify-content: center;
+  margin:40px 0 20px;
 }
 
 .form_group_three h2{
   display: block;
-  width:calc(30% + 50px);
+  width:calc(30vw + 50px);
   height:60px;
   margin: 0 auto 0;
-  margin-bottom:40px;
-  // margin:0px 0px 40px;
+  margin-bottom:60px;
 
   color:#333333;
   font-size:18px;
@@ -141,16 +135,6 @@
 
 }
 
-.group-name_label {
-  display: block;
-  // width:43%;
-  height:40px;
-  margin-left:0  auto;
-  margin-left: 60px;
-  font-size:18px;
-  line-height:18px;
-  text-decoration: underline;
-}
 
 .group-name_field input{
   display: block;
@@ -158,7 +142,7 @@
   height:40px;
   padding:0 10px 0;
   margin:0 auto 0;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .group-user-sel_field{
@@ -203,7 +187,7 @@ button.form_group_submit{
   width:200px;
   height:40px;
   margin:0 auto;
-  margin-bottom:80px;
+  margin-bottom:40px;
 
   line-height: 40px;
   font-size: 18px;
@@ -212,4 +196,69 @@ button.form_group_submit{
   // border: none;
   cursor: pointer;
 }
+
+.form_group_three:after{
+  content:"";
+  display: block;
+  width:100%;
+  height:0px;
+  border-bottom:solid #f0f0f0 2px;
+  box-shadow: 0px 1px 1px 1px #dddddd ;
+  margin-top:40px;
+}
+
+
+// グループの削除
+
+.group_edit-delete_btns{
+  width:100%;
+  // padding:10px;
+  padding:10px 0 10px 0;
+  margin: 0px 0 20px;
+
+  // border:solid rgba(209, 213, 149, 0.1) 1px;
+  border-radius:1px;
+
+  display:flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.group_d-list{
+  display:block;
+  background:#a0a0a0;
+  height: 30px;
+  min-width:70px;
+  margin:5px 7px 5px 0;
+  padding:0 5px 0;
+
+  line-height:30px;
+  font-size:16px;
+  text-align:center;
+
+  border-radius:6em;
+  z-index:1;
+  & a{
+    color:#f0f0f0;
+
+  }
+}
+
+.group_d-list:hover{
+  background:#ff0a0ab2;
+}
+
+
+
+.group_edit-delete:after {
+  content:"";
+  display: block;
+  width:100%;
+  height:0px;
+  border-bottom:solid #f0f0f0 2px;
+  box-shadow: 0px 1px 1px 1px #dddddd ;
+  margin:40px 0 40px;
+}
+
 

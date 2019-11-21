@@ -2,27 +2,29 @@ class PostsController < ApplicationController
 
 
   def index
-        # 投稿一覧表示
+    if user_signed_in?
+      # 投稿一覧表示
       @posts = Post.all.order("created_at DESC")
+      rec = Post.find_by(id:27)
+      @image= rec.image
       # @groups = Group.all.order("created_at DESC")
 
-  #  投稿フォーム用にインスタンスを用意
+      #  投稿フォーム用にインスタンスを用意
       @post = Post.new
 
-  #  投稿フォーム用にインスタンスを用意
+      #  投稿フォーム用にインスタンスを用意
       @group = Group.new
+      #  新規グループ作成時、ユーザーの名前の表示
       @namelist = User.where.not(id:current_user.id)
 
+      #  グループボタンを押してPostの表示範囲を指定
       if params[:group]  == nil
+
       else
         if params[:group] == "all"
-        # binding.pry
-          # user_groups = current_user.groups.all
-          # @group_posts = Post.where(group_id:user_groups)
 
           @user_posts = Post.where(user_id:current_user.id)
-
-          # binding.pry
+          
           render json: @user_posts
 
         elsif params[:group] != "all"
@@ -33,9 +35,15 @@ class PostsController < ApplicationController
           ggg = Post.find_by_sql(query)
           @group_posts = ggg.select{|a| a.group_id == group_name.id}
 
-          render json: @group_posts
+          respond_to do |format|
+            format.html{redirect_to root_path}
+            format.json
+          end
+          # render json: @group_posts
         end
       end
+    else
+    end
   end
 
 
@@ -46,24 +54,34 @@ class PostsController < ApplicationController
       title: post_params[:title],
       content: post_params[:content],
       image: post_params[:image],
+      group_id: post_params[:group_id],
       user_id: current_user.id
     )
     @post.save
 
     if @post.save
-      # reload!
+      # ********renderでできないものか***********
       redirect_to root_path
     else
       flash[:post_alert] = "投稿に失敗しました"
     end
   end
+
+
+  def destroy
+
+  end
+
+
+
   private
 
   def post_params
     params.require(:post).permit(
       [:title],
       [:content],
-      [:image]
+      [:image],
+      [:group_id]
     )
   end
 

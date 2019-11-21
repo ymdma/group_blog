@@ -8,12 +8,11 @@ $(document).on("turbolinks:load", function(){
                     <h3>${post.title}</h3>
 
                     <div class="content_name">
-                      <h4>${post.name}</h4>
-
                     <div class="content_text">
                       <p>${post.content}</p>
                       <div class="clear">
                     <div class="content_image">
+                      <img src="/uploads/post/image/${post.id}/">
                 </div>
                 `
     return html

@@ -1,31 +1,32 @@
 // BlogPost (投稿フォーム)
 
 // 現状このwrapは擬似要素による線の描画用
-.form_post_wrap{
+.form_post_one{
 }
 
 .form_post{
-  &_one{
-    // background: #fafafa;
+  &_two{
 
+    // margin:20px 0 0px;
+  }
+  &_three{
     display:flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-  &_two{
-    background: #ffffff;
-    margin:0px 0 20px;
+    // background: #ffffff;
     box-shadow: 0px 0px 2px 2px #fcfcfc inset;
 
     width: calc(42vw - 40px);
-    margin:20px 0px 0px;
+    margin:0 auto 0;
     padding:20px 20px;
 
     & h2{
-      width:100%;
+      display:block;
+      width:calc(30vw + 50px);
+
       height:60px;
-      // padding: 2px;
+      margin:0 auto 0;
       margin-bottom: 40px;
 
       color:#333333;
@@ -135,11 +136,22 @@ input.form_post_content{
 }
 
 
+// .form_post_two:after{
+//   content:"";
+//   display: block;
+//   width:100%;
+//   border-bottom:solid #f0f0f0 1px;
+//   padding:40px 0 20px;
+
+// }
+
+
 .form_post_two:after{
   content:"";
   display: block;
   width:100%;
-  border-bottom:solid #f0f0f0 1px;
-  padding:40px 0 20px;
-
+  height:0px;
+  border-bottom:solid #f0f0f0 2px;
+  box-shadow: 0px 1px 1px 1px #dddddd ;
+  margin-top:40px;
 }
