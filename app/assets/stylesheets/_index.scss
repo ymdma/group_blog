@@ -11,7 +11,7 @@
 
 // tabs
 
-.form_post_tab,.form_signin_tab,.form_signup_tab,.contents_tab{
+.form_post_tab,.form_signin_tab,.form_signup_tab,.group_tab{
   // width:100%;
   // width:calc(100% - 40px);
   height:10px;
@@ -30,10 +30,9 @@
 
 }
 
-.form_post_tab{
-}
-.contents_tab{
-}
+
+
+// // タブ サインイン時
 
 // 左側 線
 .form_post_wrap:first-child:before{
@@ -98,14 +97,15 @@
 
   position: absolute;
   right:calc(12vw - 34px);
-  top:130px;
+  top:110px;
 
   z-index:1;
 }
 
-// contents-tab
 
-.contents_tab:before{
+// group-tab
+
+.group_tab:before{
   // background: red;
   display:block;
 
@@ -115,7 +115,7 @@
   border-color: gray;
 
   width:32px ;
-  height:343px;
+  height:320px;
   position: absolute;
   right:calc(12vw - 32px);
   // right:0;
@@ -124,11 +124,11 @@
   // z-index:0;
 }
 
-.contents_tab:after {
+.group_tab:after {
   background: white;
   display:block;
 
-  content: "Contents";
+  content: "Group";
   // background: local;
 
   border-width:2px 2px 2px 2px;
@@ -149,19 +149,21 @@
 
   position: absolute;
   right:calc(12vw - 34px);
-  top:224px;
+  top:215px;
 
   z-index:1;
 }
 
 
-// 左側 線
+// // タブ サインアウト時
+
+// 左側 線 （サインイン時と違う）
 .form_signin_wrap:first-child:before{
   // background: red;
   display:block;
 
   content:"";
-  border-width: 2px 0px 0px 2px;
+  border-width: 0px 0px 0px 2px;
   border-style: solid;
   border-color: gray;
 
@@ -175,7 +177,7 @@
   // z-index:0;
 }
 
-
+// 左 突き抜ける線
 .form_signin_wrap:first-child:after{
   // background: red;
   display:block;
@@ -227,10 +229,12 @@
   z-index:1;
 }
 
-// contents-tab
+
+
+// // 縦線
 
 .form_signup_tab:before{
-  // background: red;
+  background: #ffffff;
   display:block;
 
   content:"";
@@ -238,16 +242,18 @@
   border-style: solid;
   border-color: gray;
 
-  width:32px ;
-  height:343px;
+  width:32px;
+  height:320px;
   position: absolute;
   right:calc(12vw - 32px);
   // right:0;
   top:100px;
 
-  // z-index:0;
+  z-index:0;
 }
 
+
+// signup-tab
 .form_signup_tab:after {
   background: white;
   display:block;
@@ -273,8 +279,38 @@
 
   position: absolute;
   right:calc(12vw - 34px);
-  top:260px;
+  top:250px;
 
   z-index:1;
 }
 
+
+// .group_tab:after {
+//   background: white;
+//   display:block;
+
+//   content: "Group＊MENU";
+//   // background: local;
+
+//   border-width:2px 2px 2px 2px;
+//   border-style: solid;
+//   border-color: gray;
+//   border-radius:0 10px 16px 0;
+
+//   width:32px;
+//   height:160px;
+
+//   color:#333333;
+//   writing-mode:vertical-rl;
+//   text-orientation: upright;
+//   text-align: right;
+//   line-height:30px;
+//   letter-spacing:-1px;
+//   padding: 10px 0px 10px 0px;
+
+//   position: absolute;
+//   right:calc(12vw - 34px);
+//   top:380px;
+
+//   z-index:1;
+// }
