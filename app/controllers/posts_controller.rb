@@ -24,8 +24,13 @@ class PostsController < ApplicationController
         if params[:group] == "all"
 
           @user_posts = Post.where(user_id:current_user.id)
-          
-          render json: @user_posts
+          # binding.pry
+          # render json: @user_posts
+
+          respond_to do |format|
+            format.html{redirect_to root_path}
+            format.json
+          end
 
         elsif params[:group] != "all"
           group_name = Group.find_by(group_name: params[:group])
@@ -35,11 +40,11 @@ class PostsController < ApplicationController
           ggg = Post.find_by_sql(query)
           @group_posts = ggg.select{|a| a.group_id == group_name.id}
 
-          respond_to do |format|
-            format.html{redirect_to root_path}
-            format.json
-          end
-          # render json: @group_posts
+          # respond_to do |format|
+          #   format.html{redirect_to root_path}
+          #   format.json
+          # end
+          render json: @group_posts
         end
       end
     else

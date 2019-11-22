@@ -16,7 +16,9 @@
           = link_to destroy_user_session_path, method: :delete, class: 'logout-btn waku' do
             %p ログアウト
       - else
-        サインアウト中
+        .header-right
+          %p
+            ログインしてご利用ください
   -# .header_nav_wrap
   -#   .header_nav
   -#     - if user_signed_in?
@@ -111,23 +113,30 @@
     .form_post_one
       .form_post_two.hidden
         .form_post_three
+          %h2 投稿フォーム
           .form_post
-            %h2 投稿フォーム
-            .form_post_form-title
+            %h3
+              グループの選択
+            %p
+              投稿するグループを選択してください
             = form_for @post, url: posts_post_posts_path, method: :post do |f|
-              -# .form_post_groups-btn
-              - current_user.groups.each do |group|
-                = f.radio_button :group_id, :"#{group.id}", class:"groups_btn"
-                = f.label :"group_id", "#{group.group_name}"
-                -# = f.radio_button "group", "#{group.id}", type:"radio", class:"groups_btn"
-                -# = f.label "group_#{group.id}", "#{group.group_name}"
+              .form_post_group-btns
+                - current_user.groups.each do |group|
+                  = f.radio_button :group_id, :"#{group.id}", class:"form_post_groups-btn"
+                  = f.label :"group_id_#{group.id}", "#{group.group_name}"
+              .title-content
+                %h3
+                  投稿するブログのタイトル
+                = f.text_field :title, class: 'form_post_title', placeholder: 'タイトル'
+                %h3
+                  本文テキスト
+                = f.text_area :content, class: 'form_post_content', placeholder: '本文テキスト'
 
-              = f.text_field :title, class: 'form_post_title', placeholder: 'タイトル'
-              = f.text_area :content, class: 'form_post_content', placeholder: '本文テキスト'
               .form_post_image
                 = f.label :image, class: 'form_post_mask_image' do
                   = fa_icon 'picture-o', class: 'icon'
                   = f.file_field :image, class: 'hidden'
+
               .form_post_submit-btn
                 = f.button '投稿する',type: "submit" , class: 'form_post_submit'
 
@@ -189,56 +198,59 @@
     -# サインインフォーム 表示
     .form_signin_one
       .form_signin_two.hidden
-        %h2 Log in
+        %h2
+          ログイン
         -# %p 登録しているユーザーでログイン
         .form_signup
           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
             .field
               .field-label
-                = f.label :email
+                = f.label :メールアドレス
               .field-input
                 = f.email_field :email, autofocus: true
               .field
                 .field-label
-                  = f.label :password
+                  = f.label :パスワード
                   %br
                   %i (英数字6文字以上)
                 .field-input
                   = f.password_field :password, autocomplete: "off"
               .sign_btn
-                = f.submit "Log in"
+                = f.submit "ログイン"
         -# = render "devise/shared/links"
 
 
     -# サインアップフォーム
     .form_signup_one
       .form_signup_two.hidden
-        %h2 Sign up
+        %h2
+          新規登録
         .form_signup
           = form_for "",url: signup_users_path, method: :post do |f|
             .field
-              = f.label :name
+              = f.label :お名前
               %br/
               = f.text_field :name, autofocus: true, autocomplete: "name"
             .field
-              = f.label :email
+              = f.label :メールアドレス
               %br
-              %i (英数字6文字以上)
               = f.email_field :email, autofocus: true, autocomplete: "email"
             .field
-              = f.label :password
+              = f.label :パスワード
+              %br
+              %i (英数字6文字以上)
               - if @minimum_password_length
                 %em
                   (#{@minimum_password_length} characters minimum)
               %br/
               = f.password_field :password, autocomplete: "new-password"
             .field
-              = f.label :password_confirmation
+              = f.label :パスワードの再入力
               %br
-              %i (確認の為 再入力)
+              -# %i 確認の為、パスワードの再入力
               = f.password_field :password_confirmation, autocomplete: "new-password"
             .sign_btn
-              = f.submit "Sign up"
+              = f.submit "新規登録"
           -# = render "devise/shared/links"
     .brank_div
 
