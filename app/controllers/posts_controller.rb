@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     if user_signed_in?
       # 投稿一覧表示
       @posts = Post.all.order("created_at DESC")
-      # @groups = Group.all.order("created_at DESC")
+        # @groups = Group.all.order("created_at DESC")
 
       #  投稿フォーム用にインスタンスを用意
       @post = Post.new
