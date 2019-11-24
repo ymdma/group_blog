@@ -38,11 +38,11 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # gem 'capistrano'
-  # gem 'capistrano-rbenv'
-  # gem 'capistrano-bundler'
-  # gem 'capistrano-rails'
-  # gem 'capistrano3-unicorn'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
   gem 'rspec-rails', '~> 3.5'
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
@@ -85,7 +85,7 @@ gem "font-awesome-rails"
 gem "mini_magick"
 gem "carrierwave"
 # # S3への画像アップロード
-# gem 'fog-aws'
+gem 'fog-aws'
 
 # gem 'ransack'
 
