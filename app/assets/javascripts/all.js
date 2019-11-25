@@ -3,13 +3,11 @@ $(document).on("turbolinks:load", function(){
   function buildHTML(post){
     var img = post.image ? `${post.image}` : "";
     var html = `
-                <div class="content">
+                <div class="content" id="${post.id}">
                   <div class="content_title">
                     <h3>${post.title}</h3>
                   </div>
 
-                  <div class="content_name">
-                  </div>
                   <div class="content_text">
                     <p>${post.content}</p>
                     <div class="clear"></div>
@@ -42,7 +40,7 @@ $(document).on("turbolinks:load", function(){
 
     .done(function(data){
       $(".contents_three").empty()
-      console.log(data)
+      // console.log(data)
       data.forEach(function(post) {
         // $("body").append(post.title)
         // $("body").append(post.name)
@@ -67,4 +65,17 @@ $(document).on("turbolinks:load", function(){
   //     return false
   //   }
   // })
+
+  $(".contents_three").click(function(){
+    $(".content").each(function(){
+      $(this).click(function(){
+        let post = $(this).attr("id")
+        window.location.href =  "/posts/" + post
+      })
+    })
+  })
+
+
+
+
 });

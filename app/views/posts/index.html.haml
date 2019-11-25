@@ -1,64 +1,12 @@
-
-.header_wrap.hide
-  .header
-    .header_title
-      %h2 TITLE
-    .header_groug_name
-      -# "#{@group.group_name}"
-    .header_nav
-      - if user_signed_in?
-        .header-right
-          %p.waku.header_nav_post 投稿する
-          %p.waku.header_nav_group.mk_group_btn グループ作成
-          %p.waku
-            = current_user.name
-          %p さん ようこそ!
-          = link_to destroy_user_session_path, method: :delete, class: 'logout-btn waku' do
-            %p ログアウト
-      - else
-        .header-right
-          %p
-            ログインしてご利用ください
-  -# .header_nav_wrap
-  -#   .header_nav
-  -#     - if user_signed_in?
-  -#       %p Post
-  -#       %p Group
-        -# .nav_post
-        -#   .nav_post_brank
-        -#   .nav_post_btn
-        -#     %p Post
-        -#   .nav_post_text
-        -#     %p 投稿しよう！
-
-        -# .nav_group
-        -#   .nav_group_brank
-        -#   .nav_group_btn
-        -#     %p Group
-        -#   .nav_group_text
-        -#     %p グループを作ろう！
-
-      -# - else
-        -# %p signin
-        -# %p signup
-        -# .nav_signin
-        -#   .nav_signin_blank
-        -#   .nav_signin_btn
-        -#     %p Sign in
-        -#   .nav_signin_text
-        -#     %p 新規登録をしよう！
-        -# .nav_signup
-        -#   .nav_signup_blank
-        -#   .nav_signup_btn
-        -#     %p Sign up
-        -#   .nav_signup_text
-        -#     %p ログインしよう！
-
+= render "header"
 
 -# フラッシュメッセージなど
-- if flash[:post_alert]
-  %span.alert
-  = flash[:post_alert]
+.flash
+  -# %span
+  -#   グループを作成しました
+  - if flash[:notice]
+    %span.alert
+      = flash[:notice]
 
 -# メインコンテンツ表示ゾーン
 .main_wrap
@@ -134,6 +82,8 @@
 
               .form_post_image
                 = f.label :image, class: 'form_post_mask_image' do
+                  %span
+                    画像のアップロード
                   = fa_icon 'picture-o', class: 'icon'
                   = f.file_field :image, class: 'hidden'
 
@@ -167,24 +117,6 @@
       .contents_two
         -# = image_tag @image.url
         .contents_three
-          -# - @posts.each do |post|
-          -#   .content
-          -#     .content_title
-          -#       %h3
-          -#         -# タイトル:
-          -#         = post.title
-          -#     .content_name
-          -#       %h4
-          -#         -# ユーザ名:
-          -#         = post.user.name
-          -#     .content_text
-          -#       %p
-          -#         -# 本文:
-          -#         %br
-          -#         = post.content
-          -#       .clear
-          -#     .content_image
-              -#   = image_tag post.image
 
   - else          # サインインしていない場合
     -# サインインフォーム タブ
@@ -195,6 +127,15 @@
     .form_signup_wrap
       .form_signup_tab
 
+    .pop-up_lets-signup
+      .pop-up_lets-signup_two
+        .pop-up_lets-signup_text
+          %p
+            まずはサインアップしよう！
+        .pop-up_lets-signup_arrow_1
+          .pop-up_lets-signup_arrow_2
+            .pop-up_lets-signup_arrow_3
+              = fa_icon 'mouse-pointer', class: 'icon'
     -# サインインフォーム 表示
     .form_signin_one
       .form_signin_two.hidden
@@ -254,11 +195,3 @@
           -# = render "devise/shared/links"
     .brank_div
 
-
-  .footer
-    .upper
-      .copyright COPYRIGHT &#xA9; MASATO YAMADA ALL RIGHTS RESERVED.
-    -# .lower
-
-
--# %button#bbbttt

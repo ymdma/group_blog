@@ -1,0 +1,22 @@
+.header_wrap.hide
+  .header
+    .header_title
+      %h2 GroupBlog
+    .header_groug_name
+      -# "#{@group.group_name}"
+    .header_nav
+      - if user_signed_in?
+        .header_nav_upper
+          %p.waku
+            = current_user.name
+          %p さん ようこそ!
+          = link_to destroy_user_session_path, method: :delete, class: 'logout-btn waku' do
+            %p ログアウト
+        .header_nav_lower
+          %p.waku.header_nav_post 投稿する
+          %p.waku.header_nav_group.mk_group_btn グループ作成
+
+      - else
+        .header_nav_sign-out
+          %p
+            ログインしてご利用ください

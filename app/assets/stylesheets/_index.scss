@@ -2,7 +2,7 @@
   background: #fafafa;
   width:100vw;
   height:100%;
-  padding: 100px 12% 0px;
+  padding: 120px 12% 0px;
   margin:0 auto 0;
   // display:flex;
   // justify-content: center;
@@ -27,7 +27,6 @@
   // float: left;
   // z-index:90;
 
-
 }
 
 
@@ -49,7 +48,7 @@
   position: absolute;
   left:calc(12vw + 0px);
   // right:0;
-  top:90px;
+  top:110px;
 
   // z-index:0;
 }
@@ -68,7 +67,7 @@
   position: absolute;
   left:calc(12vw - 32px);
   // right:0;
-  top:100px;
+  top:120px;
 
   // z-index:0;
 }
@@ -97,7 +96,7 @@
 
   position: absolute;
   right:calc(12vw - 34px);
-  top:110px;
+  top:130px;
 
   z-index:1;
 }
@@ -119,7 +118,7 @@
   position: absolute;
   right:calc(12vw - 32px);
   // right:0;
-  top:100px;
+  top:120px;
 
   // z-index:0;
 }
@@ -149,7 +148,7 @@
 
   position: absolute;
   right:calc(12vw - 34px);
-  top:215px;
+  top:235px;
 
   z-index:1;
 }
@@ -172,7 +171,7 @@
   position: absolute;
   left:calc(12vw + 0px);
   // right:0;
-  top:100px;
+  top:120px;
 
   // z-index:0;
 }
@@ -192,7 +191,7 @@
   position: absolute;
   left:calc(12vw - 32px);
   // right:0;
-  top:100px;
+  top:120px;
 
   // z-index:0;
 }
@@ -224,7 +223,7 @@
 
   position: absolute;
   right:calc(12vw - 34px);
-  top:110px;
+  top:130px;
 
   z-index:1;
 }
@@ -247,7 +246,7 @@
   position: absolute;
   right:calc(12vw - 32px);
   // right:0;
-  top:100px;
+  top:120px;
 
   z-index:0;
 }
@@ -279,7 +278,7 @@
 
   position: absolute;
   right:calc(12vw - 34px);
-  top:250px;
+  top:270px;
 
   z-index:1;
 }
@@ -314,3 +313,36 @@
 
 //   z-index:1;
 // }
+
+
+
+//サインアップしよう！のポップアップ
+
+.pop-up_lets-signup_two{
+  background: #fafafadd;
+  width:320px;
+  padding: 15px 15px;
+
+  color: #111111;
+  font-size: 18px;
+  font-weight: 600;
+
+  border:solid #555555 1.5px;
+  border-radius: 20px;
+  letter-spacing: 0.8px;
+  // opacity:1;
+
+  position: absolute;
+  top: 330px;
+  right: calc(12vw - 58px);
+  display: flex;
+  z-index:3;
+
+  .pop-up_lets-signup p {
+    display: block;
+  }
+  & i {
+    color: #ff4f4f;
+    padding: 4px 0px 0px 15px;
+  }
+}

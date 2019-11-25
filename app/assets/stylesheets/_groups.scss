@@ -1,23 +1,68 @@
 // 表示するグループの選択
+.flash{
+  background:#777777aa;
+  position: fixed;
+  top: 40%;
+  left: 3%;
+
+  width: 94%;
+  height: 20%;
+  z-index:10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span {
+    display: block;
+    color:#ffffff;
+    font-size: 24px;
+    font-weight: 600;
+
+  }
+}
 
 .groups{
   width:100%;
-  // padding:10px;
   padding:0px 0 10px 0;
   margin: 20px 0 20px;
-
-  // border:solid rgba(209, 213, 149, 0.1) 1px;
-  border-radius:1px;
-
   display:flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
 
+  overflow: hidden;
   // z-index:1;
 
   // //
   // グループ ボタン
+
+  input{
+    display:none;
+  }
+  label{
+    display:block;
+    background:#888888;
+    height: 30px;
+    min-width:70px;
+    max-width: 230px;
+    margin:5px 12px 5px 0;
+    padding:0 10px 0;
+
+    color:#f0f0f0;
+    line-height:30px;
+    font-size:16px;
+    text-align:center;
+    word-break : break-all;
+    overflow: hidden;
+    border-radius:6em;
+    z-index:1;
+  }
+}
+
+.group_radio-btn{
+
+  display:flex;
+  align-items: center;
+  justify-content: center;
 
   input{
     display:none;
@@ -35,30 +80,7 @@
     font-size:16px;
     text-align:center;
 
-    border-radius:6em;
     z-index:1;
-  }
-}
-
-.group_radio-btn{
-  color:#f0f0f0;
-  height: 30px;
-  line-height:30px;
-  font-size:18px;
-  text-align:center;
-
-  display:flex;
-  align-items: center;
-  justify-content: center;
-
-  input{
-    display:none;
-  }
-  label{
-    background:#888888;
-    min-width:70px;
-    padding:0 5px 0;
-    border-radius:6em;
   }
 }
 
@@ -100,6 +122,7 @@
 
 // // //
 
+
 .form_group_three{
   display:flex;
   flex-direction:column;
@@ -132,6 +155,7 @@
   // background: red;
   border:none;
 }
+
 .group-name_field input{
   display: block;
   width:53%;
@@ -177,7 +201,7 @@
 }
 
 button.form_group_submit{
-  background: #ffffff;
+  background: #ffffff77;
   display:block;
   width:250px;
   height:40px;
@@ -188,7 +212,8 @@ button.form_group_submit{
   text-align: center;
   font-size: 18px;
   font-weight: 400;
-  border: solid 1px;
+  border-radius: 7px;
+  border: solid #333333 0.5px;
   cursor: pointer;
 
   &:hover{
@@ -201,6 +226,8 @@ button.form_group_submit{
     font-size: 18.5px;
   }
 }
+
+
 
 // コンテンツ仕切り線
 .form_group_three:after{
@@ -247,7 +274,6 @@ button.form_group_submit{
   z-index:1;
   & a{
     color:#f0f0f0;
-
   }
 }
 

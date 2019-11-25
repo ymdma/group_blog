@@ -38,8 +38,14 @@
     font-weight: 600;
   }
   & p{
-    font-size:14px;
-    font-weight: 400;
+    display: inline-block;
+    font-size:16px;
+    // margin:0px 5px ;
+    padding:5px 5px;
+    line-height:20px;
+    letter-spacing:0.1px;
+    color:#333333;
+    font-weight:400;
   }
 }
 
@@ -68,7 +74,7 @@
   line-height: 15px;
   vertical-align: center;
 
-  overflow-wrap:break-word;
+  overflow-wrap:break-all;
   overflow: hidden;
   position: relative;
 }
@@ -78,8 +84,8 @@
 //   height: 0px;
 //   border-bottom: solid #f5f5f5 0.5px;
 // }
-.content_image{
-  width:100%;
+.content_image img{
+  max-width:250px;
   max-height: 250px;
 }
 
@@ -88,8 +94,12 @@
   background: rgb(255,255,255);
   background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1)66%);
   width:4em;
-  height:15px;
+  height:23px;
   position: absolute;
-  bottom:0px;
+  bottom:1px;
   right:0px;
+
+  line-height: 22px;
+  align-content: center;
+
 }

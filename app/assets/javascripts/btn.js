@@ -32,13 +32,14 @@ $(function(){
     if(confirm("このグループを削除します")){
 
       $(this).animate({
-        height:"toggle"
+        height:"toggle",
+        opacity:"toggle"
       },300);
 
       notClicked.css("background","#888888");
     }
     else{
-      
+
 
       return false
     }

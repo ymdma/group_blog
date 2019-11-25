@@ -36,18 +36,32 @@
 
 
 
-// 右側 nav
-.header-right{
-  margin: 20px 0 0 0;
-  line-height:20px;
-  flex-wrap: wrap;
+// ヘッダー ナビゲーション
+.header_nav{
+  flex-direction:column;
+  &_upper{
+    margin: 5px 0 0 0;
+    height: 20px;
+    line-height:20px;
+  }
+  &_lower{
+    margin: 10px 0 0 0;
+    height: 20px;
+    line-height:20px;
+  }
+  &_sign-out{
+    margin: 20px 0 0 2px;
+    height: 20px;
+    line-height:20px;
+    color:#ffc925;
+    font-size:16px;
+  }
 }
-
-.header-right p:nth-child(3){
+.header_nav_upper p:nth-child(1){
   color:#ffc925;
   opacity:1;
 }
-.header-right p:nth-child(4){
+.header_nav_upper p:nth-child(4){
   cursor: default;
 }
 

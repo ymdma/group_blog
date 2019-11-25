@@ -34,19 +34,29 @@ class PostsController < ApplicationController
           group_name = Group.find_by(group_name: params[:group])
           # @group_posts = Post.where(group_id: group_name.id)
 
+          # 1
           query = "select * from posts join users on posts.user_id = users.id"
+          # 2
+          # query = "select posts.id,title,content,image,posts.created_at,group_id,users.id,users.name from posts left outer join users on posts.user_id = users.id"
+
           ggg = Post.find_by_sql(query)
           @group_posts = ggg.select{|a| a.group_id == group_name.id}
-
-          # respond_to do |format|
-          #   format.html{redirect_to root_path}
-          #   format.json
-          # end
-          render json: @group_posts
+          # binding.pry
+          
+          respond_to do |format|
+            format.html{redirect_to root_path}
+            format.json
+          end
+          # render json: @group_posts
         end
       end
     else
     end
+  end
+
+
+  def show
+    @post = Post.find(params[:id])
   end
 
 
