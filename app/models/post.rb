@@ -12,5 +12,6 @@ class Post < ApplicationRecord
   validates :content, presence: true
   validates :content, length: { in: 1..256 }
 
+  validates :group_id, presence: true
 
 end

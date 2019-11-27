@@ -23,13 +23,13 @@ $(function(){
   });
 
   // フラッシュ
-  $(".flash_one").fadeOut(4500);
+  $(".flash_one").fadeOut(4000);
 
   // modal
 
   // $(".group_d-list a").mouseover(function(){
   //   // alert("ok")
-  //   $(".modal").toggleClass("hidden");
+  //   $(".modal_one,modal").toggleClass("hidden");
   // });
 
 });
