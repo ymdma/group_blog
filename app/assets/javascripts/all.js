@@ -1,15 +1,15 @@
 $(document).on("turbolinks:load", function(){
 
-  function buildHTML(post){
-    var img = post.image ? `${post.image}` : "";
+  function buildHTML(apost){
+    var img = apost.image ? `${apost.image}` : "";
     var html = `
-                <div class="content" id="${post.id}">
+                <div class="content" id="${apost.id}">
                   <div class="content_title">
-                    <h3>${post.title}</h3>
+                    <h3>${apost.title}</h3>
                   </div>
 
                   <div class="content_text">
-                    <p>${post.content}</p>
+                    <p>${apost.content}</p>
                     <div class="clear"></div>
                   </div>
                   <div class="content_image">
@@ -41,11 +41,11 @@ $(document).on("turbolinks:load", function(){
     .done(function(data){
       $(".contents_three").empty()
       // console.log(data)
-      data.forEach(function(post) {
-        // $("body").append(post.title)
-        // $("body").append(post.name)
+      data.forEach(function(apost) {
+        // $("body").append(apost.title)
+        // $("body").append(apost.name)
 
-        insertHTML = buildHTML(post);
+        insertHTML = buildHTML(apost);
         $(".contents_three").append(insertHTML);
         // alert(d.title+d.content)
       })
@@ -54,28 +54,21 @@ $(document).on("turbolinks:load", function(){
       alert('コンテンツの取得に失敗しました');
     })
 
-    // return false;
+    return false;
   });
 
 
 
-  // $("#bbbttt").click(function(){
-  //   if(confirm("投稿してもよろしいですか？")){
-  //   } else {
-  //     return false
-  //   }
-  // })
 
-  $(".contents_three").click(function(){
+
+  $(".contents_two").click(function(){
     $(".content").each(function(){
       $(this).click(function(){
         let post = $(this).attr("id")
+
         window.location.href =  "/posts/" + post
       })
     })
   })
-
-
-
 
 });

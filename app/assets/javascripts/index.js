@@ -23,8 +23,14 @@ $(function(){
   });
 
   // フラッシュ
-  // $("span.alert").fadeOut(4500);
-  $(".flash").fadeOut(4500);
+  $(".flash_one").fadeOut(4500);
+
+  // modal
+
+  // $(".group_d-list a").mouseover(function(){
+  //   // alert("ok")
+  //   $(".modal").toggleClass("hidden");
+  // });
 
 });
 

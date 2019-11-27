@@ -63,8 +63,8 @@ $(document).on("turbolinks:load", function(){
     $(".content").each(function(){
       $(this).click(function(){
         let post = $(this).attr("id")
-        alert(post)
-        // window.location.href =  "/posts/" + post
+        // alert(post)
+        window.location.href =  "/posts/" + post
       })
     })
   })

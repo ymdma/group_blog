@@ -10,21 +10,24 @@ class GroupsController < ApplicationController
     @group.users << current_user
 
     if @group.save
-      redirect_to root_path, notice: 'グループを作成しました'
+      redirect_to root_path, flash:{group_create: "グループを作成しました"}
     else
-      render :new
+      # redirect_to root_path, flash:{group_create_error: "作成に失敗しました"}
+      flash[:group_name_blank] = "グループ名を入力して下さい"
+      render '/posts/index' unless @group.valid?
     end
   end
 
 
   def destroy
     @group = Group.find(params[:id])
-      @group.destroy
-    # binding.pry 
+    @group.destroy
+    if @group.destroy
+      redirect_to root_path, flash:{group_delete: "グループを削除しました"}
+    end
     # post = post.find(params[:id])
     # # if post.user_id == current_user.id
     # # end
-    redirect_to root_path
   end
 
   private

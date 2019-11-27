@@ -4,9 +4,21 @@
 .flash
   -# %span
   -#   グループを作成しました
-  - if flash[:notice]
-    %span.alert
-      = flash[:notice]
+  - if flash[:group_create]
+    .flash_one
+      %span.alert
+        = flash[:group_create]
+
+  - if flash[:group_delete]
+    .flash_one
+      %span.alert
+        = flash[:group_delete]
+
+  - if flash[:group_create_error]
+    .flash_one
+      %span.alert
+        = flash[:group_create_error]
+
 
 -# メインコンテンツ表示ゾーン
 .main_wrap
@@ -53,8 +65,16 @@
               .group_edit-delete_btns
                 - current_user.groups.each do |group|
                   .group_d-list
-                    = link_to "#{group.group_name}", "/groups/#{group.id}", method: :delete
-
+                    -# = link_to "#{group.group_name}", "/groups/#{group.id}", method: :delete
+                    = link_to "#{group.group_name}"
+                  -# .modal_one.hidden
+                  -#   .modal
+                  -#     %span
+                  -#       このグループを削除してもよろしいですか？
+                  -#     .modal_btns
+                  -#       -# = binding.pry
+                  -#       = link_to "取り消す","#"
+                  -#       = link_to "削除する","/groups/#{group.id}", method: :delete
 
 
     -# 新規投稿フォーム フォーム

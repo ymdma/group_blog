@@ -8,6 +8,7 @@ $(function(){
   });
 });
 
+// 投稿するグループの選択
 $(function(){
   $(".form_post_group-btns label").click(function(){
     var notClicked =  $(".form_post_group-btns label").not(this);
@@ -18,29 +19,29 @@ $(function(){
 });
 
 // 削除するグループの選択 /確認-フェードで消える/@groups.scss
+// $(function(){
+//   $(".group_d-list").click(function(){
+//     var notClicked =  $(".group_d-list").not(this);
 
-$(function(){
-  $(".group_d-list").click(function(){
-    var notClicked =  $(".group_d-list").not(this);
+//     $(this).css("background","#ff0affb2");
+//     notClicked.css("background","#888888");
+//   });
 
-    $(this).css("background","#ff0affb2");
-    notClicked.css("background","#888888");
-  });
-});
+//   // グループの削除アニメーション  * 効いていない *
+//   // $(".group_d-list").click(function(){
+//   //   if(confirm("このグループを削除します")){
+//   //     $(this).css("type","checked");
+//   //     $(this).animate({
+//   //       height:"toggle",
+//   //       opacity:"toggle"
+//   //     },300);
 
-  $(".group_d-list").click(function(){
-    if(confirm("このグループを削除します")){
-
-      $(this).animate({
-        height:"toggle",
-        opacity:"toggle"
-      },300);
-
-      notClicked.css("background","#888888");
-    }
-    else{
+// });
 
 
-      return false
-    }
-  })
+  // $("#bbbttt").click(function(){
+  //   if(confirm("投稿してもよろしいですか？")){
+  //   } else {
+  //     return false
+  //   }
+  // })

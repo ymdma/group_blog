@@ -1,3 +1,90 @@
+
+// フラッシュメッセージ
+.flash_one {
+  background:#777777aa;
+  position: fixed;
+  top: 40%;
+  left: 3%;
+
+  width: 94%;
+  height: 20%;
+  z-index:10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    display: block;
+    color:#ffffff;
+    font-size: 24px;
+    font-weight: 600;
+
+  }
+}
+
+.modal_one{
+
+}
+.modal {
+  background: #f0f0f055;
+  position: fixed;
+  top: 30%;
+  left: auto;
+
+  width: 480px;
+  height: 300px;
+  border:#f0f0f0;
+  box-shadow: #cccccc 0px 0px 5px 0px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  z-index:10;
+
+  span {
+    display: block;
+    margin:40px 20px 80px;
+    color:#333333;
+    font-size: 18px;
+    // font-weight: 600;
+  }
+  &_btns{
+    display: flex;
+
+    a {
+      background: #ffffff;
+      display: block;
+      width:140px;
+      height:40px;
+      margin:20px 20px 40px ;
+
+      color:#333333;
+      line-height: 40px;
+      font-size: 18px;
+      font-weight: 400;
+      text-align: center;
+      border-radius: 7px;
+      border: solid #333333 0.5px;
+      cursor: pointer;
+    }
+    a:last-child{
+    background: rgba(179, 213, 255, 0.2);
+    }
+    a:hover {
+      background: rgba(179, 213, 255, 0.6);
+      font-size: 18px;
+    }
+    a:active {
+      background: rgb(131, 182, 244);
+      color:#ffffff;
+      font-size: 18.5px;
+      border: solid rgb(131, 182, 244) 0.5px;
+    }
+  }
+}
+
+
 .main_wrap{
   background: #fafafa;
   width:100vw;
