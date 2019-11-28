@@ -9,15 +9,15 @@
       %span.alert
         = flash[:group_create]
 
-  - if flash[:group_delete]
-    .flash_one
-      %span.alert
-        = flash[:group_delete]
-
   - if flash[:group_create_error]
     .flash_one
       %span.alert
         = flash[:group_create_error]
+
+  - if flash[:group_delete]
+    .flash_one
+      %span.alert
+        = flash[:group_delete]
 
 
 -# メインコンテンツ表示ゾーン
@@ -34,8 +34,8 @@
     -# 投稿一覧 タブ
     .group_tab
 
-    -# グループ作成 フォーム
 
+    -# グループ作成 フォーム
     .form_group_wrap
       .form_group_one
         .form_group_two.hidden
@@ -52,8 +52,12 @@
               %p
                 グループに登録したユーザの投稿を表示します
               .group-user-sel_field
-                = f.collection_check_boxes :user_ids, @namelist, :id, :name
+                -# = f.collection_check_boxes :group[user_ids][], @namelist, :id, :name
+                -# = f.collection_check_boxes :user_ids, User.all, :id, :name
+                = f.collection_check_boxes :user_ids, User.all, :id, :name
               = f.button 'グループ作成',type: "submit" , class: 'form_group_submit'
+
+              -# <%= f.collection_check_boxes(:user_ids, User.all, :id, :name) do |b| %>
 
           -# グループの削除
           .group_edit-delete
@@ -66,15 +70,19 @@
                 - current_user.groups.each do |group|
                   .group_d-list
                     -# = link_to "#{group.group_name}", "/groups/#{group.id}", method: :delete
-                    = link_to "#{group.group_name}"
-                  -# .modal_one.hidden
-                  -#   .modal
-                  -#     %span
-                  -#       このグループを削除してもよろしいですか？
-                  -#     .modal_btns
-                  -#       -# = binding.pry
-                  -#       = link_to "取り消す","#"
-                  -#       = link_to "削除する","/groups/#{group.id}", method: :delete
+                    %div{id:"#{group.id}"}
+                      = group.group_name
+
+            -# グループの削除確認用のモーダル
+            .modal_one.hidden
+              .modal
+                %span
+                  このグループを削除してもよろしいですか？
+                .modal_btns
+                  .modal_n
+                    取り消す
+                  .modal_d
+                    削除する
 
 
     -# 新規投稿フォーム フォーム
@@ -87,11 +95,13 @@
               グループの選択
             %p
               投稿するグループを選択してください
+
             = form_for @post, url: posts_post_posts_path, method: :post do |f|
               .form_post_group-btns
                 - current_user.groups.each do |group|
                   = f.radio_button :group_id, :"#{group.id}", class:"form_post_groups-btn"
                   = f.label :"group_id_#{group.id}", "#{group.group_name}"
+
               .title-content
                 %h3
                   投稿するブログのタイトル
@@ -109,6 +119,9 @@
 
               .form_post_submit-btn
                 = f.button '投稿する',type: "submit" , class: 'form_post_submit'
+              = render partial: 'error_messages', locals: {post:@post , column: "group_id"}
+              = render partial: 'error_messages', locals: {post: @post, column: "title"}
+              = render partial: 'error_messages', locals: {post: @post, column: "content"}
 
 
 
@@ -116,7 +129,7 @@
     .groups_wrap
       .groups
         %h3
-          グループの表示
+          グループの投稿を表示
         %p
           選択したグループの投稿を表示します
 
@@ -131,12 +144,14 @@
 
 
 
-
     -# 投稿一覧 タイル表示
     .contents_one
       .contents_two
         -# = image_tag @image.url
         .contents_three
+          -# 以下Ajaxにてcontentを表示
+
+
 
   - else          # サインインしていない場合
     -# サインインフォーム タブ
@@ -156,6 +171,7 @@
           .pop-up_lets-signup_arrow_2
             .pop-up_lets-signup_arrow_3
               = fa_icon 'mouse-pointer', class: 'icon'
+
     -# サインインフォーム 表示
     .form_signin_one
       .form_signin_two.hidden
@@ -179,7 +195,6 @@
               .sign_btn
                 = f.submit "ログイン"
         -# = render "devise/shared/links"
-
 
     -# サインアップフォーム
     .form_signup_one

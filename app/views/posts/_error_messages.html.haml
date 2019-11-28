@@ -1,0 +1,6 @@
+- if post.errors.any?
+  - unless post.valid?
+    - if errors = post.errors.full_messages_for(column.to_sym)
+      %ul
+        - errors.each do |error|
+          %li=error

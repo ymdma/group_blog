@@ -10,12 +10,12 @@ def signup
   )
   @user.save
 
-  if @user.save
-    # binding.pry
-    # session[:id] = @user.id
-    sign_in User.find(@user.id) unless user_signed_in?
-    redirect_to root_path
-  end
+  # if @user.save
+  #   # binding.pry
+  #   # session[:id] = @user.id
+  #   sign_in User.find(@user.id) unless user_signed_in?
+  #   redirect_to root_path
+  # end
 
 end
 

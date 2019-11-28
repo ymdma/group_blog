@@ -9,7 +9,7 @@ $(document).on("turbolinks:load", function(){
                   </div>
 
                   <div class="content_name">
-                    <h4>${post.user_name}</h4>
+                    <h4>${post.name}</h4>
                   </div>
 
                   <div class="content_text">

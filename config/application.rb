@@ -29,7 +29,8 @@ module GroupBlog
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-
+    # エラーメッセージの日本語化
+    config.i18n.default_locale = :ja
     # localeの設定 基本言語:日本語、タイムゾーン:東京、＊要本番環境のタイムゾーン設定
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]

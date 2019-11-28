@@ -22,25 +22,35 @@
   }
 }
 
-.modal_one{
+// モーダル グループ削除
 
+.modal_one{
+  background: #00000055;
+  position: absolute ;
+  top:0;
+  left:0;
+  width: 200%;
+  height:500%;
+  z-index:101;
 }
 .modal {
-  background: #f0f0f055;
+  background: #fafafa;
   position: fixed;
   top: 30%;
-  left: auto;
+  left:calc(50% - 240px);
+ 
 
   width: 480px;
   height: 300px;
-  border:#f0f0f0;
-  box-shadow: #cccccc 0px 0px 5px 0px;
+  border:#c0c0c0;
+  border-radius: 5px;
+  // box-shadow: #aaaaaa 0px 0px 5px 0px;
 
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  z-index:10;
+  z-index:101;
 
   span {
     display: block;
@@ -52,7 +62,7 @@
   &_btns{
     display: flex;
 
-    a {
+    div {
       background: #ffffff;
       display: block;
       width:140px;
@@ -68,15 +78,15 @@
       border: solid #333333 0.5px;
       cursor: pointer;
     }
-    a:last-child{
-    background: rgba(179, 213, 255, 0.2);
+    div:last-child{
+    background: rgb(89, 159, 244);
     }
-    a:hover {
-      background: rgba(179, 213, 255, 0.6);
+    div:hover {
+      background: rgb(109, 169, 244);
       font-size: 18px;
     }
-    a:active {
-      background: rgb(131, 182, 244);
+    div:active {
+      background: rgb(129, 189, 244);
       color:#ffffff;
       font-size: 18.5px;
       border: solid rgb(131, 182, 244) 0.5px;
@@ -87,7 +97,7 @@
 
 .main_wrap{
   background: #fafafa;
-  width:100vw;
+  width:100%;
   height:100%;
   padding: 120px 12% 0px;
   margin:0 auto 0;
@@ -133,7 +143,7 @@
   width:230px ;
   height:108px;
   position: absolute;
-  left:calc(12vw + 0px);
+  left:calc(12% + 0px);
   // right:0;
   top:110px;
 
@@ -152,7 +162,7 @@
   width:64px ;
   height:8px;
   position: absolute;
-  left:calc(12vw - 32px);
+  left:calc(12% - 32px);
   // right:0;
   top:120px;
 
@@ -182,7 +192,7 @@
   padding: 10px 0px 10px 0px;
 
   position: absolute;
-  right:calc(12vw - 34px);
+  right:calc(12% - 34px);
   top:130px;
 
   z-index:1;
@@ -203,7 +213,7 @@
   width:32px ;
   height:320px;
   position: absolute;
-  right:calc(12vw - 32px);
+  right:calc(12% - 32px);
   // right:0;
   top:120px;
 
@@ -234,7 +244,7 @@
   padding: 10px 0px 10px 0px;
 
   position: absolute;
-  right:calc(12vw - 34px);
+  right:calc(12% - 34px);
   top:235px;
 
   z-index:1;
@@ -256,7 +266,7 @@
   width:230px ;
   height:108px;
   position: absolute;
-  left:calc(12vw + 0px);
+  left:calc(12% + 0px);
   // right:0;
   top:120px;
 
@@ -276,7 +286,7 @@
   width:64px ;
   height:8px;
   position: absolute;
-  left:calc(12vw - 32px);
+  left:calc(12% - 32px);
   // right:0;
   top:120px;
 
@@ -309,7 +319,7 @@
   padding: 10px 0px 10px 0px;
 
   position: absolute;
-  right:calc(12vw - 34px);
+  right:calc(12% - 34px);
   top:130px;
 
   z-index:1;
@@ -331,7 +341,7 @@
   width:32px;
   height:320px;
   position: absolute;
-  right:calc(12vw - 32px);
+  right:calc(12% - 32px);
   // right:0;
   top:120px;
 
@@ -364,7 +374,7 @@
   padding: 10px 0px 20px 0px;
 
   position: absolute;
-  right:calc(12vw - 34px);
+  right:calc(12% - 34px);
   top:270px;
 
   z-index:1;
@@ -395,7 +405,7 @@
 //   padding: 10px 0px 10px 0px;
 
 //   position: absolute;
-//   right:calc(12vw - 34px);
+//   right:calc(12% - 34px);
 //   top:380px;
 
 //   z-index:1;
@@ -421,7 +431,7 @@
 
   position: absolute;
   top: 330px;
-  right: calc(12vw - 58px);
+  right: calc(12% - 58px);
   display: flex;
   z-index:3;
 
