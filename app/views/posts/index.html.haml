@@ -9,16 +9,15 @@
       %span.alert
         = flash[:group_create]
 
-  - if flash[:group_delete]
-    .flash_one
-      %span.alert
-        = flash[:group_delete]
-
   - if flash[:group_create_error]
     .flash_one
       %span.alert
         = flash[:group_create_error]
 
+  - if flash[:group_delete]
+    .flash_one
+      %span.alert
+        = flash[:group_delete]
 
 
 -# メインコンテンツ表示ゾーン
@@ -53,10 +52,12 @@
               %p
                 グループに登録したユーザの投稿を表示します
               .group-user-sel_field
-                = f.collection_check_boxes :user_ids, @namelist, :id, :name
+                -# = f.collection_check_boxes :group[user_ids][], @namelist, :id, :name
+                -# = f.collection_check_boxes :user_ids, User.all, :id, :name
+                = f.collection_check_boxes :user_ids, User.all, :id, :name
               = f.button 'グループ作成',type: "submit" , class: 'form_group_submit'
 
-
+              -# <%= f.collection_check_boxes(:user_ids, User.all, :id, :name) do |b| %>
 
           -# グループの削除
           .group_edit-delete
@@ -72,9 +73,7 @@
                     %div{id:"#{group.id}"}
                       = group.group_name
 
-                    -# = link_to "#{group.group_name}", "#", method: :get
-                    -# = link_to "#{group.group_name}"
-            -# 削除確認用のモーダル
+            -# グループの削除確認用のモーダル
             .modal_one.hidden
               .modal
                 %span
@@ -129,7 +128,7 @@
     .groups_wrap
       .groups
         %h3
-          グループの表示
+          グループの投稿を表示
         %p
           選択したグループの投稿を表示します
 
@@ -150,6 +149,7 @@
       .contents_two
         -# = image_tag @image.url
         .contents_three
+          -# 以下Ajaxにてcontentを表示
 
   - else          # サインインしていない場合
     -# サインインフォーム タブ

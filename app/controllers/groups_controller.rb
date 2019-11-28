@@ -9,13 +9,17 @@ class GroupsController < ApplicationController
     # group_params[:user_ids].shift()
     @group = Group.new(group_params)
     @group.users << current_user
+
     @group.save
 
     if @group.save
-    redirect_to root_path, flash:{group_create: "グループを作成しました"}
+      redirect_to root_path, flash:{group_create: "グループを作成しました"}
+
     else
+      # redirect_to root_path, flash:{group_create: "グループの作成に失敗しました"}
+
     end
-    
+
       # flash[:group_create_error] = "グループ名を入力して下さい"
       # redirect_to root_path, flash:{group_create_error: "作成に失敗しました"}
       # render controller: :post action: :index
@@ -40,9 +44,11 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params['group']['user_ids'].shift
-    correct_user_ids = params['group']['user_ids']
-    params.require(:group).permit(:name,:group_name).merge(user_ids: correct_user_ids)
+    # params['group']['user_ids'].shift
+    # correct_user_ids = params['group']['user_ids']
+    # params.require(:group).permit(:name,:group_name).merge(user_ids: correct_user_ids)
+    # params.require(:group).permit(:name,:group_name,:user_id => [] )
+    params.require(:group).permit(:group_name, user_ids: [] )
   end
 
 end
