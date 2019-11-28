@@ -121,7 +121,7 @@ class PostsController < ApplicationController
           # fff = User.find_by_sql(query)
           @group_posts = ggg.select{|a| a.group_id == group_name.id}
 
-          # binding.pry
+          binding.pry
           respond_to do |format|
             format.html{redirect_to root_path}
             format.json

@@ -1,14 +1,4 @@
-
-
-// $(".group_d-list a").on("mousereave", function(){
-//   console.log("ok")
-//   let post = $(this).children(".group_d-list").attr("href");
-//   $(this).fadeIn();
-// });
-
-
-
-
+// グループ削除の確認用モーダル
 $(document).on("turbolinks:load", function(){
   $(".group_d-list").on("click", function(){
 

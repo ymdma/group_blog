@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.users << current_user
 
-    @group.save
+    # @group.save
 
     if @group.save
       redirect_to root_path, flash:{group_create: "グループを作成しました"}

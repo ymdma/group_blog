@@ -95,6 +95,7 @@
               グループの選択
             %p
               投稿するグループを選択してください
+
             = form_for @post, url: posts_post_posts_path, method: :post do |f|
               .form_post_group-btns
                 - current_user.groups.each do |group|
@@ -143,13 +144,14 @@
 
 
 
-
     -# 投稿一覧 タイル表示
     .contents_one
       .contents_two
         -# = image_tag @image.url
         .contents_three
           -# 以下Ajaxにてcontentを表示
+
+
 
   - else          # サインインしていない場合
     -# サインインフォーム タブ
@@ -169,6 +171,7 @@
           .pop-up_lets-signup_arrow_2
             .pop-up_lets-signup_arrow_3
               = fa_icon 'mouse-pointer', class: 'icon'
+
     -# サインインフォーム 表示
     .form_signin_one
       .form_signin_two.hidden
@@ -192,7 +195,6 @@
               .sign_btn
                 = f.submit "ログイン"
         -# = render "devise/shared/links"
-
 
     -# サインアップフォーム
     .form_signup_one
