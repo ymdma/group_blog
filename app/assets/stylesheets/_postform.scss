@@ -177,6 +177,22 @@
   }
 }
 
+.field_with_errors{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  flex-wrap: wrap;
+}
+
+.form_post li{
+  color:red;
+}
+.form_post ul{
+  margin-bottom:40px;
+}
+
+
+
 // コンテンツの仕切り線
 .form_post_two:after{
   content:"";

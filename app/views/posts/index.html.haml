@@ -1,4 +1,4 @@
-= render "header"
+= render "posts/header"
 
 -# フラッシュメッセージなど
 .flash
@@ -52,12 +52,9 @@
               %p
                 グループに登録したユーザの投稿を表示します
               .group-user-sel_field
-                -# = f.collection_check_boxes :group[user_ids][], @namelist, :id, :name
-                -# = f.collection_check_boxes :user_ids, User.all, :id, :name
                 = f.collection_check_boxes :user_ids, User.all, :id, :name
               = f.button 'グループ作成',type: "submit" , class: 'form_group_submit'
 
-              -# <%= f.collection_check_boxes(:user_ids, User.all, :id, :name) do |b| %>
 
           -# グループの削除
           .group_edit-delete
@@ -85,7 +82,7 @@
                     削除する
 
 
-    -# 新規投稿フォーム フォーム
+    -# Blog 新規投稿フォーム フォーム
     .form_post_one
       .form_post_two.hidden
         .form_post_three
@@ -101,14 +98,17 @@
                 - current_user.groups.each do |group|
                   = f.radio_button :group_id, :"#{group.id}", class:"form_post_groups-btn"
                   = f.label :"group_id_#{group.id}", "#{group.group_name}"
+                = render partial: 'error_messages', locals: {post:@post , column: "group_id"}
 
               .title-content
                 %h3
                   投稿するブログのタイトル
                 = f.text_field :title, class: 'form_post_title', placeholder: 'タイトル'
+                = render partial: 'error_messages', locals: {post: @post, column: "title"}
                 %h3
                   本文テキスト
                 = f.text_area :content, class: 'form_post_content', placeholder: '本文テキスト'
+                = render partial: 'error_messages', locals: {post: @post, column: "content"}
 
               .form_post_image
                 = f.label :image, class: 'form_post_mask_image' do
@@ -119,9 +119,6 @@
 
               .form_post_submit-btn
                 = f.button '投稿する',type: "submit" , class: 'form_post_submit'
-              = render partial: 'error_messages', locals: {post:@post , column: "group_id"}
-              = render partial: 'error_messages', locals: {post: @post, column: "title"}
-              = render partial: 'error_messages', locals: {post: @post, column: "content"}
 
 
 
@@ -230,3 +227,4 @@
           -# = render "devise/shared/links"
     .brank_div
 
+= render "posts/footer"

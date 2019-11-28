@@ -59,16 +59,16 @@ $(document).on("turbolinks:load", function(){
 
 
 
+// showページへの遷移
 
-
-  $(".contents_two").click(function(){
+  $(".contents_three").click(function(){
     $(".content").each(function(){
       $(this).click(function(){
         let post = $(this).attr("id")
 
         window.location.href =  "/posts/" + post
-      })
+      });
     })
-  })
+  });
 
 });

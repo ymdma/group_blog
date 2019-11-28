@@ -1,4 +1,4 @@
-= render "header"
+= render "posts/header"
 
 .main_wrap
 
@@ -18,11 +18,9 @@
         = @post.content
     - if @post.image.present?
       .show_content_image
-        -# = link_to "",url:"#{@post.image.url}" do
-        = image_tag @post.image.url
+        = link_to "",url:"#{@post.image.url}" do
+          = image_tag @post.image.url
+  .show_lower_btn
+    = link_to "戻る", root_path, method: :get
 
-
-= render "footer"
-
-
-
+= render "posts/footer"

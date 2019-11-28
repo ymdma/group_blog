@@ -9,7 +9,8 @@
         .header_nav_upper
           %p.waku
             = current_user.name
-          %p さん ようこそ!
+          %p
+          |
           = link_to destroy_user_session_path, method: :delete, class: 'logout-btn waku' do
             %p ログアウト
         .header_nav_lower
