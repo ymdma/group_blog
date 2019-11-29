@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   resources :posts do
     collection do
-      post "posts/post"
+      # post "post"
+      post "create"
+      # get "posts/post"
       delete "posts/destroy"
       patch "update"
     end

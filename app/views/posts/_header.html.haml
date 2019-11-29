@@ -1,20 +1,20 @@
 .header_wrap.hide
   .header
     .header_title
-      -# = link_to root_path do
-      %h2 GroupBlog
+      =link_to root_path do
+        %h2 GroupBlog
     .header_groug_name
       -# "#{@group.group_name}"
     .header_nav
       - if user_signed_in?
-        .header_nav_upper
+        .header_nav_upper{class:"#{controller.action_name}"}
           %p.waku
             = current_user.name
           %p
           |
           = link_to destroy_user_session_path, method: :delete, class: 'logout-btn waku' do
             %p ログアウト
-        .header_nav_lower
+        .header_nav_lower{class:"#{controller.action_name}"}
           %p.waku.header_nav_post 投稿する
           %p.waku.header_nav_group.mk_group_btn グループ作成
 

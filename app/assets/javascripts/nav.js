@@ -2,22 +2,25 @@
 
 $(function(){
 
-  $(".header_nav_signin").click(function(){
+  $(document).on("click",".header_nav_signin",function(){
     $(".form_signin_two").toggleClass("hidden");
+    
   });
 
-  $(".header_nav_signup").click(function(){
+  $(document).on("click",".header_nav_signup",function(){
     $(".form_signup_two").toggleClass("hidden");
   });
 
-  $(".header_nav_post").click(function(){
+
+  $(document).on("click",".header_nav_post",function(){
     $(".form_post_two").toggleClass("hidden");
   });
 
-  $(".header_nav_contents").click(function(){
+  $(document).on("click",".header_nav_contents",function(){
     $(".contents_two").toggleClass("hidden");
   });
-  $(".mk_group_btn").click(function(){
+
+  $(document).on("click",".mk_group_btn",function(){
     $(".form_group_two").toggleClass("hidden");
   });
 

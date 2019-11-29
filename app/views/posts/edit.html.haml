@@ -3,8 +3,10 @@
 .main_wrap
   = form_for @post, method: :patch do |f|
     .edit_content
-      .edit_date
-        = @post.created_at.strftime("%Y/%m/%d %H:%M")
+      .edit_logo
+        %h2
+          EDIT
+        -# = @post.created_at.strftime("%Y/%m/%d %H:%M")
       .edit_content_upper
         .edit_title
           %h3

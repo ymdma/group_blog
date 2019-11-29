@@ -2,7 +2,7 @@
 
 .edit_content{
   margin:20px 0px;
-  padding:20px 40px;
+  padding:20px 0px;
   border:solid #777777 1px;
   overflow: hidden;
   h3{
@@ -44,32 +44,47 @@
     display: inline-block;
     font-size:16px;
     padding:5px 5px;
-    line-height:26px;
+    // line-height:26px;
     letter-spacing:0.2px;
     color:#333333;
     font-weight:400;
 
   }
-  .edit_date {
+  .edit_logo {
     background: #fafafa;
     position:absolute;
-    top:132px;
+    top:122px;
     right:20%;
+    border-radius:5px;
+    border:solid #777777 2px;
+    box-shadow:1px 1px 1px 0px #777777;
+    h2{
+      // display: inline-block;
+      font-size:22px;
+      padding:5px 20px;
+      // margin-bottom:10px;
+      line-height:26px;
+      letter-spacing:0.4px;
+      color:#333333;
+      font-weight:600;
+    }
   }
   &_upper{
-    padding:0 0 5px;
+    padding:0 20px 2px;
     display:flex;
     justify-content: space-between;
     // border-bottom:solid #f0f0f0 1px;
   }
 
   &_lower{
-    padding:25px 15px 0;
+    padding:15px 15px 15px;
 
     .edit_text {
       word-break:break-all;
       & textarea{
         width:100%;
+        // max-height:3000px;
+        line-height:22px;
         background: #fafafa00;
         border:none;
         padding:10px 10px 40px ;
@@ -99,6 +114,7 @@
     display:block;
     width:250px;
     height:40px;
+    margin:20px 20px;
     color:#333333;
     line-height: 40px;
     font-size: 18px;
@@ -120,6 +136,7 @@
     display:block;
     width:250px;
     height:40px;
+    margin:20px 20px;
     color:#333333;
     line-height: 40px;
     font-size: 18px;
