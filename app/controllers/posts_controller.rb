@@ -59,8 +59,12 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+
+
+
+
   # indexの記述 + 投稿用の記述
-  def post
+  def create
     if user_signed_in?
       # 投稿一覧表示
       @posts = Post.all.order("created_at DESC")
@@ -80,16 +84,15 @@ class PostsController < ApplicationController
         group_id: post_params[:group_id],
         user_id: current_user.id
       )
-      @post.save
+      # @post.save
 
         if @post.save
-          # ********renderでできないものか***********
+
           redirect_to root_path, flash:{group_create: "投稿に成功しました"}
         else
-          flash[:post_alert] = "投稿に失敗しました"
-          render action: :index
-          # flash[:post_title_blank] = "タイトルを入力して下さい"
-          # flash[:post_text_blank] = "本文を入力して下さい"
+          # binding.pry
+          render "posts/index"
+
         end
 
 

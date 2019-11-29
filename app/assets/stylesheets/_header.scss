@@ -86,6 +86,14 @@ p.waku, a.waku{
   border-radius: 5px;
 }
 
+.header_nav_upper.show,.header_nav_upper.edit{
+  margin-top: 20px;
+}
+  .header_nav_lower.show,.header_nav_lower.edit{
+  display:none;
+}
+
+
 
 // nav
 

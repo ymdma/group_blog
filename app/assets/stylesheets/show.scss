@@ -1,8 +1,7 @@
 
-
 .show_content{
   margin:20px 0px;
-  padding:20px 40px;
+  padding:20px 0px;
   border:solid #777777 1px;
   overflow: hidden;
   h3{
@@ -45,7 +44,8 @@
     right:20%;
   }
   &_upper{
-    padding:0 0 5px;
+    padding:0 20px 2px;
+    // margin:0 0 0 0;
     display:flex;
     justify-content: space-between;
     // border-bottom:solid #f0f0f0 1px;
@@ -56,7 +56,7 @@
       width:72%;
       height:3px;
       position: absolute;
-      top:209px;
+      top:210px;
       left:12%;
 
       background: #ffffff00;
@@ -80,7 +80,7 @@
   }
 
   &_lower{
-    padding:25px 0 0;
+    padding:30px 15px 5px;
 
     .show_text {
       word-break:break-all;
@@ -102,6 +102,7 @@
   & a{
     width:250px;
     height:40px;
+    margin:40px 40px;
     color:#333333;
     line-height: 40px;
     font-size: 18px;

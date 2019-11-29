@@ -93,7 +93,7 @@
             %p
               投稿するグループを選択してください
 
-            = form_for @post, url: posts_post_posts_path, method: :post do |f|
+            = form_for @post,url:"/posts" do |f|
               .form_post_group-btns
                 - current_user.groups.each do |group|
                   = f.radio_button :group_id, :"#{group.id}", class:"form_post_groups-btn"
