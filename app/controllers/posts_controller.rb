@@ -11,12 +11,10 @@ class PostsController < ApplicationController
       @post = Post.new
 
       #  新規グループ作成時、ユーザーの名前の表示
-      @namelist = User.where.not(id:current_user.id)
+      # @name_list = User.where.not(id:current_user.id)
 
       #  投稿フォーム用にインスタンスを用意
       @group = Group.new
-
-
 
       #  グループボタンを押してPostの表示範囲を指定
       if params[:group]  == nil
@@ -72,7 +70,7 @@ class PostsController < ApplicationController
       @group = Group.new
 
       #  新規グループ作成時、ユーザーの名前の表示
-      @namelist = User.where.not(id:current_user.id)
+      # @namelist = User.where.not(id:current_user.id)
 
       # postアクション用記述
       @post = Post.new(
@@ -121,7 +119,7 @@ class PostsController < ApplicationController
           # fff = User.find_by_sql(query)
           @group_posts = ggg.select{|a| a.group_id == group_name.id}
 
-          binding.pry
+          # binding.pry
           respond_to do |format|
             format.html{redirect_to root_path}
             format.json
@@ -153,10 +151,26 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+
+
+  def update
+    # @post = Post.new
+
+    post = Post.find(params[:id])
+    if post.user_id == current_user.id
+      post.update(post_params)
+      redirect_to action: :show
+    end
+  end
+
+
   def destroy
 
   end
-
 
 
   private

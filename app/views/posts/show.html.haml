@@ -3,24 +3,27 @@
 .main_wrap
 
   .show_content
-    .show_content_date
-      %h4
+    .show_date
+      %p
         = @post.created_at.strftime("%Y/%m/%d %H:%M")
-    .show_upper
-      .show_content_title
+    .show_content_upper
+      .show_title
         %h3
           = @post.title
-      .show_content_name
+      .show_name
         %h4
           = @post.user.name
-    .show_content_text
-      %p
-        = @post.content
-    - if @post.image.present?
-      .show_content_image
-        = link_to "",url:"#{@post.image.url}" do
-          = image_tag @post.image.url
-  .show_lower_btn
+    .show_content_lower
+      .show_text
+        %p
+          = safe_join(@post.content.split("\n"), tag(:br))
+      - if @post.image.present?
+        .show_image
+          = link_to "",url:"#{@post.image.url}" do
+            = image_tag @post.image.url
+
+  .show_under_btn
+    = link_to "編集する", edit_post_path, method: :get
     = link_to "戻る", root_path, method: :get
 
 = render "posts/footer"
