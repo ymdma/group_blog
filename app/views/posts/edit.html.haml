@@ -1,0 +1,27 @@
+= render "posts/header"
+
+.main_wrap
+  = form_for @post, method: :patch do |f|
+    .edit_content
+      .edit_date
+        = @post.created_at.strftime("%Y/%m/%d %H:%M")
+      .edit_content_upper
+        .edit_title
+          %h3
+            = f.text_field :title, value:"#{@post.title}"
+        .edit_name
+          %h4
+            = @post.user.name
+      .edit_content_lower
+        .edit_text
+          = f.text_area :content, value:"#{@post.content}"
+        -# 画像の編集機能は追って実装
+        -# - if @post.image.present?
+        -#   .edit_image
+        -#       = image_tag @post.image.url
+    .edit_under_btn
+      = f.submit "変更を保存"
+      -# = link_to "編集する", edit_post_path, method: :get
+      = link_to "戻る", "/posts/#{@post.id}", method: :get
+
+= render "posts/header"

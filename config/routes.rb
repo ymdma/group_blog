@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     collection do
       post "posts/post"
       delete "posts/destroy"
+      patch "update"
     end
   end
 

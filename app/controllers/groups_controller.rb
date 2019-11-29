@@ -10,13 +10,11 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.users << current_user
 
-    # @group.save
-
     if @group.save
       redirect_to root_path, flash:{group_create: "グループを作成しました"}
 
     else
-      # redirect_to root_path, flash:{group_create: "グループの作成に失敗しました"}
+      redirect_to root_path, flash:{group_create: "グループの作成に失敗しました"}
 
     end
 
