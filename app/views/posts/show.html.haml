@@ -7,12 +7,10 @@
       %p
         = @post.created_at.strftime("%Y/%m/%d %H:%M")
     .show_content_upper
-      .show_title
-        %h3
-          = @post.title
-      .show_name
-        %h4
-          = @post.user.name
+      %h3
+        = @post.title
+      %h4
+        = @post.user.name
     .show_content_lower
       .show_text
         %p

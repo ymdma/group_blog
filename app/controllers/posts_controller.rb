@@ -117,7 +117,7 @@ class PostsController < ApplicationController
 
             # 1
           # query = "select * from posts join users on posts.user_id = users.id"
-            query = "select posts.id,title,content,image,users.name,posts.created_at,group_id from posts join users on posts.user_id = users.id"
+          query = "select posts.id,title,content,image,users.name,posts.created_at,group_id from posts join users on posts.user_id = users.id"
           ggg = Post.find_by_sql(query)
           # fff = User.find_by_sql(query)
           @group_posts = ggg.select{|a| a.group_id == group_name.id}
@@ -179,6 +179,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
+    # binding.pry
     params.require(:post).permit(
       [:title],
       [:content],

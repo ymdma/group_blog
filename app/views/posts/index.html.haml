@@ -47,6 +47,8 @@
                 = f.label :グループ名を入力してください
               .group-name_field
                 = f.text_field :group_name, autofocus: true, autocomplete: "グループ名を入力"
+                = render partial: 'error_messages', locals: {post:@group , column: "group_name"}
+
               %h3
                 = f.label :ユーザを選択してください
               %p
@@ -116,6 +118,20 @@
                     画像のアップロード
                   = fa_icon 'picture-o', class: 'icon'
                   = f.file_field :image, class: 'hidden'
+                .image
+
+                -#   <img id="avatar_img_prev" src="#" class='hidden' />  <!-- 1行追加 -->
+                -# <% if current_user.persisted? && current_user.avatar? %>
+                -#   <%= image_tag current_user.avatar.to_s, class: 'avatar_present_img' %>    <!-- classを追加 -->
+                -#   <label><%= f.check_box :remove_avatar %> 画像を削除</label>
+                -# <% else %>
+                -#   <%= image_tag 'no_avatar.png', class: 'avatar_present_img' %>   <!-- classを追加 -->
+                -#   <%= f.hidden_field :avatar_cache %>
+                -# <% end %>
+                = image_tag "", class: 'post_image-preview'
+                = f.hidden_field :image_cache
+
+              -# = f.file_field :imager, id: 'post_img'
 
               .form_post_submit-btn
                 = f.button '投稿する',type: "submit" , class: 'form_post_submit'
@@ -131,13 +147,12 @@
           選択したグループの投稿を表示します
 
         = radio_button_tag "groups","all",type:"radio", class:"group_name"
-        = label_tag "groups_all", "#{current_user.name}の投稿"
+        = label_tag "groups_all", "#{current_user.name}の投稿", class:"group_name"
 
         - current_user.groups.each do |group|
           =link_to root_path, class: "hoge" do
-            .group_radio-btn
-              = radio_button_tag "groups","#{group.group_name}",type:"radio", class:"group_name"
-              = label_tag "groups_#{group.group_name}", "#{group.group_name}"
+            = radio_button_tag "groups","#{group.group_name}",type:"radio", class:"group_name"
+            = label_tag "groups_#{group.group_name}", "#{group.group_name}", class:"group_name"
 
 
 

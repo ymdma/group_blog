@@ -1,13 +1,13 @@
 
 .show_content{
   margin:20px 0px;
-  padding:20px 0px;
+  padding:15px 0px;
   border:solid #777777 1px;
   overflow: hidden;
   h3{
     display: inline-block;
     font-size:20px;
-    margin:0px 15px ;
+    // margin:0px 15px ;
     padding:5px 5px;
     line-height:26px;
     letter-spacing:0.3px;
@@ -19,7 +19,7 @@
   h4{
   display: inline-block;
   font-size:16px;
-  margin:0px 15px ;
+  // margin:0px 15px ;
   padding:5px 5px;
   line-height:26px;
   letter-spacing:0.3px;
@@ -44,7 +44,7 @@
     right:20%;
   }
   &_upper{
-    padding:0 20px 2px;
+    padding:0 20px 0;
     // margin:0 0 0 0;
     display:flex;
     justify-content: space-between;
@@ -80,7 +80,7 @@
   }
 
   &_lower{
-    padding:30px 15px 5px;
+    padding:35px 20px 5px;
 
     .show_text {
       word-break:break-all;
@@ -118,6 +118,7 @@
   }
   & a:active{
     color:#888888;
-    border: solid rgb(151, 202, 244) 0.5px;
+    border: solid rgb(171, 222, 244) 0.5px;
+    transition: all 200ms ease-out 30ms;
   }
 }

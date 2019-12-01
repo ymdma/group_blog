@@ -31,7 +31,7 @@ $(document).on("turbolinks:load", function(){
 
 
   $(".hoge").click(function(){
-    var group = $(this).children().children().val()
+    var group = $(this).children().val()
     var url = location.href
 
     $.ajax({

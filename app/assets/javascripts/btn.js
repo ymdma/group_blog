@@ -1,5 +1,8 @@
 // 投稿を表示するグループの選択 /選んだ要素の色を変える/@groups.scss
 $(function(){
+  // $(document).on("click",".group_name",function(){
+  //   var notClicked =  $(".group_name").not(this);
+
   $(".groups label").click(function(){
     var notClicked =  $(".groups label").not(this);
 
@@ -10,7 +13,7 @@ $(function(){
 
 // 投稿するグループの選択
 $(function(){
-  $(".form_post_group-btns label").click(function(){
+  $(document).on("click",".form_post_group-btns label",function(){
     var notClicked =  $(".form_post_group-btns label").not(this);
 
     $(this).css("background","#ff0affb2");
