@@ -26,3 +26,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# 画像がgithubにコミットされないように追加
+public/uploads/*
+
+.env
