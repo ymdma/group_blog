@@ -1,13 +1,13 @@
 
 .show_content{
-  margin:20px 0px;
-  padding:20px 0px;
+  margin:20px 0px 40px;
+  padding:15px 0px;
   border:solid #777777 1px;
   overflow: hidden;
   h3{
     display: inline-block;
     font-size:20px;
-    margin:0px 15px ;
+    // margin:0px 15px ;
     padding:5px 5px;
     line-height:26px;
     letter-spacing:0.3px;
@@ -19,7 +19,7 @@
   h4{
   display: inline-block;
   font-size:16px;
-  margin:0px 15px ;
+  // margin:0px 15px ;
   padding:5px 5px;
   line-height:26px;
   letter-spacing:0.3px;
@@ -44,7 +44,7 @@
     right:20%;
   }
   &_upper{
-    padding:0 20px 2px;
+    padding:0 20px 0;
     // margin:0 0 0 0;
     display:flex;
     justify-content: space-between;
@@ -80,7 +80,7 @@
   }
 
   &_lower{
-    padding:30px 15px 5px;
+    padding:35px 20px 5px;
 
     .show_text {
       word-break:break-all;
@@ -92,7 +92,7 @@
   }
 }
 
-.show_under_btn{
+.show_under_btns, .show_under_btns_lower{
   background: #fafafa00;
 
   width:100%;
@@ -102,14 +102,14 @@
   & a{
     width:250px;
     height:40px;
-    margin:40px 40px;
+    margin:20px 40px;
     color:#333333;
     line-height: 40px;
     font-size: 18px;
     font-weight: 400;
     text-align: center;
     border-radius: 7px;
-    border: solid #333333 0.5px;
+    border: solid #888888 0.5px;
     cursor: pointer;
   }
   & a:hover{
@@ -118,6 +118,91 @@
   }
   & a:active{
     color:#888888;
-    border: solid rgb(151, 202, 244) 0.5px;
+    border: solid rgb(171, 222, 244) 0.5px;
+    transition: all 200ms ease-out 30ms;
   }
+}
+
+
+// 投稿削除の確認用モーダル
+
+
+.post-modal_one{
+  background: #00000077;
+  position: absolute ;
+  top:0;
+  left:0;
+  width: 200%;
+  height:500%;
+  z-index:101;
+}
+.post-modal {
+  background: #fafafa;
+  position: fixed;
+  top: 30%;
+  left:calc(50% - 240px);
+
+  width: 480px;
+  height: 300px;
+  border:#c0c0c0;
+  border-radius: 9px;
+  // box-shadow: #aaaaaa 0px 0px 5px 0px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  z-index:101;
+
+  span {
+    display: block;
+    margin:40px 20px 80px;
+    color:#333333;
+    font-size: 18px;
+    // font-weight: 600;
+  }
+  &_btns {
+    display: flex;
+
+    & div {
+      background: #ffffff;
+      display: block;
+      width:140px;
+      height:40px;
+      margin:20px 20px 40px ;
+
+      color:#333333;
+      line-height: 40px;
+      font-size: 18px;
+      font-weight: 400;
+      text-align: center;
+      border-radius: 7px;
+      border: solid #cccccc 0.5px;
+      cursor: pointer;
+    }
+  }
+}
+.post-modal_n:hover {
+  background: rgb(244, 169, 109);
+  font-size: 18px;
+}
+.post-modal_n:active {
+  background: rgb(244, 189, 129);
+  color:#ffffff;
+  font-size: 18.5px;
+  border: solid  rgb(244, 189, 129) 0.5px;
+}
+
+.post-modal_d{
+  background: rgba(89, 159, 244, 0.5);
+}
+.post-modal_d:hover {
+  background: rgb(109, 169, 244);
+  font-size: 18px;
+}
+.post-modal_d:active {
+  background: rgb(129, 189, 244);
+  color:#ffffff;
+  font-size: 18.5px;
+  border: solid rgb(131, 182, 244) 0.5px;
 }

@@ -4,7 +4,7 @@
 
 .groups{
   width:100%;
-  padding:0px 0 10px 0;
+  padding:0px 20px 10px;
   margin: 20px 0 20px;
   display:flex;
   align-items: center;
@@ -37,14 +37,16 @@
     overflow: hidden;
     border-radius:6em;
     z-index:1;
+    cursor: pointer;
   }
 }
 
-.group_radio-btn{
+// .group_radio-btn{
 
-  display:flex;
-  align-items: center;
-  justify-content: center;
+  // display:flex;
+  // align-items: center;
+  // justify-content: center;
+a.hoge{
 
   input{
     display:none;
@@ -63,7 +65,12 @@
     text-align:center;
 
     z-index:1;
+    cursor: pointer;
   }
+}
+label.group_name:hover{
+  background: #ff0affb2;
+
 }
 
 .radio-inline__label {
@@ -146,7 +153,11 @@
   margin:0 auto 0;
   margin-bottom: 60px;
   line-height: 21px;
-  border-style: solid 1px;
+  border:solid #e5e5e5 1px;
+}
+.group-name_field input:hover{
+  border:solid rgb(131, 182, 244) 1px;
+  transition: all 300ms ease-in 100ms;
 }
 
 .group-user-sel_field{
@@ -206,6 +217,7 @@ button.form_group_submit{
     background: rgb(131, 182, 244);
     color:#ffffff;
     font-size: 18.5px;
+    border: rgb(131, 182, 244);
   }
 }
 
@@ -249,6 +261,7 @@ button.form_group_submit{
   padding:0 5px 0;
 
   line-height:30px;
+  color:#f0f0f0;
   font-size:16px;
   text-align:center;
 
@@ -276,3 +289,84 @@ button.form_group_submit{
 }
 
 
+
+// Ajaxモーダル グループ削除
+
+.modal_one{
+  background: #00000077;
+  position: absolute ;
+  top:0;
+  left:0;
+  width: 200%;
+  height:500%;
+  z-index:101;
+}
+.modal {
+  background: #fafafa;
+  position: fixed;
+  top: 30%;
+  left:calc(50% - 240px);
+
+  width: 480px;
+  height: 300px;
+  border:#c0c0c0;
+  border-radius: 9px;
+  // box-shadow: #aaaaaa 0px 0px 5px 0px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  z-index:101;
+
+  span {
+    display: block;
+    margin:40px 20px 80px;
+    color:#333333;
+    font-size: 18px;
+    // font-weight: 600;
+  }
+  &_btns{
+    display: flex;
+
+    div {
+      background: #ffffff;
+      display: block;
+      width:140px;
+      height:40px;
+      margin:20px 20px 40px ;
+
+      color:#333333;
+      line-height: 40px;
+      font-size: 18px;
+      font-weight: 400;
+      text-align: center;
+      border-radius: 7px;
+      border: solid #cccccc 0.5px;
+      cursor: pointer;
+    }
+    div:last-child{
+    background: rgba(89, 159, 244, 0.5);
+    }
+    div:hover {
+      background: rgb(244, 169, 109); 
+      font-size: 18px;
+    }
+    div:active {
+      background: rgb(244, 189, 129);
+      color:#ffffff;
+      font-size: 18.5px;
+      border: solid  rgb(244, 189, 129) 0.5px;
+    }
+    div:last-child:hover {
+      background: rgb(109, 169, 244);
+      font-size: 18px;
+    }
+    div:last-child:active {
+      background: rgb(129, 189, 244);
+      color:#ffffff;
+      font-size: 18.5px;
+      border: solid rgb(131, 182, 244) 0.5px;
+    }
+  }
+}

@@ -8,12 +8,15 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
     attributes:
-      
-      # テーブル名
+      # バリデーションをかけたいテーブル名とカラムを指定
       post:
         title: タイトル
         content: 本文
         group_id: グループ選択のボタン
+
+      group:
+        group_name: グループ名
+
   date:
     abbr_day_names:
     - 日

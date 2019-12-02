@@ -4,7 +4,7 @@ $(function(){
 
   $(document).on("click",".header_nav_signin",function(){
     $(".form_signin_two").toggleClass("hidden");
-    
+
   });
 
   $(document).on("click",".header_nav_signup",function(){
