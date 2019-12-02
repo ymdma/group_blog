@@ -20,8 +20,22 @@
           = link_to "",url:"#{@post.image.url}" do
             = image_tag @post.image.url
 
-  .show_under_btn
+  .show_under_btns
     = link_to "編集する", edit_post_path, method: :get
+    = link_to "削除する", "#",class:"show_modal_open"
+
+  .show_under_btns_lower
     = link_to "戻る", root_path, method: :get
+
+  .post-modal_one.hidden
+    .post-modal
+      %span
+        この投稿を削除してもよろしいですか？
+      .post-modal_btns
+        .post-modal_n
+          取り消す
+        = link_to "", url:posts_destroy_posts_path, method: :delete do
+          .post-modal_d
+            削除する
 
 = render "posts/footer"

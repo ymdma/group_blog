@@ -23,7 +23,7 @@ class PostsController < ApplicationController
         if params[:group] == "all"
 
           @user_posts = Post.where(user_id:current_user.id)
-          # binding.pry
+
           # render json: @user_posts
 
           respond_to do |format|
@@ -34,20 +34,17 @@ class PostsController < ApplicationController
         elsif params[:group] != "all"
           group_name = Group.find_by(group_name: params[:group])
           # @group_posts = Post.where(group_id: group_name.id)
-
             # 1
           # query = "select * from posts join users on posts.user_id = users.id"
             query = "select posts.id,title,content,image,users.name,posts.created_at,group_id from posts join users on posts.user_id = users.id"
           ggg = Post.find_by_sql(query)
-          # fff = User.find_by_sql(query)
           @group_posts = ggg.select{|a| a.group_id == group_name.id}
 
-          # binding.pry
           respond_to do |format|
             format.html{redirect_to root_path}
             format.json
+            # render json: @group_posts
           end
-          # render json: @group_posts
         end
       end
     else
@@ -172,7 +169,9 @@ class PostsController < ApplicationController
 
 
   def destroy
-
+    @post = Post.find_by(id: params[:id])
+    @post.destroy
+    redirect_to action: :index
   end
 
 
