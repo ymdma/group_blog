@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
     # group_params[:user_ids].shift()
     @group = Group.new(group_params)
     @group.users << current_user
-
+    binding.pry
     if @group.save
       redirect_to root_path, flash:{group_create: "グループを作成しました"}
 

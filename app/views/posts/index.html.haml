@@ -54,7 +54,7 @@
               %p
                 グループに登録したユーザの投稿を表示します
               .group-user-sel_field
-                = f.collection_check_boxes :user_ids, User.where.not(id: current_user.id), :id, :name
+                = f.collection_check_boxes :user_ids, User.where.not(id: current_user.id), :id, :name, include_hidden: false
               = f.button 'グループ作成',type: "submit" , class: 'form_group_submit'
 
 
@@ -245,5 +245,8 @@
               = f.submit "新規登録"
           -# = render "devise/shared/links"
     .brank_div
+
+
+
 
 = render "posts/footer"
