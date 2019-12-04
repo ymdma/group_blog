@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     collection do
       post "signup"
       post "login"
+      patch "update"
     end
   end
 

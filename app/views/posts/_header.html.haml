@@ -8,7 +8,7 @@
     .header_nav
       - if user_signed_in?
         .header_nav_upper{class:"#{controller.action_name}"}
-          %p.waku
+          %p.waku.use_name_edit-btn
             = current_user.name
           %p
           |
@@ -22,3 +22,9 @@
         .header_nav_sign-out
           %p
             ログインしてご利用ください
+
+.user_update-pop_one.hidden
+  .user_update-pop
+    = form_for "",url: "users/update", method: :patch do |f|
+      = f.text_field :name, value: "#{current_user.name}", class: "text_field_user_name"
+      = f.submit "変更を保存"
