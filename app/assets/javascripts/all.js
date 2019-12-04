@@ -3,21 +3,22 @@ $(document).on("turbolinks:load", function(){
   function buildHTML(apost){
     var img = apost.image ? `${apost.image}` : "";
     var html = `
-                <div class="content" id="${apost.id}">
-                  <div class="content_title">
-                    <h3>${apost.title}</h3>
-                  </div>
-
-                  <div class="content_text">
-                    <p>${apost.content}</p>
-                    <div class="clear"></div>
-                  </div>
-                  <div class="content_image">
-                    <img src="${img}">
-                  </div>
-                </div>
+<div class="content" id="${apost.id}">
+<div class="content_title">
+<h3>${apost.title}</h3>
+</div>
+<div class="content_text">
+<pre>
+<p>${apost.content}</p>
+<div class="clear"></div>
+</pre>
+</div>
+<div class="content_image">
+<img src="${img}">
+</div>
+</div>
                 `
-                // console.log(html)
+
     return html
   }
 

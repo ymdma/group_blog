@@ -16,6 +16,7 @@
 
   - if flash[:group_delete]
     .flash_one
+    -# .flash_one.redirect
       %span.alert
         = flash[:group_delete]
 
@@ -54,7 +55,7 @@
               %p
                 グループに登録したユーザの投稿を表示します
               .group-user-sel_field
-                = f.collection_check_boxes :user_ids, User.where.not(id: current_user.id), :id, :name
+                = f.collection_check_boxes :user_ids, User.where.not(id: current_user.id), :id, :name, include_hidden: false
               = f.button 'グループ作成',type: "submit" , class: 'form_group_submit'
 
 
@@ -195,7 +196,8 @@
           ログイン
         -# %p 登録しているユーザーでログイン
         .form_signup
-          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          -# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          = form_for "", url:login_users_path do |f|
             .field
               .field-label
                 = f.label :メールアドレス
@@ -245,5 +247,8 @@
               = f.submit "新規登録"
           -# = render "devise/shared/links"
     .brank_div
+
+
+
 
 = render "posts/footer"

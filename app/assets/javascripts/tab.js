@@ -1,12 +1,14 @@
 // 右タブナビゲーション
+// Link_toでの遷移後でも効くように.onに変更
 
-$(function(){
+// $(function(){
+$(document).on("turbolinks:load", function(){
 
-// Link_toでの遷移後でも効く
   $(document).on("click",".form_signin_tab",function(){
-        $(".form_signin_two").toggleClass("hidden");
+    $(".form_signin_two").toggleClass("hidden");
     $(".form_signup_two").addClass("hidden");
     $(".brank_div").toggleClass("hidden");
+    $(".pop-up_lets-signup_two").fadeOut("hidden");
   });
 
 
@@ -14,9 +16,16 @@ $(function(){
     $(".form_signup_two").toggleClass("hidden");
     $(".form_signin_two").addClass("hidden");
     $(".brank_div").toggleClass("hidden");
+    $(".pop-up_lets-signup_two").fadeOut("hidden");
+  });
+
+  $(document).on("click",".pop-up_lets-signup_two",function(){
+    $(".pop-up_lets-signup_two").fadeOut();
+    $(".form_signup_two").addClass("hidden");
   });
 
   $(document).on("click",".form_post_tab",function(){
+    $(".form_group_two").addClass("hidden");
     $(".form_post_two").toggleClass("hidden");
   });
   $(document).on("click",".content_tab",function(){
@@ -24,9 +33,25 @@ $(function(){
   });
 
   $(document).on("click",".group_tab",function(){
+    $(".form_post_two").addClass("hidden");
     $(".form_group_two").toggleClass("hidden");
-
   });
+
+  // バリデーションに引っかかった時にpostフォームを開いた状態のままにする
+  $(window).on('load',function(){
+    if(document.URL.match("/posts")){
+      $(".form_post_two").toggleClass("hidden");
+    }
+  });
+  // バリデーションに引っかかった時にgroupフォームを開いた状態のままにする
+  $(window).on('load',function(){
+    if(document.URL.match("/groups")){
+      $(".form_group_two").toggleClass("hidden");
+    }
+  });
+
+
+});
 
 // Link_toでの遷移後に効かなくなる
   // $(".form_signin_tab").click(function(){
@@ -52,5 +77,3 @@ $(function(){
   // $(".group_tab").click(function(){
   //   $(".form_group_two").toggleClass("hidden");
   // });
-
-});

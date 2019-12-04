@@ -257,7 +257,7 @@
 // // 縦線
 
 .form_signup_tab:before{
-  background: #ffffff;
+  // background: #ffffff00;
   display:block;
 
   content:"";
@@ -344,7 +344,7 @@
 
 .pop-up_lets-signup_two{
   background: #fafafadd;
-  width:320px;
+  width:310px;
   padding: 15px 15px;
 
   color: #111111;
@@ -357,7 +357,7 @@
   // opacity:1;
 
   position: absolute;
-  top: 330px;
+  top: 350px;
   right: calc(12% - 58px);
   display: flex;
   z-index:3;
@@ -370,3 +370,4 @@
     padding: 4px 0px 0px 15px;
   }
 }
+

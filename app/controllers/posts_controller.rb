@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 
+  # before_action :authenticate_user!
 
   def index
     if user_signed_in?
@@ -52,14 +53,6 @@ class PostsController < ApplicationController
   end
 
 
-  def show
-    @post = Post.find(params[:id])
-  end
-
-
-
-
-
   # indexの記述 + 投稿用の記述
   def create
     if user_signed_in?
@@ -73,7 +66,7 @@ class PostsController < ApplicationController
       #  新規グループ作成時、ユーザーの名前の表示
       # @namelist = User.where.not(id:current_user.id)
 
-      # postアクション用記述
+      # createアクション用記述
       @post = Post.new(
         title: post_params[:title],
         content: post_params[:content],
@@ -127,23 +120,9 @@ class PostsController < ApplicationController
           # render json: @group_posts
         end
       end
-
     else
-
     end
-
-
   end
-
-
-  # ポストアクション内でリロードされた時の対策をしたい
-  # 「/posts/posts/post内でリロードされたら」→失敗
-  # if request.path_info != session[:ref]    # フォームに入力エラーがあった場合の処理
-  #   # session[:ref] = request.path_info
-  #   session[:ref] = request.path_info
-  # else      # posts/post/potsでリロードされたらエラーになるのでredirect
-  #   redirect_to root_path
-  # end
 
 
 
@@ -156,10 +135,8 @@ class PostsController < ApplicationController
   end
 
 
-
   def update
     # @post = Post.new
-
     post = Post.find(params[:id])
     if post.user_id == current_user.id
       post.update(post_params)
@@ -170,12 +147,14 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find_by(id: params[:id])
-    @post.destroy
-    redirect_to action: :index
+    if @post.destroy
+      redirect_to root_path, status:301, flash:{group_delete: "投稿を削除しました"}
+    end
   end
 
 
   private
+
 
   def post_params
     # binding.pry
@@ -187,24 +166,28 @@ class PostsController < ApplicationController
     )
   end
 
+  # # インデックスにログインフォームを設置するため、必要な値を渡すための記述
+  # # UsersControllerにてログイン用のアクションを作ったため、不要に。
+  # def resource_name
+  #   :user
+  # end
+  # helper_method :resource_name
 
-  def resource_name
-    :user
-  end
-  helper_method :resource_name
+  # def resource
+  #   @resource ||= User.new
+  # end
+  # helper_method :resource
 
-  def resource
-    @resource ||= User.new
-  end
-  helper_method :resource
+  # def devise_mapping
+  #   @devise_mapping ||= Devise.mappings[:user]
+  # end
+  # helper_method :devise_mapping
 
-  def devise_mapping
-    @devise_mapping ||= Devise.mappings[:user]
-  end
-  helper_method :devise_mapping
+  # def resource_class
+  #   User
+  # end
+  # helper_method :resource_class
 
-  def resource_class
-    User
-  end
-  helper_method :resource_class
+
+
 end

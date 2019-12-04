@@ -9,13 +9,13 @@ class GroupsController < ApplicationController
     # group_params[:user_ids].shift()
     @group = Group.new(group_params)
     @group.users << current_user
-
+    # binding.pry
     if @group.save
       redirect_to root_path, flash:{group_create: "グループを作成しました"}
 
     else
-      redirect_to root_path, flash:{group_create: "グループの作成に失敗しました"}
-
+      # redirect_to root_path, flash:{group_create: "グループの作成に失敗しました"}
+      render "posts/index"
     end
 
       # flash[:group_create_error] = "グループ名を入力して下さい"
@@ -27,13 +27,14 @@ class GroupsController < ApplicationController
 
   def destroy
     @group = Group.find(params[:id])
-    @group.destroy
 
-    redirect_to root_path, flash:{group_delete: "グループを削除しました"}
-    # if @group.destroy
-    # else
+    if @group.destroy
+      redirect_to root_path, status: 301, flash:{group_delete: "グループを削除しました"}
+
+    else
+
       # redirect_to root_path, flash:{group_delete: "グループを削除できませんでした"}
-    # end
+    end
     # post = post.find(params[:id])
     # # if post.user_id == current_user.id
     # # end

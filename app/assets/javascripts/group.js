@@ -3,24 +3,24 @@ $(document).on("turbolinks:load", function(){
   function buildHTML(post){
     var img = post.image ? `${post.image}` : "";
     var html = `
-                <div class="content" id="${post.id}">
-                  <div class="content_title">
-                    <h3>${post.title}</h3>
-                  </div>
-
-                  <div class="content_name">
-                    <h4>${post.name}</h4>
-                  </div>
-
-                  <div class="content_text">
-                    <p>${post.content}</p>
-                    <div class="clear"></div>
-                  </div>
-
-                  <div class="content_image">
-                    <img src="${img}">
-                  </div>
-                </div>
+<div class="content" id="${post.id}">
+<div class="content_title">
+<h3>${post.title}</h3>
+</div>
+<div class="content_name">
+<h4>${post.name}</h4>
+</div>
+<div class="content_text">
+<pre>
+<p>${post.content}</p>
+</pre>
+<div class="clear">
+</div>
+</div>
+<div class="content_image">
+<img src="${img}">
+</div>
+</div>
                 `
     return html
   }
@@ -33,6 +33,7 @@ $(document).on("turbolinks:load", function(){
   $(".hoge").click(function(){
     var group = $(this).children().val()
     var url = location.href
+
 
     $.ajax({
       type: "GET",
