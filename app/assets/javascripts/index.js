@@ -13,19 +13,10 @@ $(function(){
 
 
 
-  // 未サインイン時の誘導ポップアップ
-  $(".pop-up_lets-signup").click(function(){
-    // alert("ok")
-    $(".pop-up_lets-signup").animate
-    ({
-      // width:"toggle",
-      opacity:"toggle"
-      },300)
 
-  });
 
   // フラッシュ
-  $(".flash_one").fadeOut(4000);
+  $(".flash_one").fadeOut(2000);
 
   // modal
 
@@ -33,9 +24,6 @@ $(function(){
   //   // alert("ok")
   //   $(".modal_one,modal").toggleClass("hidden");
   // });
-
-
-
 
 });
 

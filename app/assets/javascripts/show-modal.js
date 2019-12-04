@@ -1,14 +1,8 @@
 // $( document ).on('turbolinks:load', function() {
 
-
-
-$(function(){
-
-
-});
-
 // 投稿削除の確認用モーダル
-$(function(){
+// $(function(){
+$(document).on("turbolinks:load", function(){
 
   // IN
   $(document).on("click",".show_modal_open",function(e){

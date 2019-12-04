@@ -25,7 +25,8 @@ $(document).on("turbolinks:load", function(){
 });
 
 // 投稿するグループの選択
-$(function(){
+// $(function(){
+$(document).on("turbolinks:load", function(){
   $(document).on("click",".form_post_group-btns label",function(){
     var notClicked =  $(".form_post_group-btns label").not(this);
 

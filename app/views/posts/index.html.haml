@@ -16,6 +16,7 @@
 
   - if flash[:group_delete]
     .flash_one
+    -# .flash_one.redirect
       %span.alert
         = flash[:group_delete]
 
@@ -195,7 +196,8 @@
           ログイン
         -# %p 登録しているユーザーでログイン
         .form_signup
-          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          -# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          = form_for "", url:login_users_path do |f|
             .field
               .field-label
                 = f.label :メールアドレス

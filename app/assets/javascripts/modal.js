@@ -1,4 +1,6 @@
 // グループ削除の確認用モーダル
+
+// $(function(){
 $(document).on("turbolinks:load", function(){
   $(".group_d-list").on("click", function(){
 
@@ -17,11 +19,35 @@ $(document).on("turbolinks:load", function(){
             })
     });
   });
+  // return false;
 });
 
+
+// モーダルの取り消しボタン選択時
+// $(function(){
+$(document).on("turbolinks:load", function(){
+  // var notClicked =  $(".groups label").not(this);
+  $(".modal_n").on("click",function(){
+    $(".modal_one").fadeOut("hidden")
+  });
+});
+
+
+
+  // ridirect_toが効かない場合、回避策
+// $(function(){
 $(document).on("turbolinks:load", function(){
 
-  $(".modal_n").click(function(){
-  $(".modal_one").fadeOut("hidden")
+  // 手動でリダイレクト(flash messageにClass .redirect を追加し、それが存在する場合、リロードさせる)
+  // if($('.redirect').length)
+  //   {
+  //   location.reload();
+  //   }
+
+  // 削除ボタンを押したらビューを読み込み直すためにリロード
+  $(".modal_d").on("click",function(){
+    window.location.href = "posts/index";
+    location.reload();
+    location.reload();
   });
 });
