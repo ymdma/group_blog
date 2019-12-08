@@ -14,8 +14,8 @@ class GroupsController < ApplicationController
       redirect_to root_path, flash:{group_create: "グループを作成しました"}
 
     else
-      # redirect_to root_path, flash:{group_create: "グループの作成に失敗しました"}
-      render "posts/index"
+      redirect_to root_path, flash:{group_create: "グループの作成に失敗しました"}
+      # render "posts/index"
     end
 
       # flash[:group_create_error] = "グループ名を入力して下さい"

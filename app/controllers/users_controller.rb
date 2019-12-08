@@ -36,15 +36,26 @@ def login
   # session[:id] = @user.id
   # login_user = User.find_by(email: @user.email)
 
+  # 入力したメアドが
+  if login_user = User.find_by(email: @user.email)
 
-  login_user = User.find_by(email: @user.email)
+    if login_user.valid_password?(user_params[:password])
+      sign_in User.find(login_user.id) unless user_signed_in?
+      redirect_to root_path, status: 302
+    end
+  else
+  render :location
 
-  if login_user.valid_password?(user_params[:password])
-  # unless login_user.valid_password?(user_params[:password])
+  end
+end
 
-    sign_in User.find(login_user.id) unless user_signed_in?
+def update
 
-    redirect_to root_path, status: 301
+  if @user.id == current_user.id
+    @user.update(name: user_params[:name])
+    redirect_to root_path
+  else
+    redirect_to root_path
   end
 end
 
@@ -57,4 +68,9 @@ private
       :password
     )
   end
+
+  def set_user
+    @user = User.find(current_user.id)
+  end
+
 end

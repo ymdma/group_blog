@@ -43,20 +43,19 @@
           .form_group_three
             %h2
               新規グループ作成
-            = form_for @group, url: groups_path, method: :post do |f|
+            = form_for @group, url: groups_path, method: :post, class:"group-create" do |f|
               %h3
                 = f.label :グループ名を入力してください
               .group-name_field
-                = f.text_field :group_name, autofocus: true, autocomplete: "グループ名を入力"
-                = render partial: 'error_messages', locals: {post:@group , column: "group_name"}
-
+                = f.text_field :group_name, autofocus: true, autocomplete: "グループ名を入力",class:"new-group_name", maxlength: 12
               %h3
                 = f.label :ユーザを選択してください
               %p
                 グループに登録したユーザの投稿を表示します
               .group-user-sel_field
                 = f.collection_check_boxes :user_ids, User.where.not(id: current_user.id), :id, :name, include_hidden: false
-              = f.button 'グループ作成',type: "submit" , class: 'form_group_submit'
+              = f.submit "グループ作成", id: "form_group_submit"
+            .em_group-create
 
 
           -# グループの削除
@@ -106,11 +105,11 @@
               .title-content
                 %h3
                   投稿するブログのタイトル
-                = f.text_field :title, class: 'form_post_title', placeholder: 'タイトル'
+                = f.text_field :title, class: 'form_post_title', placeholder: 'タイトル', maxlength: 15
                 = render partial: 'error_messages', locals: {post: @post, column: "title"}
                 %h3
                   本文テキスト
-                = f.text_area :content, class: 'form_post_content', placeholder: '本文テキスト'
+                = f.text_area :content, class: 'form_post_content', placeholder: '本文テキスト', maxlength: 255
                 = render partial: 'error_messages', locals: {post: @post, column: "content"}
 
               .form_post_image_prev
@@ -195,24 +194,26 @@
         %h2
           ログイン
         -# %p 登録しているユーザーでログイン
-        .form_signup
+        .form_signin
           -# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           = form_for "", url:login_users_path do |f|
             .field
               .field-label
                 = f.label :メールアドレス
-              .field-input
+              .field-signin-input_email
                 = f.email_field :email, autofocus: true
               .field
                 .field-label
                   = f.label :パスワード
                   %br
                   %i (英数字6文字以上)
-                .field-input
-                  = f.password_field :password, autocomplete: "off"
+                .field-signin-input_pass
+                  = f.password_field :password, autocomplete: "off", minlength: 6, maxlength: 12
               .sign_btn
-                = f.submit "ログイン"
+                = f.submit "ログイン",id:"signin_submit"
         -# = render "devise/shared/links"
+        .em_signin
+
 
     -# サインアップフォーム
     .form_signup_one
@@ -222,29 +223,35 @@
         .form_signup
           = form_for "",url: signup_users_path, method: :post do |f|
             .field
-              = f.label :お名前
-              %br/
-              = f.text_field :name, autofocus: true, autocomplete: "name"
-            .field
-              = f.label :メールアドレス
-              %br
-              = f.email_field :email, autofocus: true, autocomplete: "email"
-            .field
-              = f.label :パスワード
-              %br
-              %i (英数字6文字以上)
-              - if @minimum_password_length
-                %em
-                  (#{@minimum_password_length} characters minimum)
-              %br/
-              = f.password_field :password, autocomplete: "new-password"
-            .field
-              = f.label :パスワードの再入力
-              %br
-              -# %i 確認の為、パスワードの再入力
-              = f.password_field :password_confirmation, autocomplete: "new-password"
-            .sign_btn
-              = f.submit "新規登録"
+              .field-label
+                = f.label :お名前
+                %br/
+              .field-signup-input_name
+                = f.text_field :name, autofocus: true, autocomplete: "name", maxlength: 12
+              .field-label
+                = f.label :メールアドレス
+                %br
+              .field-signup-input_email
+                = f.email_field :email, autofocus: true, autocomplete: "email"
+              .field-label
+                = f.label :パスワード
+                %br
+                %i (英数字6文字以上)
+                - if @minimum_password_length
+                  %em
+                    (#{@minimum_password_length} characters minimum)
+                %br/
+              .field-signup-input_pass
+                = f.password_field :password, autocomplete: "new-password", minlength: 6, maxlength: 12
+              .field
+                = f.label :パスワードの再入力
+                %br
+              .field-signup-input_pass_conf
+                -# %i 確認の為、パスワードの再入力
+                = f.password_field :password_confirmation, autocomplete: "new-password", minlength: 6, maxlength: 12
+              .sign_btn
+                = f.submit "新規登録",id:"signup_submit"
+              .em_signup
           -# = render "devise/shared/links"
     .brank_div
 

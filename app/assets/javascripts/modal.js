@@ -51,3 +51,11 @@ $(document).on("turbolinks:load", function(){
     location.reload();
   });
 });
+
+
+// index, ユーザー名の変更モーダル
+$(document).on("turbolinks:load", function(){
+  $(".use_name_edit-btn").on("click",function(){
+    $(".user_update-pop_one").toggleClass("hidden")
+  })
+})

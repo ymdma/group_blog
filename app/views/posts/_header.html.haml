@@ -8,7 +8,7 @@
     .header_nav
       - if user_signed_in?
         .header_nav_upper{class:"#{controller.action_name}"}
-          %p.waku
+          %p.waku.use_name_edit-btn
             = current_user.name
           %p
           |
@@ -17,13 +17,18 @@
         .header_nav_lower{class:"#{controller.action_name}"}
           %p.waku.header_nav_post 投稿する
           %p.waku.header_nav_group.mk_group_btn グループ作成
-        .user_update-pop_one.hidden
-          .user_update-pop
-            = form_for "",url: "users/update", method: :patch do |f|
-              = f.text_field :name, value: "#{current_user.name}", class: "text_field_user_name"
-              = f.submit "変更を保存"
+
 
       - else
         .header_nav_sign-out
           %p
             ログインしてご利用ください
+
+  - if user_signed_in?
+    -# ポップアップにてユーザー名変更
+    .user_update-pop_one.hidden
+      .user_update-pop
+        = form_for "", url: "users/update", method: :patch do |f|
+          = f.text_field :name, value: "#{current_user.name}", class: "text_field_user_name-edit"
+          = f.submit "変更を保存", id:"user-edit_submit"
+        .em_user-edit
