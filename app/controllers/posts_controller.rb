@@ -23,7 +23,7 @@ class PostsController < ApplicationController
       else
         if params[:group] == "all"
 
-          @user_posts = Post.where(user_id:current_user.id)
+          @user_posts = Post.where(user_id:current_user.id).order("updated_at DESC")
 
           # render json: @user_posts
 
@@ -37,10 +37,10 @@ class PostsController < ApplicationController
           # @group_posts = Post.where(group_id: group_name.id)
             # 1
           # query = "select * from posts join users on posts.user_id = users.id"
-            query = "select posts.id,title,content,image,users.name,posts.created_at,group_id from posts join users on posts.user_id = users.id"
+          query = "select posts.id,title,content,image,users.name,posts.updated_at,group_id from posts join users on posts.user_id = users.id order by posts.updated_at DESC"
           ggg = Post.find_by_sql(query)
           @group_posts = ggg.select{|a| a.group_id == group_name.id}
-
+          # binding.pry
           respond_to do |format|
             format.html{redirect_to root_path}
             format.json
@@ -92,7 +92,7 @@ class PostsController < ApplicationController
       else
         if params[:group] == "all"
 
-          @user_posts = Post.where(user_id:current_user.id)
+          @user_posts = Post.where(user_id:current_user.id).order("updated_at DESC")
           # binding.pry
           # render json: @user_posts
 
@@ -107,7 +107,7 @@ class PostsController < ApplicationController
 
             # 1
           # query = "select * from posts join users on posts.user_id = users.id"
-          query = "select posts.id,title,content,image,users.name,posts.created_at,group_id from posts join users on posts.user_id = users.id"
+          query = "select posts.id,title,content,image,users.name,posts.updated_at,group_id from posts join users on posts.user_id = users.id order by posts.updated_at DESC"
           ggg = Post.find_by_sql(query)
           # fff = User.find_by_sql(query)
           @group_posts = ggg.select{|a| a.group_id == group_name.id}
