@@ -49,6 +49,16 @@ def login
   end
 end
 
+def invite
+  # binding.pry
+  test_user = User.first
+
+  sign_in User.find(test_user.id) unless user_signed_in?
+  redirect_to root_path, status: 302
+
+end
+
+
 def update
 
   if @user.id == current_user.id

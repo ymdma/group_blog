@@ -1,7 +1,6 @@
-// $( document ).on('turbolinks:load', function() {
+
 
 // 投稿削除の確認用モーダル
-// $(function(){
 $(document).on("turbolinks:load", function(){
 
   // IN
@@ -18,4 +17,3 @@ $(document).on("turbolinks:load", function(){
     $(".post-modal_one").fadeOut("fast")
   });
 });
-

@@ -120,7 +120,6 @@ $(document).on("turbolinks:load", function(){
   $(".form_group_three").on("submit",function(e){
     var groupName = $("input.new-group_name").val()
 
-    
     // グループ名 空NG
     if ( groupName == "" )
     {

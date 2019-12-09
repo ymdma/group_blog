@@ -29,10 +29,10 @@
     -#           画像のアップロード
     -#         = fa_icon 'picture-o', class: 'icon'
     -#         = f.file_field :image, class: 'hidden'
-
-    .edit_under_btn
-      = f.submit "変更を保存"
-      -# = link_to "編集する", edit_post_path, method: :get
-      = link_to "戻る", "/posts/#{@post.id}", method: :get
+    - if current_user.id == @post.user_id
+      .edit_under_btn
+        = f.submit "変更を保存"
+        -# = link_to "編集する", edit_post_path, method: :get
+        = link_to "戻る", "/posts/#{@post.id}", method: :get
 
 = render "posts/header"

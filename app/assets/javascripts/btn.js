@@ -30,8 +30,8 @@ $(document).on("turbolinks:load", function(){
   $(document).on("click",".form_post_group-btns label",function(){
     var notClicked =  $(".form_post_group-btns label").not(this);
 
-    $(this).css("background","#ff0affb2");
-    notClicked.css("background","#888888");
+    $(this).css("background","#b10affb2");
+    notClicked.css("background","#9e9e9e");
   });
 });
 

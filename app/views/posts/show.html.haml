@@ -17,12 +17,13 @@
           = safe_join(@post.content.split("\n"), tag(:br))
       - if @post.image.present?
         .show_image
-          = link_to "",url:"#{@post.image.url}" do
-            = image_tag @post.image.url
+          -# = link_to "",url:"#{@post.image.url}" do
+          = image_tag @post.image.url
 
-  .show_under_btns
-    = link_to "編集する", edit_post_path, method: :get
-    = link_to "削除する", "#",class:"show_modal_open"
+  - if current_user.id == @post.user_id
+    .show_under_btns
+      = link_to "編集する", edit_post_path, method: :get
+      = link_to "削除する", "#",class:"show_modal_open"
 
   .show_under_btns_lower
     = link_to "戻る", root_path, method: :get
@@ -37,5 +38,4 @@
         = link_to "", url:posts_destroy_posts_path, method: :delete do
           .post-modal_d
             削除する
-
 = render "posts/footer"

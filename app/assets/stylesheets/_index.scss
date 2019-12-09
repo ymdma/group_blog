@@ -1,4 +1,203 @@
 
+// .demo1{
+//   background: #33333377;
+//   position: absolute;
+//   // position:fixed;
+//   top: 150px;
+//   left: 0px;
+
+//   width: 100%;
+//   height: 100%;
+//   z-index: 600;
+// }
+// .demo2{
+//   background: #33333377;
+//   position: absolute;
+//   // position:fixed;
+//   top: 800px;
+//   left: 13%;
+
+//   width: 100%;
+//   height: 100%;
+//   z-index: 600;
+// }
+
+
+.guide_demo-user{
+  background: #33333300;
+  // position: absolute;
+  // position:fixed;
+  // top: 800px;
+  // left: 13%;
+
+  width: 90%;
+  // height: 200px;
+  margin: 0px auto 0px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding:40px 20px 60px;
+  border-radius:12px;
+  border:solid #333333 1.5px;
+
+  overflow: hidden;
+  word-break: break-all;
+  z-index: 600;
+}
+
+.go-demo{
+  display:inline-block;
+  vertical-align: middle;
+  // background: #fafafa;
+  background: #fafafa;
+  width: 65px;
+  margin: 0 auto 0;
+  margin-top: 0px;
+  // margin-bottom: 0px;
+  padding: 2px 5px;
+  position: absolute;
+  left: calc(50% - 32px);
+  color: #000000;
+  font-size: 20px;
+  line-height: 35px;
+  border:solid #ff4444 1.5px;
+  border-radius: 6px;
+  box-shadow:inset 0px 0px 0px 0px #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 500ms;
+  transform: scale(1);
+  // z-index:10;
+
+}
+
+
+.go-demo:hover{
+  background: #f7747400;
+  color: #cccccc;
+  opacity:0.98;
+
+  box-shadow:inset 0px 0px 10px 11px #f7747477;
+  border:solid #f77474 1.5px;
+  translate:all ;
+  transform: scale(1);
+  transition-duration: 100ms;
+  // z-index:10;
+
+}
+.go-demo:active{
+  background: #ffffff;
+  // width: 65px;
+  color: #000000;
+  opacity:1;
+  box-shadow:inset 0px 0px 20px -7px #ffffff;
+  border:solid #ffd446 1.5px;
+  translate:all ;
+  // transform: scale(2);
+  transition-duration: 300ms;
+  // z-index:10;
+
+}
+
+
+// .go-demo:hover{
+//   background: #f7747400;
+//   color: #eeeeee;
+
+//   box-shadow:inset 0px 0px 10px 11px #f7747477;
+//   border:solid #f77474 1.5px;
+//   // translate:all ;
+//   // transition-duration: 50ms;
+//   z-index:10;
+
+// }
+// .go-demo:hover:active{
+//   background: #ffd446;
+//   // width: 65px;
+//   color: #88888800;
+//   box-shadow:inset 0px 0px 20px -7px #ffffff;
+//   border:solid #f77474 1.5px;
+//   // translate:all ;
+
+//   // transition-duration: 100ms;
+//   z-index:10;
+// }
+
+// .go-demo:hover:active:hover{
+//   content:"";
+//   box-shadow:solid 0px 0px 20px 20px #ffd446;
+//   background: #ffffff;
+//   // width: 65px;
+//   height: 65px;
+//   margin-top: -13px;
+
+//   // margin-bottom:-30px;
+//   // line-height:61px;
+//   color: #666666;
+//   font-size: 20px;
+//   line-height: 55px;
+//   border:solid #ffd446 1.5px;
+//   border-radius: 50%;
+//   transform: scale(1.2);
+//   z-index:10;
+
+
+//   translate:100ms all ease-in-out 100ms;
+//   // transition-duration: 3000ms;
+
+// }
+// .go-demo:hover:active:hover:after{
+//   content:"";
+//   background: #11111100;
+//   // color: #111;
+//   width: 82.5px;
+//   height: 82.5px;
+//   position: absolute;
+//   top: 42%;
+//   left: 47%;
+//   // background: #11111122;
+//   border:solid #f77474;
+//   border-radius: 50%;
+//   // transition-duration: 200ms;
+//   // opacity:1;
+//   transition: opacity(1) 400ms;
+//   // transform: scale(1);
+//   // transform: rotateX(0px) right bottom;
+//   // z-index: 1;
+// }
+
+
+// .demo-btn_maru{
+//   background: #11111100;
+//   // color: #111;
+//   width: 85px;
+//   height: 85px;
+//   position: absolute;
+//   top: 40%;
+//   left: 46%;
+//   border-radius: 50%;
+//   transition-duration: 200ms;
+//   transform: scale(3);
+//   z-index:1;
+
+// }
+
+// .demo-btn_maru:hover{
+//   background: #11111122;
+
+//   transition-duration: 400ms;
+//   transform: scale(3);
+//   z-index:1;
+// }
+// .demo-btn_maru:hover:hover{
+//   background: #11111122;
+//   display:none;
+//   transition-duration: 400ms;
+//   transform: scale(0);
+//   z-index:1;
+// }
+
+
 // フラッシュメッセージ
 .flash_one {
   background:#777777aa;
@@ -107,6 +306,7 @@
   border-style: solid;
   border-color: gray;
   border-radius:0 10px 16px 0;
+  box-shadow: 1px 2px 0px 0px #00000066;
 
   width:32px;
 
@@ -158,6 +358,7 @@
   border-style: solid;
   border-color: gray;
   border-radius:0 10px 16px 0;
+  box-shadow: 1px 2px 0px 0px #00000066;
 
   width:32px;
   // height:70px;
@@ -233,6 +434,7 @@
   border-style: solid;
   border-color: gray;
   border-radius:0 10px 16px 0;
+  box-shadow: 1px 2px 0px 0px #00000066;
 
   width:32px;
   // height:70px;
@@ -288,6 +490,7 @@
   border-style: solid;
   border-color: gray;
   border-radius:0 10px 16px 0;
+  box-shadow: 1px 2px 0px 0px #00000066;
 
   width:32px;
   height:110px;

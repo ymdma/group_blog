@@ -34,8 +34,9 @@
     font-size:16px;
     text-align:center;
     word-break : break-all;
-    overflow: hidden;
     border-radius:6em;
+    box-shadow: 1px 2px 1.5px 0.5px #00000044;
+    overflow: hidden;
     z-index:1;
     cursor: pointer;
   }
@@ -63,13 +64,14 @@ a.hoge{
     line-height:30px;
     font-size:16px;
     text-align:center;
-
+    box-shadow: 1px 2px 1.5px 0.5px #00000044;
     z-index:1;
     cursor: pointer;
   }
 }
 label.group_name:hover{
   background: #ff0affb2;
+  color: #ffffff;
 
 }
 
@@ -83,7 +85,7 @@ label.group_name:hover{
 
 .radio-inline__input:checked + .radio-inline__label {
   background: #B54A4A;
-  color: #fff;
+  color: #ffffff;
 }
 
 .radio-inline__input:focus + .radio-inline__label {
@@ -185,6 +187,7 @@ label.group_name:hover{
   font-size: 18px;
   font-weight: 400;
   border-radius:6em;
+  box-shadow: 1px 2px 1.5px 0.5px #00000044;
 }
 
 .form_group_three input:checked + label{
@@ -193,7 +196,7 @@ label.group_name:hover{
   z-index:1;
 }
 
-button.form_group_submit{
+input#form_group_submit{
   background: #ffffff77;
   display:block;
   width:250px;
@@ -254,7 +257,7 @@ button.form_group_submit{
 
 .group_d-list{
   display:block;
-  background:#a0a0a0;
+  background:#9e9e9e;
   height: 30px;
   min-width:70px;
   margin:5px 12px 5px 0;
@@ -266,6 +269,7 @@ button.form_group_submit{
   text-align:center;
 
   border-radius:6em;
+  box-shadow: 1px 2px 1.5px 0.5px #00000044;
   z-index:1;
   & a{
     color:#f0f0f0;
@@ -274,6 +278,7 @@ button.form_group_submit{
 
 .group_d-list:hover{
   background:#ff0a0ab2;
+  color:#ffffff;
 }
 
 

@@ -9,6 +9,9 @@ $(document).on("turbolinks:load", function(){
     $(".form_signup_two").addClass("hidden");
     $(".brank_div").toggleClass("hidden");
     $(".pop-up_lets-signup_two").fadeOut("hidden");
+
+    $(".guide_demo-user").animate({padding:"10px 0px 0px 0px"},300,function(){
+      $(".go-demo").animate({left: "72%",top: "30%"},300,);})
   });
 
 
@@ -17,6 +20,10 @@ $(document).on("turbolinks:load", function(){
     $(".form_signin_two").addClass("hidden");
     $(".brank_div").toggleClass("hidden");
     $(".pop-up_lets-signup_two").fadeOut("hidden");
+
+    $(".guide_demo-user").animate({padding:"10px 0px 0px 0px"},300,function(){
+      $(".go-demo").animate({left: "72%",top: "30%"},300,);})
+
   });
 
   $(document).on("click",".pop-up_lets-signup_two",function(){
@@ -36,6 +43,7 @@ $(document).on("turbolinks:load", function(){
     $(".form_post_two").addClass("hidden");
     $(".form_group_two").toggleClass("hidden");
   });
+
 
   // バリデーションに引っかかった時にpostフォームを開いた状態のままにする
   $(window).on('load',function(){

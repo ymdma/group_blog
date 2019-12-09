@@ -11,23 +11,9 @@ $(function(){
   //   $('body').delay(600).fadeIn("500ms");
   //   });
 
-
-
-
-
   // フラッシュ
   $(".flash_one").fadeOut(2000);
-
-  // modal
-
-  // $(".group_d-list a").mouseover(function(){
-  //   // alert("ok")
-  //   $(".modal_one,modal").toggleClass("hidden");
-  // });
-
-});
-
-
+  });
 
 $(function() {
   var $textarea = $(".edit_text textarea");
