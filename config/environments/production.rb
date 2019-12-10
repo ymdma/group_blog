@@ -14,8 +14,9 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  # 本番環境のエラーメッセージを可視化！見せる時は外す！
-  config.consider_all_requests_local       = true
+  # 本番環境のエラーメッセージを可視化！true=詳細あり false=なし
+  config.consider_all_requests_local       = false
+
   config.action_controller.perform_caching = true
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]

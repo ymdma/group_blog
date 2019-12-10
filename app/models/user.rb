@@ -17,4 +17,6 @@ class User < ApplicationRecord
   validates :email,presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX },on: :signup
   validates :password,presence: true,on: :signup
 
+
+  
 end
