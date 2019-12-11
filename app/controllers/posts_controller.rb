@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 
       #  投稿フォーム用にインスタンスを用意
       @group = Group.new
-
+      # binding.pry
       #  グループボタンを押してPostの表示範囲を指定
       if params[:group]  == nil
 
@@ -67,6 +67,7 @@ class PostsController < ApplicationController
       # @namelist = User.where.not(id:current_user.id)
 
       # createアクション用記述
+      binding.pry
       @post = Post.new(
         title: post_params[:title],
         content: post_params[:content],

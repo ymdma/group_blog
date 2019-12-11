@@ -1,7 +1,7 @@
 .header_wrap.hide
   .header
     .header_title
-      =link_to root_path do
+      = link_to root_path,data: {"turbolinks":false} do
         %h2 GroupBlog
     .header_groug_name
       -# "#{@group.group_name}"
@@ -17,7 +17,6 @@
         .header_nav_lower{class:"#{controller.action_name}"}
           %p.waku.header_nav_post 投稿する
           %p.waku.header_nav_group.mk_group_btn グループ作成
-
 
       - else
         .header_nav_sign-out

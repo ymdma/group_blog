@@ -33,10 +33,7 @@ def login
     password: user_params[:password],
   )
 
-  # session[:id] = @user.id
-  # login_user = User.find_by(email: @user.email)
-
-  # 入力したメアドが
+  # 入力したメアドがあれば
   if login_user = User.find_by(email: @user.email)
 
     if login_user.valid_password?(user_params[:password])
@@ -58,9 +55,8 @@ def invite
 
 end
 
-
 def update
-
+  # binding.pry
   if @user.id == current_user.id
     @user.update(name: user_params[:name])
     redirect_to root_path

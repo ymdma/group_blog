@@ -38,12 +38,6 @@ $(document).on("turbolinks:load", function(){
 // $(function(){
 $(document).on("turbolinks:load", function(){
 
-  // 手動でリダイレクト(flash messageにClass .redirect を追加し、それが存在する場合、リロードさせる)
-  // if($('.redirect').length)
-  //   {
-  //   location.reload();
-  //   }
-
   // 削除ボタンを押したらビューを読み込み直すためにリロード
   $(".modal_d").on("click",function(){
     window.location.href = "posts/index";
@@ -54,7 +48,8 @@ $(document).on("turbolinks:load", function(){
 
 
 // index, ユーザー名の変更モーダル
-$(document).on("turbolinks:load", function(){
+$(function(){
+// $(document).on("turbolinks:load", function(){
   $(".use_name_edit-btn").on("click",function(){
     $(".user_update-pop_one").toggleClass("hidden")
   })
