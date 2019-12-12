@@ -28,13 +28,14 @@ class GroupsController < ApplicationController
   def destroy
     @group = Group.find(params[:id])
 
-    if @group.destroy
-      redirect_to root_path, status: 301, flash:{group_delete: "グループを削除しました"}
 
-    else
+    @group.destroy
+    # if @group.destroy
+      # redirect_to root_path, status: 301, flash:{group_delete: "グループを削除しました"}
+    # else
 
       # redirect_to root_path, flash:{group_delete: "グループを削除できませんでした"}
-    end
+    # end
     # post = post.find(params[:id])
     # # if post.user_id == current_user.id
     # # end

@@ -6,6 +6,11 @@ $(document).on("turbolinks:load", function(){
 
     group_id = $(this).children().attr("id");
     group_url = /groups/ + group_id
+    var destroyGroup = $(this)
+    // var groupName = $(this).text()
+    // console.log(destroyGroup);
+    var idName = $(this).children().attr("id")
+    // console.log(idName);
 
     $(".modal_one").fadeIn();
     $(".modal_btns").on("click", ".modal_d", function(){
@@ -17,9 +22,16 @@ $(document).on("turbolinks:load", function(){
               data: {"_method": "delete"},
               dataType: "json"
             })
+    // var idName = `groups_${groupName}`
+    // console.log(idName);
+    $(destroyGroup).remove();
+    // $(`#${idName}`).parent().remove()
+    $(`#group_${idName}`).remove()
+    $(".modal_one").fadeOut();
     });
+
   });
-  // return false;
+  return false;
 });
 
 
@@ -36,15 +48,15 @@ $(document).on("turbolinks:load", function(){
 
   // ridirect_toが効かない場合、回避策
 // $(function(){
-$(document).on("turbolinks:load", function(){
+// $(document).on("turbolinks:load", function(){
 
-  // 削除ボタンを押したらビューを読み込み直すためにリロード
-  $(".modal_d").on("click",function(){
-    window.location.href = "posts/index";
-    location.reload();
-    location.reload();
-  });
-});
+//   // 削除ボタンを押したらビューを読み込み直すためにリロード
+//   $(".modal_d").on("click",function(){
+//     window.location.href = "posts/index";
+//     location.reload();
+//     location.reload();
+//   });
+// });
 
 
 // index, ユーザー名の変更モーダル
@@ -54,3 +66,14 @@ $(function(){
     $(".user_update-pop_one").toggleClass("hidden")
   })
 })
+
+
+// グループユーザー名のリストをモーダルで出す準備
+// 何msボタンにマウスをのせていたらモーダル出現！とするのはどうかな？
+// $(document).on("turbolinks:load", function(){
+//   var notClicked =  $(".groups label").not(this);
+//   $(".groups label").on("click",function(){
+//     $(this).parent().parent().children(div).toggleClass("hidden");
+//     notClicked.parent().parent().children(div).addClass("hidden");
+//   });
+// })
