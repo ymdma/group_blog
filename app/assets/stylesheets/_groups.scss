@@ -107,6 +107,59 @@ label.group_name:hover{
 }
 
 
+
+
+.group_users{
+  position: absolute;
+  // top: -20px;
+  // left:-50px;
+  margin-top:20px;
+  z-index:500;
+  span{
+    background:#fafafa;
+    display:block;
+    padding:0 3px;
+    position:absolute;
+    top: - 8px;
+    left: + 13px;
+    font-size:11.5px;
+    border-radius: 8px;
+  }
+  &_one{
+    background:#ffffff88;
+    width: auto;
+    // max-width: 800px;
+    height:auto ;
+    padding: 5px 8px;
+    border:solid #dddddd 0.5px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    &_one:before{
+      content:"";
+      border:solid #aaaaf0cc 20px;
+    }
+    &_one:after{
+      content:"";
+      border:solid #aaaaf0cc 20px;
+    }
+  }
+  & p{
+    background:#87bbffdd ;
+
+    display: inline-block;
+    margin: 3px 0px 3px 0px;
+    padding: 2px 8px;
+    line-height: 25px;
+    color:#00000088;
+    font-size:13px;
+    white-space: nowrap;
+    border-radius: 15px;
+
+  }
+}
+
+
 // // //
 
 // グループ作成

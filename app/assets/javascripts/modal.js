@@ -51,6 +51,7 @@ $(document).on("turbolinks:load", function(){
 // $(document).on("turbolinks:load", function(){
 
 //   // 削除ボタンを押したらビューを読み込み直すためにリロード
+// もう不要
 //   $(".modal_d").on("click",function(){
 //     window.location.href = "posts/index";
 //     location.reload();
@@ -70,10 +71,15 @@ $(function(){
 
 // グループユーザー名のリストをモーダルで出す準備
 // 何msボタンにマウスをのせていたらモーダル出現！とするのはどうかな？
-// $(document).on("turbolinks:load", function(){
-//   var notClicked =  $(".groups label").not(this);
-//   $(".groups label").on("click",function(){
-//     $(this).parent().parent().children(div).toggleClass("hidden");
-//     notClicked.parent().parent().children(div).addClass("hidden");
-//   });
-// })
+$(document).on("turbolinks:load", function(){
+  // var notClicked =  $(".groups label").not(this);
+  $(".groups label").on("mouseover",function(){
+    // alert("OK")
+    $(this).parent().parent().children("div").toggleClass("hidden")
+    // notClicked.parent().parent().children($("div")).addClass("hidden");
+  });
+  $(".groups label").on("mouseleave",function(){
+    $(this).parent().parent().children("div").toggleClass("hidden")
+  });
+
+})
