@@ -58,7 +58,7 @@ end
 def update
   # binding.pry
   if @user.id == current_user.id
-    @user.update(name: user_params[:name])
+    @user.update(name: user_params[:name], profile: user_params[:profile])
     redirect_to root_path
   else
     redirect_to root_path
@@ -71,7 +71,8 @@ private
     params.permit(
       :name,
       :email,
-      :password
+      :password,
+      :profile
     )
   end
 
