@@ -163,7 +163,7 @@
         -# グループユーザーリストをモーダルで出す準備
         - current_user.groups.each do |group|
           .group-btn_one
-            =link_to root_path, class: "hoge", id:"group_#{group.id}" do
+            = link_to root_path, class: "hoge", id:"group_#{group.id}" do
               = radio_button_tag "groups","#{group.group_name}",type:"radio", class:"group_name"
               = label_tag "groups_#{group.group_name}", "#{group.group_name}", class:"group_name"
             .group_users.hidden
@@ -171,9 +171,10 @@
                 GroupUsers
               .group_users_one
                 - group.group_users.each do |user|
-                  -# = id:"#{group.id}_user"
                   %p
                     = user.user.name
+                  .prof.hidden
+                    = user.user.profile
 
 
     -# 投稿一覧 タイル表示

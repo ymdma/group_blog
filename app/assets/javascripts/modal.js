@@ -6,10 +6,8 @@ $(document).on("turbolinks:load", function(){
 
     group_id = $(this).children().attr("id");
     group_url = /groups/ + group_id
-    var destroyGroup = $(this)
-    // var groupName = $(this).text()
-    // console.log(destroyGroup);
-    var idName = $(this).children().attr("id")
+    var destroyTargetGroup = $(this) //ボタン消す用
+    var idName = $(this).children().attr("id") //ボタン消す用
     // console.log(idName);
 
     $(".modal_one").fadeIn();
@@ -22,10 +20,11 @@ $(document).on("turbolinks:load", function(){
               data: {"_method": "delete"},
               dataType: "json"
             })
+
     // var idName = `groups_${groupName}`
     // console.log(idName);
-    $(destroyGroup).remove();
-    // $(`#${idName}`).parent().remove()
+
+    $(destroyTargetGroup).remove();
     $(`#group_${idName}`).remove()
     $(".modal_one").fadeOut();
     });
@@ -60,7 +59,7 @@ $(document).on("turbolinks:load", function(){
 // });
 
 
-// index, ユーザー名の変更モーダル
+// index, ユーザー名・プロフィールの変更モーダル
 $(function(){
 // $(document).on("turbolinks:load", function(){
   $(".use_name_edit-btn").on("click",function(){
@@ -69,8 +68,20 @@ $(function(){
 })
 
 
-// グループユーザー名のリストをモーダルで出す準備
+// グループユーザー名のリストをモーダルで出す// プロフィールも
 // 何msボタンにマウスをのせていたらモーダル出現！とするのはどうかな？
+// $(document).on("turbolinks:load", function(){
+//   // var notClicked =  $(".groups label").not(this);
+//   $(".groups label").on("mouseover",function(){
+//     // alert("OK")
+//     $(this).parent().parent().children("div").toggleClass("hidden")
+//     // notClicked.parent().parent().children($("div")).addClass("hidden");
+//   });
+//   $(".groups label").on("mouseleave",function(){
+//     $(this).parent().parent().children("div").toggleClass("hidden")
+//   });
+// })
+
 $(document).on("turbolinks:load", function(){
   // var notClicked =  $(".groups label").not(this);
   $(".groups label").on("mouseover",function(){
@@ -78,8 +89,29 @@ $(document).on("turbolinks:load", function(){
     $(this).parent().parent().children("div").toggleClass("hidden")
     // notClicked.parent().parent().children($("div")).addClass("hidden");
   });
+  // ユーザーポップアップ
   $(".groups label").on("mouseleave",function(){
     $(this).parent().parent().children("div").toggleClass("hidden")
   });
-
 })
+
+// $(document).on("turbolinks:load", function(){
+//   // var notClicked =  $(".groups label").not(this);
+//   $(".groups label").on("mouseover",function(){
+//     // alert("OK")
+//     $(this).parent().parent().children("div").toggleClass("hidden")
+//     // notClicked.parent().parent().children($("div")).addClass("hidden");
+//     });
+//     if ( $(".groups label").click() )
+//     {
+//       alert("yeah")
+//     }
+//     else
+//     {
+//       $(".groups label").on("mouseleave",function(){
+//         $(this).parent().parent().children("div").toggleClass("hidden")
+//       });
+//   }
+
+
+// })

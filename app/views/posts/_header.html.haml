@@ -2,8 +2,13 @@
   .header
     .header_title
       = link_to root_path,data: {"turbolinks":false} do
-        %h2 GroupBlog
+        %h1 GroupBlog
     .header_groug_name
+
+    -# .hbg
+    -#   = check_box "hbg","",class:"hbg_btn",checked:""
+    -#   = label "hbg","",class:"hbg_btn"
+
     .header_nav
       - if user_signed_in?
         .header_nav_upper{class:"#{controller.action_name}"}

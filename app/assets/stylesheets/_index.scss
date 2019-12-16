@@ -22,7 +22,7 @@
 //   z-index: 600;
 // }
 
-
+// デモユーザーログイン
 .guide_demo-user{
   background: #33333300;
   // position: absolute;
@@ -71,7 +71,6 @@
 
 }
 
-
 .go-demo:hover{
   background: #f7747400;
   color: #cccccc;
@@ -96,106 +95,8 @@
   // transform: scale(2);
   transition-duration: 300ms;
   // z-index:10;
-
 }
-
-
-// .go-demo:hover{
-//   background: #f7747400;
-//   color: #eeeeee;
-
-//   box-shadow:inset 0px 0px 10px 11px #f7747477;
-//   border:solid #f77474 1.5px;
-//   // translate:all ;
-//   // transition-duration: 50ms;
-//   z-index:10;
-
-// }
-// .go-demo:hover:active{
-//   background: #ffd446;
-//   // width: 65px;
-//   color: #88888800;
-//   box-shadow:inset 0px 0px 20px -7px #ffffff;
-//   border:solid #f77474 1.5px;
-//   // translate:all ;
-
-//   // transition-duration: 100ms;
-//   z-index:10;
-// }
-
-// .go-demo:hover:active:hover{
-//   content:"";
-//   box-shadow:solid 0px 0px 20px 20px #ffd446;
-//   background: #ffffff;
-//   // width: 65px;
-//   height: 65px;
-//   margin-top: -13px;
-
-//   // margin-bottom:-30px;
-//   // line-height:61px;
-//   color: #666666;
-//   font-size: 20px;
-//   line-height: 55px;
-//   border:solid #ffd446 1.5px;
-//   border-radius: 50%;
-//   transform: scale(1.2);
-//   z-index:10;
-
-
-//   translate:100ms all ease-in-out 100ms;
-//   // transition-duration: 3000ms;
-
-// }
-// .go-demo:hover:active:hover:after{
-//   content:"";
-//   background: #11111100;
-//   // color: #111;
-//   width: 82.5px;
-//   height: 82.5px;
-//   position: absolute;
-//   top: 42%;
-//   left: 47%;
-//   // background: #11111122;
-//   border:solid #f77474;
-//   border-radius: 50%;
-//   // transition-duration: 200ms;
-//   // opacity:1;
-//   transition: opacity(1) 400ms;
-//   // transform: scale(1);
-//   // transform: rotateX(0px) right bottom;
-//   // z-index: 1;
-// }
-
-
-// .demo-btn_maru{
-//   background: #11111100;
-//   // color: #111;
-//   width: 85px;
-//   height: 85px;
-//   position: absolute;
-//   top: 40%;
-//   left: 46%;
-//   border-radius: 50%;
-//   transition-duration: 200ms;
-//   transform: scale(3);
-//   z-index:1;
-
-// }
-
-// .demo-btn_maru:hover{
-//   background: #11111122;
-
-//   transition-duration: 400ms;
-//   transform: scale(3);
-//   z-index:1;
-// }
-// .demo-btn_maru:hover:hover{
-//   background: #11111122;
-//   display:none;
-//   transition-duration: 400ms;
-//   transform: scale(0);
-//   z-index:1;
-// }
+// デモユーザーログインここまで
 
 
 // フラッシュメッセージ
@@ -222,355 +123,40 @@
 }
 
 
-.main_wrap{
-  background: #fafafa;
-  width:100%;
-  height:100%;
-  padding: 120px 12% 0px;
-  margin:0 auto 0;
-
-}
-
-
-// tabs
-
-.form_post_tab,.form_signin_tab,.form_signup_tab,.group_tab{
-  // width:100%;
-  // width:calc(100% - 40px);
-  height:10px;
-  // background:rgba(255, 136, 0, 1);
-  // border:solid black 2px;
-  cursor: pointer;
-  text-align: center;
-
-  border-style: solid;
-  border-width:2px 0 0px 0px;
-  border-color: gray;
-  border-radius:1px;
-  // float: left;
-  // z-index:90;
-
-}
-
-
-
-// // タブ サインイン時
-
-// 左側 線
-.form_post_wrap:first-child:before{
-  // background: red;
-  display:block;
-
-  content:"";
-  border-width: 2px 0px 0px 2px;
-  border-style: solid;
-  border-color: gray;
-
-  width:230px ;
-  height:108px;
-  position: absolute;
-  left:calc(12% + 0px);
-  // right:0;
-  top:110px;
-
-  // z-index:0;
-}
-
-.form_post_wrap:first-child:after{
-  // background: red;
-  display:block;
-
-  content:"";
-  border-width: 2px 0px 2px 0px;
-  border-style: solid;
-  border-color: gray;
-
-  width:64px ;
-  height:8px;
-  position: absolute;
-  left:calc(12% - 32px);
-  // right:0;
-  top:120px;
-
-  // z-index:0;
-}
-
-// 右側 耳タブ
-
-.form_post_tab:after {
-  background: white;
-  display:block;
-  content: "Post";
-
-  border-width:2px 2px 2px 2px;
-  border-style: solid;
-  border-color: gray;
-  border-radius:0 10px 16px 0;
-  box-shadow: 1px 2px 0px 0px #00000066;
-
-  width:32px;
-
-  color:#333333;
-  writing-mode:vertical-rl;
-  text-orientation: upright;
-  text-align: right;
-  line-height:30px;
-  letter-spacing:-2px;
-  padding: 10px 0px 10px 0px;
-
-  position: absolute;
-  right:calc(12% - 34px);
-  top:130px;
-
-  z-index:1;
-}
-
-
-// group-tab
-
-.group_tab:before{
-  // background: red;
-  display:block;
-
-  content:"";
-  border-width: 0px 0px 0px 2px;
-  border-style: solid;
-  border-color: gray;
-
-  width:32px ;
-  height:320px;
-  position: absolute;
-  right:calc(12% - 32px);
-  // right:0;
-  top:120px;
-
-  // z-index:0;
-}
-
-.group_tab:after {
-  background: white;
-  display:block;
-
-  content: "Group";
-  // background: local;
-
-  border-width:2px 2px 2px 2px;
-  border-style: solid;
-  border-color: gray;
-  border-radius:0 10px 16px 0;
-  box-shadow: 1px 2px 0px 0px #00000066;
-
-  width:32px;
-  // height:70px;
-
-  color:#333333;
-  writing-mode:vertical-rl;
-  text-orientation: upright;
-  text-align: right;
-  line-height:30px;
-  letter-spacing:-2px;
-  padding: 10px 0px 10px 0px;
-
-  position: absolute;
-  right:calc(12% - 34px);
-  top:235px;
-
-  z-index:1;
-}
-
-
-// // タブ サインアウト時
-
-// 左側 線 （サインイン時と違う）
-.form_signin_wrap:first-child:before{
-  // background: red;
-  display:block;
-
-  content:"";
-  border-width: 0px 0px 0px 2px;
-  border-style: solid;
-  border-color: gray;
-
-  width:230px ;
-  height:108px;
-  position: absolute;
-  left:calc(12% + 0px);
-  // right:0;
-  top:120px;
-
-  // z-index:0;
-}
-
-// 左 突き抜ける線
-.form_signin_wrap:first-child:after{
-  // background: red;
-  display:block;
-
-  content:"";
-  border-width: 2px 0px 2px 0px;
-  border-style: solid;
-  border-color: gray;
-
-  width:64px ;
-  height:8px;
-  position: absolute;
-  left:calc(12% - 32px);
-  // right:0;
-  top:120px;
-
-  // z-index:0;
-}
-
-// 右側 耳タブ
-
-.form_signin_tab:after {
-  background: white;
-  display:block;
-
-  content: "Sign＊in";
-  // background: local;
-
-  border-width:2px 2px 2px 2px;
-  border-style: solid;
-  border-color: gray;
-  border-radius:0 10px 16px 0;
-  box-shadow: 1px 2px 0px 0px #00000066;
-
-  width:32px;
-  // height:70px;
-
-  color:#333333;
-  writing-mode:vertical-rl;
-  text-orientation: upright;
-  text-align: right;
-  line-height:30px;
-  letter-spacing:-2px;
-  padding: 10px 0px 10px 0px;
-
-  position: absolute;
-  right:calc(12% - 34px);
-  top:130px;
-
-  z-index:1;
-}
-
-
-
-// // 縦線
-
-.form_signup_tab:before{
-  // background: #ffffff00;
-  display:block;
-
-  content:"";
-  border-width: 0px 0px 0px 2px;
-  border-style: solid;
-  border-color: gray;
-
-  width:32px;
-  height:320px;
-  position: absolute;
-  right:calc(12% - 32px);
-  // right:0;
-  top:120px;
-
-  z-index:0;
-}
-
-
-// signup-tab
-.form_signup_tab:after {
-  background: white;
-  display:block;
-
-  content: "Sign＊up";
-  // background: local;
-
-  border-width:2px 2px 2px 2px;
-  border-style: solid;
-  border-color: gray;
-  border-radius:0 10px 16px 0;
-  box-shadow: 1px 2px 0px 0px #00000066;
-
-  width:32px;
-  height:110px;
-
-  color:#333333;
-  writing-mode:vertical-rl;
-  text-orientation: upright;
-  text-align: right;
-  line-height:30px;
-  letter-spacing:-2px;
-  padding: 10px 0px 20px 0px;
-
-  position: absolute;
-  right:calc(12% - 34px);
-  top:270px;
-
-  z-index:1;
-}
-
-
-// .group_tab:after {
-//   background: white;
-//   display:block;
-
-//   content: "Group＊MENU";
-//   // background: local;
-
-//   border-width:2px 2px 2px 2px;
-//   border-style: solid;
-//   border-color: gray;
-//   border-radius:0 10px 16px 0;
-
-//   width:32px;
-//   height:160px;
-
-//   color:#333333;
-//   writing-mode:vertical-rl;
-//   text-orientation: upright;
-//   text-align: right;
-//   line-height:30px;
-//   letter-spacing:-1px;
-//   padding: 10px 0px 10px 0px;
-
-//   position: absolute;
-//   right:calc(12% - 34px);
-//   top:380px;
-
-//   z-index:1;
-// }
-
-
-
-//サインアップしよう！のポップアップ
-
-.pop-up_lets-signup_two{
-  background: #fafafadd;
-  width:310px;
-  padding: 15px 15px;
-
-  color: #111111;
-  font-size: 18px;
-  font-weight: 600;
-
-  border:solid #555555 1.5px;
-  border-radius: 20px;
-  letter-spacing: 0.8px;
-  // opacity:1;
-
-  position: absolute;
-  top: 350px;
-  right: calc(12% - 58px);
-  display: flex;
-  z-index:3;
-
-  .pop-up_lets-signup p {
-    display: block;
+// // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // //
+// スマホ
+// // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // //
+
+
+@media screen and (max-width:559px){
+
+  .main_wrap{
+    background: #fafafa;
+    width:100%;
+    height:100%;
+    padding: 120px 3% 0px;
+    margin:0 auto 0;
   }
-  & i {
-    color: #ff4f4f;
-    padding: 4px 0px 0px 15px;
-  }
+
 }
 
+// // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // //
+// スマホ以外
+// // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // //
+
+
+@media screen and (min-width:559px){
+
+  .main_wrap{
+    background: #fafafa;
+    width:100%;
+    height:100%;
+    padding: 120px 12% 0px;
+    margin:0 auto 0;
+  }
+
+}

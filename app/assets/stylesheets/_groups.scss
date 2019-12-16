@@ -135,19 +135,19 @@ label.group_name:hover{
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    &_one:before{
-      content:"";
-      border:solid #aaaaf0cc 20px;
-    }
-    &_one:after{
-      content:"";
-      border:solid #aaaaf0cc 20px;
-    }
+    // &_one:before{
+    //   content:"";
+    //   border:solid #aaaaf0cc 20px;
+    // }
+    // &_one:after{
+    //   content:"";
+    //   border:solid #aaaaf0cc 20px;
+    // }
   }
   & p{
     background:#87bbffdd ;
 
-    display: inline-block;
+    display: block;
     margin: 3px 0px 3px 0px;
     padding: 2px 8px;
     line-height: 25px;
@@ -157,6 +157,19 @@ label.group_name:hover{
     border-radius: 15px;
 
   }
+  // & span{
+  //   background:#87bbffdd ;
+
+  //   display: block;
+  //   margin: 3px 0px 3px 0px;
+  //   padding: 2px 8px;
+  //   line-height: 25px;
+  //   color:#00000088;
+  //   font-size:13px;
+  //   white-space: nowrap;
+  //   border-radius: 15px;
+
+  // }
 }
 
 
