@@ -48,11 +48,11 @@
               新規グループ作成
             = form_for @group, url: groups_path, method: :post, class:"group-create" do |f|
               %h3
-                = f.label :グループ名を入力してください
+                グループ名を入力してください
               .group-name_field
                 = f.text_field :group_name, autofocus: true, autocomplete: "グループ名を入力",class:"new-group_name", maxlength: 12
               %h3
-                = f.label :ユーザを選択してください
+                ユーザを選択してください
               %p
                 グループに登録したユーザの投稿を表示します
               .group-user-sel_field
@@ -156,11 +156,6 @@
         = radio_button_tag "groups","all",type:"radio", class:"group_name"
         = label_tag "groups_all", "#{current_user.name}の投稿", class:"group_name"
 
-        -# - current_user.groups.each do |group|
-        -#   =link_to root_path, class: "hoge", id:"group_#{group.id}" do
-        -#     = radio_button_tag "groups","#{group.group_name}",type:"radio", class:"group_name"
-        -#     = label_tag "groups_#{group.group_name}", "#{group.group_name}", class:"group_name"
-        -# グループユーザーリストをモーダルで出す準備
         - current_user.groups.each do |group|
           .group-btn_one
             = link_to root_path, class: "hoge", id:"group_#{group.id}" do

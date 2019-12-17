@@ -12,13 +12,9 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-
   overflow: hidden;
-  // z-index:1;
 
-  // //
   // グループ ボタン
-
   input{
     display:none;
   }
@@ -42,60 +38,36 @@
     z-index:1;
     cursor: pointer;
   }
-}
 
-// .group_radio-btn{
+  a.hoge{
 
-  // display:flex;
-  // align-items: center;
-  // justify-content: center;
-a.hoge{
+    input{
+      display:none;
+    }
+    label{
+      display:block;
+      background:#888888;
+      height: 30px;
+      min-width:70px;
+      margin:5px 12px 5px 0;
+      padding:0 10px 0;
 
-  input{
-    display:none;
+      color:#f0f0f0;
+      line-height:30px;
+      font-size:16px;
+      text-align:center;
+      box-shadow: 1px 2px 1.5px 0.5px #00000044;
+      z-index:1;
+      cursor: pointer;
+    }
   }
-  label{
-    display:block;
-    background:#888888;
-    height: 30px;
-    min-width:70px;
-    margin:5px 12px 5px 0;
-    padding:0 10px 0;
-
-    color:#f0f0f0;
-    line-height:30px;
-    font-size:16px;
-    text-align:center;
-    box-shadow: 1px 2px 1.5px 0.5px #00000044;
-    z-index:1;
-    cursor: pointer;
+  label.group_name:hover{
+    background: #ff0affb2;
+    color: #ffffff;
   }
 }
-label.group_name:hover{
-  background: #ff0affb2;
-  color: #ffffff;
 
-}
 
-.radio-inline__label {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  margin-right: 18px;
-  border-radius: 3px;
-
-}
-
-.radio-inline__input:checked + .radio-inline__label {
-  background: #B54A4A;
-  color: #ffffff;
-}
-
-.radio-inline__input:focus + .radio-inline__label {
-  outline-color: #4D90FE;
-  outline-offset: -2px;
-  outline-style: auto;
-  outline-width: 5px;
-}
 
 // 仕切り線
 .groups:after{
@@ -110,13 +82,13 @@ label.group_name:hover{
 
 
 
-
+// カーソルを合わせると出現する、グループ内のユーザーリスト
 .group_users{
   position: absolute;
-  // top: -20px;
-  // left:-50px;
   margin-top:20px;
   z-index:500;
+
+  // ポップアップのタイトル "GroupUsers"
   span{
     background:#fafafa;
     display:block;
@@ -129,23 +101,17 @@ label.group_name:hover{
   }
   &_one{
     background:#ffffff88;
-    width: auto;
-    // max-width: 800px;
+    // width: auto;
+    max-width: 300px;
     height:auto ;
     padding: 5px 8px;
     border:solid #dddddd 0.5px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    // &_one:before{
-    //   content:"";
-    //   border:solid #aaaaf0cc 20px;
-    // }
-    // &_one:after{
-    //   content:"";
-    //   border:solid #aaaaf0cc 20px;
-    // }
+
   }
+  // グループユーザー名
   & p{
     background:#87bbffdd ;
 
@@ -170,7 +136,6 @@ label.group_name:hover{
   //   font-size:13px;
   //   white-space: nowrap;
   //   border-radius: 15px;
-
   // }
 }
 
@@ -186,11 +151,11 @@ label.group_name:hover{
   display:flex;
   flex-direction:column;
   margin:20px 0 20px;
-}
+  padding:0 20px;
 
-.form_group_three h2{
+  h2{
   display: block;
-  width:calc(30vw + 50px);
+  width:calc(30% + 50px);
   height:60px;
   margin: 0 auto 0;
   margin-bottom:60px;
@@ -204,58 +169,70 @@ label.group_name:hover{
   border-width:2px 0px 2px 0px;
   border-style: solid;
   border-color: gray;
+  }
+
 }
 
-.group-name_field:before{
-  content:"";
-  display:block;
-  width: 100%;
-  height:20px;
-  // background: red;
-  border:none;
+
+
+.group-name_field{
+
+  input{
+    display: block;
+    width:53%;
+    height:41px;
+    padding: 10px 12px;
+    margin:0 auto 0;
+    margin-bottom: 60px;
+    line-height: 21px;
+    border:solid #e5e5e5 1px;
+  }
+  input:hover{
+    border:solid rgb(131, 182, 244) 1px;
+    transition: all 300ms ease-in 100ms;
+  }
+
+  &:before{
+    content:"";
+    display:block;
+    width: 100%;
+    height:20px;
+    // background: red;
+    border:none;
+  }
+
 }
 
-.group-name_field input{
-  display: block;
-  width:53%;
-  height:41px;
-  padding: 10px 12px;
-  margin:0 auto 0;
-  margin-bottom: 60px;
-  line-height: 21px;
-  border:solid #e5e5e5 1px;
-}
-.group-name_field input:hover{
-  border:solid rgb(131, 182, 244) 1px;
-  transition: all 300ms ease-in 100ms;
-}
+
 
 .group-user-sel_field{
   display:flex;
   flex-wrap:wrap;
   justify-content: center;
   margin:20px 0 60px;
-}
 
-.group-user-sel_field input{
-  display:none;
+  input{
+    display:none;
   }
 
-.group-user-sel_field label{
-  background:#cccccc;
-  display: block;
-  flex: 0 3 auto;
-  min-width: 70px;
-  height: 40px;
+  label{
+    background:#cccccc;
+    display: block;
+    flex: 0 3 auto;
+    min-width: 70px;
+    height: 40px;
 
-  margin:5px 7px 5px 0;
-  padding:0 10px 0;
+    margin:5px 7px 5px 0;
+    padding:0 10px 0;
 
-  line-height: 40px;
-  font-size: 18px;
-  font-weight: 400;
-  border-radius:6em;
-  box-shadow: 1px 2px 1.5px 0.5px #00000044;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius:6em;
+    box-shadow: 1px 2px 1.5px 0.5px #00000044;
+    cursor: pointer;
+  }
+
 }
 
 .form_group_three input:checked + label{
@@ -263,6 +240,8 @@ label.group_name:hover{
   color:#ffffff;
   z-index:1;
 }
+
+
 
 input#form_group_submit{
   background: #ffffff77;
@@ -308,13 +287,14 @@ input#form_group_submit{
 
 // グループの削除
 
+.group_d-area{
+  padding:0 20px;
+}
 
 .group_edit-delete_btns{
   width:100%;
   padding:10px 0 10px 0;
   margin: 0px 0 20px;
-
-  // border:solid rgba(209, 213, 149, 0.1) 1px;
   border-radius:1px;
 
   display:flex;
@@ -338,16 +318,17 @@ input#form_group_submit{
 
   border-radius:6em;
   box-shadow: 1px 2px 1.5px 0.5px #00000044;
+  cursor: pointer;
   z-index:1;
   & a{
     color:#f0f0f0;
   }
+  &:hover{
+    background:#ff0a0ab2;
+    color:#ffffff;
+  }
 }
 
-.group_d-list:hover{
-  background:#ff0a0ab2;
-  color:#ffffff;
-}
 
 
 // コンテンツ仕切り線
@@ -365,93 +346,206 @@ input#form_group_submit{
 
 // Ajaxモーダル グループ削除
 
-.modal_one{
-  background: #00000077;
-  position: absolute ;
-  top:0;
-  left:0;
-  width: 200%;
-  height:500%;
-  z-index:101;
-}
-.modal {
-  background: #fafafa;
-  position: fixed;
-  top: 30%;
-  left:calc(50% - 240px);
-
-  width: 480px;
-  height: 300px;
-  border:#c0c0c0;
-  border-radius: 9px;
-  // box-shadow: #aaaaaa 0px 0px 5px 0px;
-
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  z-index:101;
-
-  span {
-    display: block;
-    margin:40px 20px 80px;
-    color:#333333;
+.modal_btns{
+  & div:last-child{
+  background: rgba(89, 159, 244, 0.5);
+  }
+  & div:hover {
+    background: rgb(244, 169, 109);
     font-size: 18px;
-    // font-weight: 600;
   }
-  &_btns{
-    display: flex;
-
-    div {
-      background: #ffffff;
-      display: block;
-      width:140px;
-      height:40px;
-      margin:20px 20px 40px ;
-
-      color:#333333;
-      line-height: 40px;
-      font-size: 18px;
-      font-weight: 400;
-      text-align: center;
-      border-radius: 7px;
-      border: solid #cccccc 0.5px;
-      cursor: pointer;
-    }
-    div:last-child{
-    background: rgba(89, 159, 244, 0.5);
-    }
-    div:hover {
-      background: rgb(244, 169, 109); 
-      font-size: 18px;
-    }
-    div:active {
-      background: rgb(244, 189, 129);
-      color:#ffffff;
-      font-size: 18.5px;
-      border: solid  rgb(244, 189, 129) 0.5px;
-    }
-    div:last-child:hover {
-      background: rgb(109, 169, 244);
-      font-size: 18px;
-    }
-    div:last-child:active {
-      background: rgb(129, 189, 244);
-      color:#ffffff;
-      font-size: 18.5px;
-      border: solid rgb(131, 182, 244) 0.5px;
-    }
+  & div:active {
+    background: rgb(244, 189, 129);
+    color:#ffffff;
+    font-size: 18.5px;
+    border: solid  rgb(244, 189, 129) 0.5px;
+  }
+  & div:last-child:hover {
+    background: rgb(109, 169, 244);
+    font-size: 18px;
+  }
+  & div:last-child:active {
+    background: rgb(129, 189, 244);
+    color:#ffffff;
+    font-size: 18.5px;
+    border: solid rgb(131, 182, 244) 0.5px;
   }
 }
 
+
+
+// // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // //
+// スマホ
+// // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // //
 
 @media screen and (max-width:559px){
 
   .form_group_three h2{
     display: block;
-    width:70%;
+    width:72%;
     height:60px;
     margin: 0 auto 0;
     margin-bottom:60px;
+  }
+
+  .group-user-sel_field{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    margin:20px 0 60px;
+
+    input{
+      display:none;
+    }
+
+    label{
+      background:#cccccc;
+      display: block;
+      flex: 0 3 auto;
+      min-width: 70px;
+      height: 35px;
+
+      margin:5px 7px 5px 0;
+      padding:0 10px 0;
+
+      line-height: 40px;
+      font-size: 16px;
+      font-weight: 400;
+      border-radius:6em;
+      box-shadow: 1px 2px 1.5px 0.5px #00000044;
+      cursor: pointer;
+    }
+
+  }
+
+
+
+
+  // Ajaxモーダル グループ削除
+
+  .modal_one{
+    background: #00000077;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height:100%;
+    z-index:101;
+  }
+
+  .modal {
+    background: #fafafa;
+    position: fixed;
+    top: 130px;
+    left: 4%;
+    // margin:0 0 0 0;
+    width: 92%; //親が200%のため
+    height: 160px;
+    border: #c0c0c0;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 101;
+
+    span {
+      display: block;
+      margin:20px 0px 0px;
+      color:#333333;
+      font-size: 15px;
+      // font-weight: 600;
+    }
+    &_btns{
+      display: flex;
+
+      div {
+        background: #ffffff;
+        display: block;
+        width:120px;
+        height:40px;
+        margin:40px 10px 20px ;
+
+        color:#333333;
+        line-height: 40px;
+        font-size: 15px;
+        font-weight: 400;
+        text-align: center;
+        border-radius: 7px;
+        border: solid #cccccc 0.5px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
+// // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // //
+// スマホ以外
+// // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // //
+
+@media screen and (min-width:560px){
+
+  // Ajaxモーダル グループ削除
+
+  .modal_one{
+    background: #00000077;
+    position: absolute ;
+    top:0;
+    left:0;
+    width: 200%;
+    height:500%;
+    z-index:101;
+  }
+
+  .modal {
+    background: #fafafa;
+    position: fixed;
+    top: 30%;
+    left:calc(50% - 240px);
+
+    width: 480px;
+    height: 300px;
+    border:#c0c0c0;
+    border-radius: 9px;
+    // box-shadow: #aaaaaa 0px 0px 5px 0px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    z-index:101;
+
+    span {
+      display: block;
+      margin:40px 20px 80px;
+      color:#333333;
+      font-size: 18px;
+      // font-weight: 600;
+    }
+    &_btns{
+      display: flex;
+
+      div {
+        background: #ffffff;
+        display: block;
+        width:140px;
+        height:40px;
+        margin:20px 20px 40px ;
+
+        color:#333333;
+        line-height: 40px;
+        font-size: 18px;
+        font-weight: 400;
+        text-align: center;
+        border-radius: 7px;
+        border: solid #cccccc 0.5px;
+        cursor: pointer;
+      }
+    }
   }
 }
