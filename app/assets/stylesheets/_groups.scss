@@ -421,6 +421,35 @@ input#form_group_submit{
   }
 
 
+// Ajaxモーダル グループ削除
+
+.modal_btns{
+  & div:last-child{
+  background: rgba(89, 159, 244, 0.5);
+  }
+  & div:hover {
+    background: rgb(244, 169, 109);
+    font-size: 15px;
+  }
+  & div:active {
+    background: rgb(244, 189, 129);
+    color:#ffffff;
+    font-size: 15.5px;
+    border: solid  rgb(244, 189, 129) 0.5px;
+  }
+  & div:last-child:hover {
+    background: rgb(109, 169, 244);
+    font-size: 15px;
+  }
+  & div:last-child:active {
+    background: rgb(129, 189, 244);
+    color:#ffffff;
+    font-size: 15.5px;
+    border: solid rgb(131, 182, 244) 0.5px;
+  }
+}
+
+
 
 
   // Ajaxモーダル グループ削除
