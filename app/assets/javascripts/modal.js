@@ -72,46 +72,56 @@ $(function(){
 // 何msボタンにマウスをのせていたらモーダル出現！とするのはどうかな？
 // $(document).on("turbolinks:load", function(){
 //   // var notClicked =  $(".groups label").not(this);
-//   $(".groups label").on("mouseover",function(){
+//   $(".group-btn_one label").on("mouseover",function(){
 //     // alert("OK")
 //     $(this).parent().parent().children("div").toggleClass("hidden")
 //     // notClicked.parent().parent().children($("div")).addClass("hidden");
 //   });
-//   $(".groups label").on("mouseleave",function(){
+//   $(".group-btn_one label").on("mouseleave",function(){
 //     $(this).parent().parent().children("div").toggleClass("hidden")
 //   });
 // })
 
+// マウスーバー時のみ出現
 $(document).on("turbolinks:load", function(){
   // var notClicked =  $(".groups label").not(this);
-  $(".groups label").on("mouseover",function(){
+  $(".group-btn_one label").on("mouseover",function(){
     // alert("OK")
     $(this).parent().parent().children("div").toggleClass("hidden")
     // notClicked.parent().parent().children($("div")).addClass("hidden");
   });
   // ユーザーポップアップ
-  $(".groups label").on("mouseleave",function(){
+  $(".group-btn_one label").on("mouseleave",function(){
     $(this).parent().parent().children("div").toggleClass("hidden")
   });
 })
 
+// // // setTimeout
 // $(document).on("turbolinks:load", function(){
-//   // var notClicked =  $(".groups label").not(this);
-//   $(".groups label").on("mouseover",function(){
-//     // alert("OK")
-//     $(this).parent().parent().children("div").toggleClass("hidden")
-//     // notClicked.parent().parent().children($("div")).addClass("hidden");
-//     });
-//     if ( $(".groups label").click() )
-//     {
-//       alert("yeah")
-//     }
-//     else
-//     {
-//       $(".groups label").on("mouseleave",function(){
-//         $(this).parent().parent().children("div").toggleClass("hidden")
-//       });
-//   }
 
+//     setTimeout(function(){
+//       $(".group-btn_one label").on("mouseover",function(){
+//       $(this).parent().parent().children("div").toggleClass("hidden")
+//       },1000)
+//     });
+// })
+
+
+// // マウスオーバーでIN , その後残る , クリックで消える
+// $(document).on("turbolinks:load", function(){
+
+//   $(".group-btn_one label").on("mouseover",function(){
+//     $(this).parent().parent().children("div").toggleClass("hidden")
+//   })
+//   // ユーザーポップアップ OUT
+//   $(!".group_users").on("click",function(){
+//     $(".group_users").removeClass("hidden")
+//     $(".group_users").addClass("hidden")
+//   });
+//   $("body").on("click",function(){
+//     $(".group_users").addClass("hidden")
+
+//   });
 
 // })
+
