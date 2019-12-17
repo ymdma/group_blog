@@ -1,3 +1,4 @@
+// ユーザー・新規登録/ログインフォーム
 
 .form_signin{
   &_one{
@@ -33,7 +34,7 @@
   // padding:0 10px 0 10px;
   width:100%;
   height:30px;
-
+  border: solid #e5e5e5 0.5px;
   margin: 10px 0 20px;
   }
 }
@@ -109,7 +110,21 @@
   }
 }
 
+@media screen and (max-width:559px){
 
+  .form_signin_two{
+    width: 70%;
+    margin:20px 0 0px;
+  }
+  .form_signup_two{
+    width: 70%;
+    margin:20px 0 40px;
+  }
+
+}
+// @media screen and (min-width:560px){
+
+// }
 
 
 

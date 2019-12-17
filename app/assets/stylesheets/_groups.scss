@@ -1,3 +1,5 @@
+// グループ関係
+
 
 
 // 表示するグループの選択
@@ -439,5 +441,17 @@ input#form_group_submit{
       font-size: 18.5px;
       border: solid rgb(131, 182, 244) 0.5px;
     }
+  }
+}
+
+
+@media screen and (max-width:559px){
+
+  .form_group_three h2{
+    display: block;
+    width:70%;
+    height:60px;
+    margin: 0 auto 0;
+    margin-bottom:60px;
   }
 }
