@@ -55,6 +55,7 @@ $(document).on("turbolinks:load", function(){
         $(".contents_three").append(insertHTML);
         // alert(d.title+d.content)
       })
+
     })
     .fail(function(){
       alert('コンテンツの取得に失敗しました');

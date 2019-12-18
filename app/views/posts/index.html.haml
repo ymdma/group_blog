@@ -161,15 +161,29 @@
             = link_to root_path, class: "hoge", id:"group_#{group.id}" do
               = radio_button_tag "groups","#{group.group_name}",type:"radio", class:"group_name"
               = label_tag "groups_#{group.group_name}", "#{group.group_name}", class:"group_name"
+
             .group_users.hidden
-              %span
-                GroupUsers
-              .group_users_one
-                - group.group_users.each do |user|
-                  %p
-                    = user.user.name
-                  .prof.hidden
-                    = user.user.profile
+              = form_for "", url: "groups/update", method: :patch do |f|
+                %h3
+                  = f.text_field :group_name, value:"#{group.group_name}"
+                = f.submit "グループ名の変更を保存", id:"group_name-edit_submit"
+
+                %span{class:"foot_group_users_title"}
+                  グループメンバー
+                .group_users_one
+                  - group.group_users.each do |user|
+                    = link_to "", url: "group_users/update", method: :delete do
+                      -# .del-user
+                      -#   [×]
+                    %p{class:"footer_group_user-btn",id:"group_user_#{user.user.name} group_user_#{user.user.id}"}
+                      = user.user.name
+                    -# モーダルで出す
+                    .prof.hidden
+                      = user.user.profile
+                    .group_add_user.hidden
+                      %p{id:"group_add_#{user.user.id}"}
+                      = user.user.name
+                  .add_btn
 
 
     -# 投稿一覧 タイル表示

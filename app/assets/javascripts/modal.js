@@ -82,19 +82,43 @@ $(function(){
 //   });
 // })
 
-// マウスーバー時のみ出現
-$(document).on("turbolinks:load", function(){
-  // var notClicked =  $(".groups label").not(this);
-  $(".group-btn_one label").on("mouseover",function(){
+
+// // フッター グループユーザーをクリックでプロフィールオープン
+$(function(){
+$(".footer_group_user-btn").on("click",function(){
+  // var notClicked =  $(".footer_group_user-btn").not(this);
+  $(this).parent().children("div.prof").toggleClass("hidden")
+  });
+});
+
+// マウスオーバー時のみ出現
+$(function(){
+  $(".group-btn_one label").on("click",function(){
+    var notClicked =  $(".group-btn_one label").not(this);
     // alert("OK")
     $(this).parent().parent().children("div").toggleClass("hidden")
-    // notClicked.parent().parent().children($("div")).addClass("hidden");
+    notClicked.parent().parent().children("div").addClass("hidden");
   });
   // ユーザーポップアップ
-  $(".group-btn_one label").on("mouseleave",function(){
-    $(this).parent().parent().children("div").toggleClass("hidden")
-  });
-})
+  // $(".group-btn_one label").on("mouseleave",function(){
+  //   $(this).parent().parent().children("div").toggleClass("hidden")
+  // });
+});
+
+
+// マウスオーバー時のみ出現
+// $(document).on("turbolinks:load", function(){
+//   // var notClicked =  $(".groups label").not(this);
+//   $(".group-btn_one label").on("click",function(){
+//     // alert("OK")
+//     $(this).parent().parent().children("div").toggleClass("hidden")
+//     // notClicked.parent().parent().children($("div")).addClass("hidden");
+//   });
+//   // ユーザーポップアップ
+//   $(".group-btn_one label").on("mouseleave",function(){
+//     $(this).parent().parent().children("div").toggleClass("hidden")
+//   });
+// })
 
 // // // setTimeout
 // $(document).on("turbolinks:load", function(){

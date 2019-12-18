@@ -6,6 +6,7 @@ json.array! @group_posts do |post|
   json.date post.updated_at.strftime("%Y年%m月%d日 %H時%M分")
   json.content post.content
   json.image post.image.url
+
 end
 
 json.array! @user_posts do |apost|
@@ -15,5 +16,6 @@ json.array! @user_posts do |apost|
   json.date apost.updated_at.strftime("%Y年%m月%d日 %H時%M分")
   json.content apost.content
   json.image apost.image.url
+
 end
 
