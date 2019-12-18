@@ -1,5 +1,6 @@
 $(document).on("turbolinks:load", function(){
 
+
   function buildHTML(apost){
     var img = apost.image ? `${apost.image}` : "";
     var html = `
@@ -24,6 +25,7 @@ $(document).on("turbolinks:load", function(){
 
     return html
   }
+
 
   // $(document).on("click",".group_radio-btn", function(){
   //   $(".contents").remove();
@@ -52,6 +54,7 @@ $(document).on("turbolinks:load", function(){
         insertHTML = buildHTML(apost);
         $(".contents_three").append(insertHTML);
         // alert(d.title+d.content)
+
       })
     })
     .fail(function(){
