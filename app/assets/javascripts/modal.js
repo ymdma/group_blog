@@ -95,9 +95,13 @@ $(".footer_group_user-btn").on("click",function(){
 $(function(){
   $(".group-btn_one label").on("click",function(){
     var notClicked =  $(".group-btn_one label").not(this);
+    var nowFooter = $(this);
     // alert("OK")
-    $(this).parent().parent().children("div").toggleClass("hidden")
+    $(this).parent().parent().children("div").toggleClass("hidden");
     notClicked.parent().parent().children("div").addClass("hidden");
+    $("#my_all_posts-btn").on("click",function(){
+      nowFooter.parent().parent().children("div").addClass("hidden")
+    })
   });
   // ユーザーポップアップ
   // $(".group-btn_one label").on("mouseleave",function(){

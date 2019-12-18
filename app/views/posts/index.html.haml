@@ -154,7 +154,7 @@
           選択したグループの投稿を表示します
 
         = radio_button_tag "groups","all",type:"radio", class:"group_name"
-        = label_tag "groups_all", "#{current_user.name}の投稿", class:"group_name"
+        = label_tag "groups_all", "#{current_user.name}の投稿", class:"group_name",id:"my_all_posts-btn"
 
         - current_user.groups.each do |group|
           .group-btn_one
