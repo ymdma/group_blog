@@ -1,6 +1,19 @@
 // BlogPost (投稿フォーム)
 
+.form_post_image_prev{
+  position: relative;
 
+  img.prev-del{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    border-radius: 50%;
+    background:#ffffffdd;
+    cursor:pointer;
+
+  }
+}
 
 // // // // // // // // // // // // // // // // // //
 // // // // // // // // // // // // // // // // // //

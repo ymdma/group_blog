@@ -10,8 +10,8 @@ $(document).on("turbolinks:load", function(){
     var idName = $(this).children().attr("id") //ボタン消す用
     // console.log(idName);
 
-    $(".modal_one").fadeIn();
-    $(".modal_btns").on("click", ".modal_d", function(){
+    $(".group-modal_one").fadeIn();
+    $(".group-modal_btns").on("click", ".group-modal_d", function(){
       // alert("ok")
 
       $.ajax({
@@ -26,7 +26,7 @@ $(document).on("turbolinks:load", function(){
 
     $(destroyTargetGroup).remove();
     $(`#group_${idName}`).remove()
-    $(".modal_one").fadeOut();
+    $(".group-modal_one").fadeOut();
     });
 
   });
@@ -38,8 +38,8 @@ $(document).on("turbolinks:load", function(){
 // $(function(){
 $(document).on("turbolinks:load", function(){
   // var notClicked =  $(".groups label").not(this);
-  $(".modal_n").on("click",function(){
-    $(".modal_one").fadeOut("hidden")
+  $(".group-modal_n").on("click",function(){
+    $(".group-modal_one").fadeOut("hidden")
   });
 });
 
@@ -87,11 +87,11 @@ $(function(){
 $(function(){
 $(".footer_group_user-btn").on("click",function(){
   // var notClicked =  $(".footer_group_user-btn").not(this);
-  $(this).parent().children("div.prof").toggleClass("hidden")
+  $("div.user_option").toggleClass("hidden")
   });
 });
 
-// マウスオーバー時のみ出現
+// クリックしたら最下部に固定されたグループユーザー画面が出現
 $(function(){
   $(".group-btn_one label").on("click",function(){
     var notClicked =  $(".group-btn_one label").not(this);
@@ -103,6 +103,11 @@ $(function(){
       nowFooter.parent().parent().children("div").addClass("hidden")
     })
   });
+
+  $(".foot_group_users_title").on("click",function(){
+    $(".group_users_one").toggle("height")
+  });
+
   // ユーザーポップアップ
   // $(".group-btn_one label").on("mouseleave",function(){
   //   $(this).parent().parent().children("div").toggleClass("hidden")
@@ -152,4 +157,39 @@ $(function(){
 //   });
 
 // })
+
+
+
+// グループユーザーから削除
+$(document).on("turbolinks:load", function(){
+  $(".del-user").on("click", function(){
+
+    gu_url = $(this).parent("div").attr("id");
+
+    $(".modal_gu_one").fadeIn();
+
+    $(".modal_gu_btns").on("click", ".modal_gu_n", function(){
+      $(".modal_gu_one").fadeOut();
+    });
+
+    $(".modal_gu_btns").on("click", ".modal_gu_d", function(){
+      // alert("ok")
+
+      $.ajax({
+              type: "post",
+              url: gu_url,
+              data: {"_method": "delete"},
+              dataType: "json"
+            })
+
+
+
+
+
+      $(".modal_gu_one").fadeOut();
+      });
+
+  });
+  return false;
+});
 

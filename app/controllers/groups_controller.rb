@@ -25,6 +25,14 @@ class GroupsController < ApplicationController
   end
 
 
+  def group_user_destroy
+    @d_group = GroupUser.find(params[:id])
+
+    @d_group.destroy
+    # flash:{group_create: "グループメンバーから削除しました"}
+
+  end
+
   def destroy
     @group = Group.find(params[:id])
 
@@ -48,7 +56,10 @@ class GroupsController < ApplicationController
     # correct_user_ids = params['group']['user_ids']
     # params.require(:group).permit(:name,:group_name).merge(user_ids: correct_user_ids)
     # params.require(:group).permit(:name,:group_name,:user_id => [] )
-    params.require(:group).permit(:group_name, user_ids: [] )
+    params.require(:group).permit(
+      :group_name,
+      :admin,
+      user_ids: [] )
   end
 
 end

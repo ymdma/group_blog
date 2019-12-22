@@ -22,6 +22,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :groups
+  resources :groups do
+    member do
+      delete "group_user_destroy"
+    end
+  end
 
 end
