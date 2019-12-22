@@ -175,6 +175,15 @@
                 %span{class:"foot_group_users_title"}
                   グループメンバー
                 .group_users_one
+                  .modal_gu_one.hidden
+                    .modal_gu
+                      %span
+                        このメンバーをグループから削除してもよろしいですか？
+                      .modal_gu_btns
+                        .modal_gu_n
+                          取り消す
+                        .modal_gu_d
+                          削除する
                   - group.group_users.each do |user|
                     %div{id: "/groups/#{user.id}/group_user_destroy"}
                       %p{class:"footer_group_user-btn"}
@@ -193,15 +202,6 @@
                         -# = user.user.name
                   .add_btn
 
-                .modal_gu_one.hidden
-                  .modal_gu
-                    %span
-                      このメンバーをグループから削除してもよろしいですか？
-                    .modal_gu_btns
-                      .modal_gu_n
-                        取り消す
-                      .modal_gu_d
-                        削除する
 
 
     -# 投稿一覧 タイル表示
