@@ -16,19 +16,45 @@
       .edit_content_lower
         .edit_text
           = f.text_area :content, value:"#{@post.content}"
-        -# 画像の編集機能は追って実装
-        -# .edit_image
-        -#   - if @post.image.present?
-        -#     = image_tag @post.image.url
+        // // 画像の編集
+        // 元々画像が含まれていなければ → 画像のアップロードフォーム
+        - unless @post.image.present?
+          .form_post_image_prev
+            -# - if @post.image?
+            = image_tag "", id: 'post_image-preview'
+            = image_tag "times-circle-regular.svg",class:"prev-del hidden"
+          .form_post_image
+            = f.label :image, class: 'form_post_mask_image' do
+              %span
+                画像のアップロード
+              = fa_icon 'picture-o', class: 'icon'
+              = f.file_field :image, class: "hidden image_prev"
 
-          -# .form_post_image
-          -#   = link_to @post, method: :put, params: :remove_image do
-          -#     %span
-          -#       画像の削除
-          -#   %span
-    -#           画像のアップロード
-    -#         = fa_icon 'picture-o', class: 'icon'
-    -#         = f.file_field :image, class: 'hidden'
+            // 元々画像が含まれていれば → 画像の削除ボタン＋アップロードフォーム
+        - if @post.image.present?
+          //  プレビュー
+          .edit_image
+            = image_tag @post.image.url, class:"image_prev"
+          // 削除
+          .form_post_image
+            = f.check_box :remove_image, class:"hidden"
+            = f.label :remove_image, "この画像を削除する",class:"post-edit_remove-btn"
+
+          // 未実装
+          // 元の画像の削除 → 違う画像のアップロード
+          //   *理由: 一回のアップデートで削除のみにしか対応していないため新規アップが反映されない
+          //   *案: 「削除のみ」と、「削除して別の画像をアップ」を分ける
+          -# .post-edit_change-image.hidden
+          -#   .form_post_image_prev
+          -#     -# - if @post.image?
+          -#     = image_tag "", id: 'post_image-preview'
+          -#     = image_tag "times-circle-regular.svg",class:"prev-del hidden"
+          -#   .form_post_image
+          -#     = f.label :image, class: 'form_post_mask_image' do
+          -#       %span
+          -#         画像のアップロード
+          -#       = fa_icon 'picture-o', class: 'icon'
+          -#       = f.file_field :image, class: "hidden image_prev"
     - if current_user.id == @post.user_id
       .edit_under_btn
         = f.submit "変更を保存"

@@ -62,3 +62,14 @@ $(document).on("turbolinks:load", function(){
   //     return false
   //   }
   // })
+
+
+
+
+
+  // URL変える！ってコード
+
+  // var path = location.pathname
+  // if (何ちゃらの時例えば、どこにいる時){
+  //   window.location.pathname = "/" //ルートに遷移させる
+  // }

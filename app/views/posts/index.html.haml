@@ -57,6 +57,7 @@
                 グループに登録したユーザの投稿を表示します
               .group-user-sel_field
                 = f.collection_check_boxes :user_ids, User.where.not(id: current_user.id), :id, :name, include_hidden: false
+              = f.hidden_field :admin, value:current_user.id
               = f.submit "グループ作成", id: "form_group_submit"
             .em_group-create
 
@@ -69,21 +70,22 @@
               %p
                 選択したグループを削除します
               .group_edit-delete_btns
-                - current_user.groups.each do |group|
+                -# - current_user.groups.each do |group|
+                - @del_groups_list.each do |group|
                   .group_d-list
                     -# = link_to "#{group.group_name}", "/groups/#{group.id}", method: :delete
                     %div{id:"#{group.id}"}
                       = group.group_name
 
             -# グループの削除確認用のモーダル
-            .modal_one.hidden
-              .modal
+            .group-modal_one.hidden
+              .group-modal
                 %span
                   このグループを削除してもよろしいですか？
-                .modal_btns
-                  .modal_n
+                .group-modal_btns
+                  .group-modal_n
                     取り消す
-                  .modal_d
+                  .group-modal_d
                     削除する
 
 
@@ -116,14 +118,16 @@
                 = render partial: 'error_messages', locals: {post: @post, column: "content"}
 
               .form_post_image_prev
-                -# -if @post.image?
+                -# - if @post.image?
                 = image_tag "", id: 'post_image-preview'
+                = image_tag "times-circle-regular.svg",class:"prev-del hidden"
               .form_post_image
                 = f.label :image, class: 'form_post_mask_image' do
                   %span
                     画像のアップロード
                   = fa_icon 'picture-o', class: 'icon'
                   = f.file_field :image, class: "hidden image_prev"
+                  -# = image_tag "times-circle-regular.svg",class:"prv-del"
 
                   -# = f.file_field :image, id:"image_prev", class: 'hidden'
 
@@ -172,18 +176,32 @@
                   グループメンバー
                 .group_users_one
                   - group.group_users.each do |user|
-                    = link_to "", url: "group_users/update", method: :delete do
-                      -# .del-user
-                      -#   [×]
-                    %p{class:"footer_group_user-btn",id:"group_user_#{user.user.name} group_user_#{user.user.id}"}
-                      = user.user.name
-                    -# モーダルで出す
-                    .prof.hidden
-                      = user.user.profile
-                    .group_add_user.hidden
-                      %p{id:"group_add_#{user.user.id}"}
-                      = user.user.name
+                    %div{id: "/groups/#{user.id}/group_user_destroy"}
+                      %p{class:"footer_group_user-btn"}
+                        = user.user.name
+                      -# = link_to "/groups/#{user.id}/group_user_destroy", method: :delete do
+                    .user_option.hidden
+                      .prof
+                        = user.user.profile
+                      - if current_user.id == group.admin
+                        .del-user
+                          = image_tag "times-circle-regular.svg"
+                          %p
+                            このメンバーをグループから外す
+                      -# .group_add_user.hidden
+                        -# %p{id:"group_add_#{user.user.id}"}
+                        -# = user.user.name
                   .add_btn
+
+                .modal_gu_one.hidden
+                  .modal_gu
+                    %span
+                      このメンバーをグループから削除してもよろしいですか？
+                    .modal_gu_btns
+                      .modal_gu_n
+                        取り消す
+                      .modal_gu_d
+                        削除する
 
 
     -# 投稿一覧 タイル表示

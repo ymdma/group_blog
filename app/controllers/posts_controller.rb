@@ -6,17 +6,19 @@ class PostsController < ApplicationController
     if user_signed_in?
       # 投稿一覧表示
       @posts = Post.all.order("created_at DESC")
-        # @groups = Group.all.order("created_at DESC")
 
       #  投稿フォーム用にインスタンスを用意
       @post = Post.new
+      #  投稿フォーム用にインスタンスを用意
+      @group = Group.new
+      # binding.pry
+      #  ユーザーが削除可能なグループリスト
+      @del_groups_list = Group.where(admin:current_user.id)
 
       #  新規グループ作成時、ユーザーの名前の表示
       # @name_list = User.where.not(id:current_user.id)
 
-      #  投稿フォーム用にインスタンスを用意
-      @group = Group.new
-      # binding.pry
+
       #  グループボタンを押してPostの表示範囲を指定
       if params[:group]  == nil
 
@@ -58,16 +60,20 @@ class PostsController < ApplicationController
     if user_signed_in?
       # 投稿一覧表示
       @posts = Post.all.order("created_at DESC")
-        # @groups = Group.all.order("created_at DESC")
 
       #  投稿フォーム用にインスタンスを用意
+      @post = Post.new
+      #  投稿フォーム用にインスタンスを用意
       @group = Group.new
+      # binding.pry
+      #  ユーザーが削除可能なグループリスト
+      @del_groups_list = Group.where(admin:current_user.id)
 
       #  新規グループ作成時、ユーザーの名前の表示
-      # @namelist = User.where.not(id:current_user.id)
+      # @name_list = User.where.not(id:current_user.id)
 
       # createアクション用記述
-      binding.pry
+      # binding.pry
       @post = Post.new(
         title: post_params[:title],
         content: post_params[:content],
@@ -139,6 +145,9 @@ class PostsController < ApplicationController
   def update
     # @post = Post.new
     post = Post.find(params[:id])
+    if params[:remove_image].present?
+      post.remove_image!
+    end
     if post.user_id == current_user.id
       post.update(post_params)
       redirect_to action: :show
@@ -163,7 +172,8 @@ class PostsController < ApplicationController
       [:title],
       [:content],
       [:image],
-      [:group_id]
+      [:group_id],
+      [:remove_image]
     )
   end
 
