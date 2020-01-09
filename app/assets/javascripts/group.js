@@ -14,9 +14,7 @@ $(document).on("turbolinks:load", function(){
 <h4>${post.name}</h4>
 </div>
 <div class="content_text">
-<pre>
-<p>${post.content}</p>
-</pre>
+<pre><p>${post.content}</p></pre>
 <div class="clear">
 </div>
 </div>

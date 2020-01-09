@@ -1,4 +1,5 @@
 
+
 // .demo1{
 //   background: #33333377;
 //   position: absolute;
@@ -76,26 +77,26 @@
   color: #cccccc;
   opacity:0.98;
 
-  box-shadow:inset 0px 0px 12px 16px #f7747477;
-  border:solid #f77474 1.5px;
+  box-shadow:inset 0px 0px 12px 20px #ffd4468a;
+  border:solid #ffd446 1.5px;
   translate:all ;
   transform: scale(1);
   transition-duration: 100ms;
   // z-index:10;
 
 }
-.go-demo:active{
-  background: #ffffff;
-  // width: 65px;
-  color: #000000;
-  opacity:1;
-  box-shadow:inset 0px 0px 20px -7px #ffffff;
-  border:solid #ffd446 1.5px;
-  translate:all ;
-  // transform: scale(2);
-  transition-duration: 300ms;
-  // z-index:10;
-}
+// .go-demo:active{
+//   background: #ffffff;
+//   // width: 65px;
+//   color: #000000;
+//   opacity:1;
+//   box-shadow:inset 0px 0px 20px -7px #ffffff;
+//   border:solid #ffd446 1.5px;
+//   translate:all ;
+//   // transform: scale(2);
+//   transition-duration: 300ms;
+//   // z-index:10;
+// }
 // デモユーザーログインここまで
 
 

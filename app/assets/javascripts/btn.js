@@ -73,3 +73,17 @@ $(document).on("turbolinks:load", function(){
   // if (何ちゃらの時例えば、どこにいる時){
   //   window.location.pathname = "/" //ルートに遷移させる
   // }
+
+$(function(){
+  $(".del-user > p").mouseenter("",function(){
+    var notSelect =  $(".del-user P").not(this);
+
+    $(this).prevAll().css("filter","contrast(1)")
+    notSelect.prevAll(img).css("filter","contrast(0.1)")
+  })
+  $(".del-user > p").mouseleave("",function(){
+    $(".del-user > img").css("filter","contrast(0.1)")
+    // notSelect.css("opacity","1")
+
+  })
+})

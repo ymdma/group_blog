@@ -31,7 +31,7 @@
     -# ポップアップにてユーザー名変更
     .user_update-pop_one.hidden
       .user_update-pop
-        = form_for "", url: "users/update", method: :patch do |f|
+        = form_for "", url: user_path(current_user), method: :patch do |f|
           %p
             name:
           = f.text_field :name, value: "#{current_user.name}", class: "text_field_user_name-edit"

@@ -24,6 +24,12 @@ class GroupsController < ApplicationController
     # end
   end
 
+  def add_user
+    add_user = GroupUser.new(
+      group_id:[:group_id],
+      user_id:[:user_id]
+      )
+  end
 
   def group_user_destroy
     @d_group = GroupUser.find(params[:id])

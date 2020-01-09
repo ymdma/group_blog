@@ -12,10 +12,8 @@ $(document).on("turbolinks:load", function(){
 <h3>${apost.title}</h3>
 </div>
 <div class="content_text">
-<pre>
-<p>${apost.content}</p>
+<pre><p>${apost.content}</p></pre>
 <div class="clear"></div>
-</pre>
 </div>
 <div class="content_image">
 <img src="${img}">
@@ -54,7 +52,14 @@ $(document).on("turbolinks:load", function(){
         insertHTML = buildHTML(apost);
         $(".contents_three").append(insertHTML);
         // alert(d.title+d.content)
-
+        // if($(".pre").height() > 207)
+        //   {
+        //     $(".text-end").addClass("clear")
+        //   }
+        // else
+        //   {
+        //     // $(".text-end").removeClass("clear")
+        //   };
       })
     })
     .fail(function(){

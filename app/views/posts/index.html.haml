@@ -191,16 +191,26 @@
                       -# = link_to "/groups/#{user.id}/group_user_destroy", method: :delete do
                     .user_option.hidden
                       .prof
-                        = user.user.profile
+                        %pre
+                          = user.user.profile
                       - if current_user.id == group.admin
                         .del-user
-                          = image_tag "times-circle-regular.svg"
+                          = image_tag "times-circle-regular.svg" ,class:"abc"
                           %p
-                            このメンバーをグループから外す
-                      -# .group_add_user.hidden
-                        -# %p{id:"group_add_#{user.user.id}"}
-                        -# = user.user.name
-                  .add_btn
+                            このメンバーをグループ  から外す
+
+                          -# %p{id:"group_add_#{user.user.id}"}
+                          -# = user.user.name
+                  // 保留中---グループユーザーの追加
+                  -# .add_btn
+                  -#   +
+                  -# .add_user_list.group-user-sel_field
+                  -#   -# - group.group_users.each do |user|
+                  -#   -#   %p{class:"user_id_#{user.id}"}
+                  -#   -#   = user.user.name
+                  
+                  -#   = f.collection_check_boxes :user_ids, User.where.not(id: group.group_users.user.id), :id, :name, include_hidden: false
+                  -# = f.hidden_field :group_id, value:group.id
 
 
 

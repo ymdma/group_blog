@@ -111,10 +111,10 @@
     cursor: pointer;
   }
   &_one{
-    background:#dddddddd;
+    background:#ddddddee;
     // max-width: 300px;
     height:76px ;
-    height: auto !important;
+    height: auto ;
     min-height: 50px;
     padding: 15px 10px;
     border:solid #dddddd 0.5px;
@@ -158,6 +158,12 @@
       img{
         width: 20px;
         margin-right:5px ;
+        border-radius: 50%;
+        // background-color: #ffffff;
+        filter: contrast(0.1);
+        // border-style: solid;
+        // border-color: #dd5544;
+        // border-width: 0px;
       }
 
       p{
@@ -167,8 +173,8 @@
         font-size: 13px;
       }
       p:hover{
-        color:#555555;
-        font-size: 13.5px;
+        color:#222222;
+        // font-size: 13px;
       }
     }
   }
@@ -176,15 +182,10 @@
 
 .group_add_user{
   background:#f0f0f0;
-  // position: absolute;
   position: fixed;
-  // width: calc(76% - 2px);
   width: 100%;
-  // top: 360px;
-  // left:12%;
   bottom:0;
   left:0;
-
   z-index:600 ;
 }
 
