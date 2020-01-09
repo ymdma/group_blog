@@ -172,8 +172,9 @@
                   = f.text_field :group_name, value:"#{group.group_name}"
                 = f.submit "グループ名の変更を保存", id:"group_name-edit_submit"
 
-                %span{class:"foot_group_users_title"}
-                  グループメンバー
+                .foot_group_users_title
+                  = group.group_name
+                  -# グループメンバー
                 .group_users_one
                   .modal_gu_one.hidden
                     .modal_gu
@@ -208,7 +209,7 @@
                   -#   -# - group.group_users.each do |user|
                   -#   -#   %p{class:"user_id_#{user.id}"}
                   -#   -#   = user.user.name
-                  
+
                   -#   = f.collection_check_boxes :user_ids, User.where.not(id: group.group_users.user.id), :id, :name, include_hidden: false
                   -# = f.hidden_field :group_id, value:group.id
 

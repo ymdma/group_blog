@@ -74,12 +74,13 @@ $(document).on("turbolinks:load", function(){
   //   window.location.pathname = "/" //ルートに遷移させる
   // }
 
+  // フッターのグループユーザー削除
 $(function(){
   $(".del-user > p").mouseenter("",function(){
     var notSelect =  $(".del-user P").not(this);
 
     $(this).prevAll().css("filter","contrast(1)")
-    notSelect.prevAll(img).css("filter","contrast(0.1)")
+    notSelect.prev().css("filter","contrast(0.1)")
   })
   $(".del-user > p").mouseleave("",function(){
     $(".del-user > img").css("filter","contrast(0.1)")

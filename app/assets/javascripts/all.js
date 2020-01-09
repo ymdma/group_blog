@@ -5,9 +5,7 @@ $(document).on("turbolinks:load", function(){
     var img = apost.image ? `${apost.image}` : "";
     var html = `
 <div class="content" id="${apost.id}">
-<div class="post_date">
 <p class="post_date">${apost.date}</p>
-</div>
 <div class="content_title">
 <h3>${apost.title}</h3>
 </div>
@@ -52,14 +50,9 @@ $(document).on("turbolinks:load", function(){
         insertHTML = buildHTML(apost);
         $(".contents_three").append(insertHTML);
         // alert(d.title+d.content)
-        // if($(".pre").height() > 207)
-        //   {
-        //     $(".text-end").addClass("clear")
-        //   }
-        // else
-        //   {
-        //     // $(".text-end").removeClass("clear")
-        //   };
+        // var firstContentWidth = $(".content").first().attr("class")
+        // alert(firstContentWidth)
+        // $(".content").css("width",firstContentWidth)
       })
     })
     .fail(function(){

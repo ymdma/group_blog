@@ -4,14 +4,10 @@ $(document).on("turbolinks:load", function(){
     var img = post.image ? `${post.image}` : "";
     var html = `
 <div class="content" id="${post.id}">
-<div class="post_date">
 <p class="post_date">${post.date}</p>
-</div>
+<div class="content_name">${post.name}</div>
 <div class="content_title">
 <h3>${post.title}</h3>
-</div>
-<div class="content_name">
-<h4>${post.name}</h4>
 </div>
 <div class="content_text">
 <pre><p>${post.content}</p></pre>
