@@ -126,6 +126,9 @@
     flex-direction: row;
     overflow-x: scroll;
 
+    & .footer_group_user{
+      display: flex;
+    }
     // グループユーザー名
     & p.footer_group_user-btn{
       background:#427ada ;
@@ -134,12 +137,11 @@
       margin: 0px 10px 0px 0px;
       padding: 2px 8px;
       line-height: 25px;
-      color:#ffffffee;
-      font-size:13px;
+      color: #ffffffee;
+      font-size:    13px;
       white-space: nowrap;
       border-radius: 15px;
       cursor: pointer;
-
     }
 
     .prof{

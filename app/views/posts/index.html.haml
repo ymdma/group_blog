@@ -186,7 +186,7 @@
                         .modal_gu_d
                           削除する
                   - group.group_users.each do |user|
-                    %div{id: "/groups/#{user.id}/group_user_destroy"}
+                    %div{class:"footer_group_user",id: "#{user.id}"}
                       %p{class:"footer_group_user-btn"}
                         = user.user.name
                       -# = link_to "/groups/#{user.id}/group_user_destroy", method: :delete do

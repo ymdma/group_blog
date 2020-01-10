@@ -163,10 +163,10 @@ $(function(){
 // グループユーザーから削除
 $(document).on("turbolinks:load", function(){
   $(".del-user").on("click", function(){
-
-    var gu_url = $(this).parent().parent("div").attr("id");
+    var gu_id = $(this).parent().parent("div").attr("id");
+    var gu_url = "/groups/" + `${gu_id}` + "/group_user_destroy";
     var targetElement = $(this).parent().parent("div");
-    // alert(`${gu_url}`)
+    alert(`${gu_url}`)
     $(".modal_gu_one").fadeIn();
 
     $(".modal_gu_btns").on("click", ".modal_gu_n", function(){
