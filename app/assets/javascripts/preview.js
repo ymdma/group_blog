@@ -37,14 +37,12 @@ $(function(){
 
   // Editページ / 画像の削除ボタン
   $("label.post-edit_remove-btn").on("click",function(){
-    // alert("aaa")
     $(".image_prev").fadeOut("hidden");
     // $(".prev-del").addClass("hidden");
     $(".image_prev").val("")
     // $(".post-edit_change-image").removeClass("hidden")
     $(this).parent().fadeOut("hidden")
 
-    // 「やっぱりやめた」ボタンを作りたい
 
 
 
@@ -62,8 +60,3 @@ $(function(){
 
   });
 });
-
-
-// $(function(){
-
-// });

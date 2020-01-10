@@ -164,8 +164,9 @@ $(function(){
 $(document).on("turbolinks:load", function(){
   $(".del-user").on("click", function(){
 
-    gu_url = $(this).parent("div").attr("id");
-
+    var gu_url = $(this).parent().parent("div").attr("id");
+    var targetElement = $(this).parent().parent("div");
+    // alert(`${gu_url}`)
     $(".modal_gu_one").fadeIn();
 
     $(".modal_gu_btns").on("click", ".modal_gu_n", function(){
@@ -182,12 +183,10 @@ $(document).on("turbolinks:load", function(){
               dataType: "json"
             })
 
-
-
-
-
       $(".modal_gu_one").fadeOut();
+      targetElement.fadeOut().remove()
       });
+
 
   });
   return false;

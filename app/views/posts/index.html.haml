@@ -190,15 +190,15 @@
                       %p{class:"footer_group_user-btn"}
                         = user.user.name
                       -# = link_to "/groups/#{user.id}/group_user_destroy", method: :delete do
-                    .user_option.hidden
-                      .prof
-                        %pre
-                          = user.user.profile
-                      - if current_user.id == group.admin
-                        .del-user
-                          = image_tag "times-circle-regular.svg" ,class:"abc"
-                          %p
-                            このメンバーをグループ  から外す
+                      .user_option.hidden
+                        .prof
+                          %pre
+                            = user.user.profile
+                        - if current_user.id == group.admin
+                          .del-user
+                            = image_tag "times-circle-regular.svg" ,class:"abc"
+                            %p
+                              このメンバーをグループ  から外す
 
                           -# %p{id:"group_add_#{user.user.id}"}
                           -# = user.user.name
