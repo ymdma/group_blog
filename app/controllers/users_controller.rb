@@ -41,8 +41,7 @@ def login
       redirect_to root_path, status: 302
     end
   else
-  render :location
-
+    # render :location
   end
 end
 
